@@ -4,13 +4,14 @@ from random_word import RandomWords
 class WordsTranslation():
     def __init__(self):
         self.rw = RandomWords()
+        self.target_language = 'pl'
 
     def get_random_words_n(self, n=10):
         random_words = []
         for _ in range(n):
             is_correct_word = False
             while is_correct_word is False:
-                word = rw.get_random_word(hasDictionaryDef=True)
+                word = self.rw.get_random_word(hasDictionaryDef=True)
                 if word is not None:
                     is_correct_word = True
                     random_words.append(word)
@@ -24,12 +25,13 @@ class WordsTranslation():
                 is_correct = True
                 return random_words
 
-    def translate_text(self, target, text):
-        """Translates text into the target language.
+    def translate_text(self, target_language, text):
+        ''' Translates text into the target language.
 
         Target must be an ISO 639-1 language code.
+
         See https://g.co/cloud/translate/v2/translate-reference#supported_languages
-        """
+        '''
         import six
         from google.cloud import translate_v2 as translate
 
@@ -40,14 +42,36 @@ class WordsTranslation():
 
         # Text can also be a sequence of strings, in which case this method
         # will return a sequence of results for each text.
-        result = translate_client.translate(text, target_language=target)
+        result = translate_client.translate(
+            text, target_language=target_language)
+        return result
+        # print(result)
 
-        print(u"Text: {}".format(result["input"]))
-        print(u"Translation: {}".format(result["translatedText"]))
-        print(u"Detected source language: {}".format(
-            result["detectedSourceLanguage"]))
+        # print(u"Text: {}".format(result["input"]))
+        # print(u"Translation: {}".format(result["translatedText"]))
+        # print(u"Detected source language: {}".format(
+        #     result["detectedSourceLanguage"]))
+
+    def create_json(self):
+        questions = []
+        for id, word in enumerate(self.get_random_words_n(2)):
+            questions.append(self.create_inner_dict(id, word))
+        return questions
+
+    def create_inner_dict(self, id, word):
+        translation_dict = {}
+        translation = self.translate_text(self.target_language, word)
+        translated_word = translation['translatedText']
+
+        # update dict
+        translation_dict['id'] = id + 1
+        translation_dict['frontCard'] = word
+        translation_dict['backCard'] = translated_word
+        return translation_dict
 
 
 # random_words = WordsTranslation().get_random_words()
-WordsTranslation().translate_text('pl', 'play')
+# WordsTranslation().translate_text('pl', 'enjoy')
+di = WordsTranslation().create_json()
+print(di)
 # print(random_words)

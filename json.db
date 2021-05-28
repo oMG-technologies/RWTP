@@ -2,13 +2,253 @@
     "questions": [
         {
             "id": 1,
-            "frontCard": "tolling",
-            "backCard": "pobór opłat"
+            "frontCard": "proctors",
+            "backCard": "opiekunowie"
         },
         {
             "id": 2,
-            "frontCard": "verderer",
-            "backCard": "dalej"
+            "frontCard": "museum",
+            "backCard": "muzeum"
+        },
+        {
+            "id": 3,
+            "frontCard": "diamond-cutter",
+            "backCard": "przecinak diamentowy"
+        },
+        {
+            "id": 4,
+            "frontCard": "forswear",
+            "backCard": "odprzysiąc"
+        },
+        {
+            "id": 5,
+            "frontCard": "Cyrillic",
+            "backCard": "Cyrylica"
+        },
+        {
+            "id": 6,
+            "frontCard": "pushtun",
+            "backCard": "pushtun"
+        },
+        {
+            "id": 7,
+            "frontCard": "chkpt",
+            "backCard": "chkpt"
+        },
+        {
+            "id": 8,
+            "frontCard": "infotech",
+            "backCard": "infotech"
+        },
+        {
+            "id": 9,
+            "frontCard": "sanctions",
+            "backCard": "sankcje"
+        },
+        {
+            "id": 10,
+            "frontCard": "unbridling",
+            "backCard": "nieokiełznany"
+        },
+        {
+            "id": 11,
+            "frontCard": "neurotherapy",
+            "backCard": "neuroterapia"
+        },
+        {
+            "id": 12,
+            "frontCard": "unfreed",
+            "backCard": "nieskrzydły"
+        },
+        {
+            "id": 13,
+            "frontCard": "parvanimity",
+            "backCard": "parwogłośność"
+        },
+        {
+            "id": 14,
+            "frontCard": "Monocotyledonae",
+            "backCard": "Monocotyledonae"
+        },
+        {
+            "id": 15,
+            "frontCard": "hot-tempered",
+            "backCard": "porywczy"
+        },
+        {
+            "id": 16,
+            "frontCard": "pioneers",
+            "backCard": "pionierzy"
+        },
+        {
+            "id": 17,
+            "frontCard": "screenies",
+            "backCard": "screenies"
+        },
+        {
+            "id": 18,
+            "frontCard": "cosmocratic",
+            "backCard": "kosmokratyczny"
+        },
+        {
+            "id": 19,
+            "frontCard": "copyedits",
+            "backCard": "copyedits"
+        },
+        {
+            "id": 20,
+            "frontCard": "Miyagi",
+            "backCard": "Miyagi"
+        },
+        {
+            "id": 21,
+            "frontCard": "comparatives",
+            "backCard": "porównawcze"
+        },
+        {
+            "id": 22,
+            "frontCard": "sceptring",
+            "backCard": "berło"
+        },
+        {
+            "id": 23,
+            "frontCard": "blondies",
+            "backCard": "blondynki"
+        },
+        {
+            "id": 24,
+            "frontCard": "Sinologist",
+            "backCard": "Sinolog"
+        },
+        {
+            "id": 25,
+            "frontCard": "anabiosis",
+            "backCard": "anabioza"
+        },
+        {
+            "id": 26,
+            "frontCard": "howdunit",
+            "backCard": "howdunit"
+        },
+        {
+            "id": 27,
+            "frontCard": "whirl",
+            "backCard": "wir"
+        },
+        {
+            "id": 28,
+            "frontCard": "renouncing",
+            "backCard": "wyrzekając się"
+        },
+        {
+            "id": 29,
+            "frontCard": "reallege",
+            "backCard": "reallege"
+        },
+        {
+            "id": 30,
+            "frontCard": "unblushing",
+            "backCard": "bezczelny"
+        },
+        {
+            "id": 31,
+            "frontCard": "riverside",
+            "backCard": "nadrzecze"
+        },
+        {
+            "id": 32,
+            "frontCard": "cheap",
+            "backCard": "tani"
+        },
+        {
+            "id": 33,
+            "frontCard": "carnal-minded",
+            "backCard": "cielesny"
+        },
+        {
+            "id": 34,
+            "frontCard": "hallways",
+            "backCard": "korytarze"
+        },
+        {
+            "id": 35,
+            "frontCard": "fardle",
+            "backCard": "piekielny"
+        },
+        {
+            "id": 36,
+            "frontCard": "clearers",
+            "backCard": "odprawiacze"
+        },
+        {
+            "id": 37,
+            "frontCard": "tremor",
+            "backCard": "drżenie"
+        },
+        {
+            "id": 38,
+            "frontCard": "unloveable",
+            "backCard": "niekochany"
+        },
+        {
+            "id": 39,
+            "frontCard": "off-piste",
+            "backCard": "poza torem"
+        },
+        {
+            "id": 40,
+            "frontCard": "forgit",
+            "backCard": "zapomnieć"
+        },
+        {
+            "id": 41,
+            "frontCard": "nonresin",
+            "backCard": "nieżywica"
+        },
+        {
+            "id": 42,
+            "frontCard": "overgreatness",
+            "backCard": "nadwyżka"
+        },
+        {
+            "id": 43,
+            "frontCard": "herea-bout",
+            "backCard": "tutaj-bout"
+        },
+        {
+            "id": 44,
+            "frontCard": "Leamington",
+            "backCard": "Leamington"
+        },
+        {
+            "id": 45,
+            "frontCard": "arrish",
+            "backCard": "dosięgnąć"
+        },
+        {
+            "id": 46,
+            "frontCard": "leptospira",
+            "backCard": "leptospira"
+        },
+        {
+            "id": 47,
+            "frontCard": "unblockable",
+            "backCard": "nieblokowalne"
+        },
+        {
+            "id": 48,
+            "frontCard": "drying-chamber",
+            "backCard": "komora susząca"
+        },
+        {
+            "id": 49,
+            "frontCard": "fondest",
+            "backCard": "najmilszy"
+        },
+        {
+            "id": 50,
+            "frontCard": "juvia",
+            "backCard": "juvia"
         }
     ]
 }

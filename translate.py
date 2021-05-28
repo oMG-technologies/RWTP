@@ -45,6 +45,7 @@ class WordsTranslation():
         # will return a sequence of results for each text.
         result = translate_client.translate(
             text, target_language=target_language)
+        print(result)
         return result
 
     def create_json(self):
@@ -52,11 +53,13 @@ class WordsTranslation():
         json_dict = {}
         json_dict['questions'] = self.collect_questions()
         with open('json.db', 'w+') as f:
-            f.write(json.dumps(json_dict, indent=4))
+            json_string = json.dumps(json_dict, indent=4,
+                                     ensure_ascii=False).encode('utf-8')
+            f.write(json_string.decode())
 
     def collect_questions(self):
         questions = []
-        for id, word in enumerate(self.get_random_words()):
+        for id, word in enumerate(self.get_random_words_n(2)):
             questions.append(self.create_inner_dict(id, word))
         return questions
 
@@ -73,3 +76,4 @@ class WordsTranslation():
 
 
 WordsTranslation().create_json()
+# WordsTranslation().translate_text('pl', 'paralyze')

@@ -45,7 +45,6 @@ class WordsTranslation():
         # will return a sequence of results for each text.
         result = translate_client.translate(
             text, target_language=target_language)
-        print(result)
         return result
 
     def create_json(self):
@@ -59,7 +58,7 @@ class WordsTranslation():
 
     def collect_questions(self):
         questions = []
-        for id, word in enumerate(self.get_random_words_n(2)):
+        for id, word in enumerate(self.get_random_words()):
             questions.append(self.create_inner_dict(id, word))
         return questions
 

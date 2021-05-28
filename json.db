@@ -1,0 +1,14 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "frontCard": "spikenard",
+            "backCard": "nard"
+        },
+        {
+            "id": 2,
+            "frontCard": "whetherso",
+            "backCard": "czy tak"
+        }
+    ]
+}

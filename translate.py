@@ -53,6 +53,13 @@ class WordsTranslation():
         #     result["detectedSourceLanguage"]))
 
     def create_json(self):
+        import json
+        json_dict = {}
+        json_dict['questions'] = self.collect_questions()
+        with open('json.db', 'w+') as f:
+            f.write(json.dumps(json_dict, indent=4))
+
+    def collect_questions(self):
         questions = []
         for id, word in enumerate(self.get_random_words_n(2)):
             questions.append(self.create_inner_dict(id, word))

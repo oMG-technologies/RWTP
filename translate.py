@@ -45,12 +45,6 @@ class WordsTranslation():
         result = translate_client.translate(
             text, target_language=target_language)
         return result
-        # print(result)
-
-        # print(u"Text: {}".format(result["input"]))
-        # print(u"Translation: {}".format(result["translatedText"]))
-        # print(u"Detected source language: {}".format(
-        #     result["detectedSourceLanguage"]))
 
     def create_json(self):
         import json
@@ -77,8 +71,4 @@ class WordsTranslation():
         return translation_dict
 
 
-# random_words = WordsTranslation().get_random_words()
-# WordsTranslation().translate_text('pl', 'enjoy')
-di = WordsTranslation().create_json()
-print(di)
-# print(random_words)
+WordsTranslation().create_json()

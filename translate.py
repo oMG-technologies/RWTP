@@ -31,6 +31,7 @@ class WordsTranslation():
         Target must be an ISO 639-1 language code.
 
         See https://g.co/cloud/translate/v2/translate-reference#supported_languages
+
         '''
         import six
         from google.cloud import translate_v2 as translate
@@ -55,7 +56,7 @@ class WordsTranslation():
 
     def collect_questions(self):
         questions = []
-        for id, word in enumerate(self.get_random_words_n(2)):
+        for id, word in enumerate(self.get_random_words()):
             questions.append(self.create_inner_dict(id, word))
         return questions
 

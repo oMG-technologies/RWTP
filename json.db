@@ -2,13 +2,253 @@
     "questions": [
         {
             "id": 1,
-            "frontCard": "spikenard",
-            "backCard": "nard"
+            "frontCard": "syphiloma",
+            "backCard": "syfiloma"
         },
         {
             "id": 2,
-            "frontCard": "whetherso",
-            "backCard": "czy tak"
+            "frontCard": "sevensome",
+            "backCard": "siedem"
+        },
+        {
+            "id": 3,
+            "frontCard": "ordain",
+            "backCard": "ordynowa\u0107"
+        },
+        {
+            "id": 4,
+            "frontCard": "well-being",
+            "backCard": "dobre samopoczucie"
+        },
+        {
+            "id": 5,
+            "frontCard": "missegregation",
+            "backCard": "b\u0142\u0119dna segregacja"
+        },
+        {
+            "id": 6,
+            "frontCard": "mafficking",
+            "backCard": "k\u0142amstwo"
+        },
+        {
+            "id": 7,
+            "frontCard": "artlessness",
+            "backCard": "bezmy\u015blno\u015b\u0107"
+        },
+        {
+            "id": 8,
+            "frontCard": "zoochemistry",
+            "backCard": "zoochemia"
+        },
+        {
+            "id": 9,
+            "frontCard": "adventual",
+            "backCard": "przybyszowe"
+        },
+        {
+            "id": 10,
+            "frontCard": "flashforward",
+            "backCard": "flashforward"
+        },
+        {
+            "id": 11,
+            "frontCard": "drink-driving",
+            "backCard": "jazda po pijanemu"
+        },
+        {
+            "id": 12,
+            "frontCard": "squonks",
+            "backCard": "squonks"
+        },
+        {
+            "id": 13,
+            "frontCard": "unrolled",
+            "backCard": "rozwini\u0119ty"
+        },
+        {
+            "id": 14,
+            "frontCard": "hemorrhoid",
+            "backCard": "hemoroidy"
+        },
+        {
+            "id": 15,
+            "frontCard": "sards",
+            "backCard": "Sardy\u0144ski"
+        },
+        {
+            "id": 16,
+            "frontCard": "oriental",
+            "backCard": "orientalny"
+        },
+        {
+            "id": 17,
+            "frontCard": "Sigrid",
+            "backCard": "Sigrid"
+        },
+        {
+            "id": 18,
+            "frontCard": "vice-warden",
+            "backCard": "zast\u0119pca naczelnika"
+        },
+        {
+            "id": 19,
+            "frontCard": "yardangs",
+            "backCard": "jardy"
+        },
+        {
+            "id": 20,
+            "frontCard": "maleate",
+            "backCard": "maleinian"
+        },
+        {
+            "id": 21,
+            "frontCard": "precedencies",
+            "backCard": "poprzedza\u0107"
+        },
+        {
+            "id": 22,
+            "frontCard": "fancied",
+            "backCard": "wymy\u015blony"
+        },
+        {
+            "id": 23,
+            "frontCard": "exerting",
+            "backCard": "wywieranie"
+        },
+        {
+            "id": 24,
+            "frontCard": "motti",
+            "backCard": "motta"
+        },
+        {
+            "id": 25,
+            "frontCard": "muhajireen",
+            "backCard": "muhajireen"
+        },
+        {
+            "id": 26,
+            "frontCard": "crispiness",
+            "backCard": "krucho\u015b\u0107"
+        },
+        {
+            "id": 27,
+            "frontCard": "seropositivity",
+            "backCard": "seropozytywno\u015b\u0107"
+        },
+        {
+            "id": 28,
+            "frontCard": "coal-viewer",
+            "backCard": "przegl\u0105darka w\u0119gla"
+        },
+        {
+            "id": 29,
+            "frontCard": "disambiguated",
+            "backCard": "ujednoznaczniony"
+        },
+        {
+            "id": 30,
+            "frontCard": "side-kicker",
+            "backCard": "boczny kopacz"
+        },
+        {
+            "id": 31,
+            "frontCard": "hat-trick",
+            "backCard": "Hat trik"
+        },
+        {
+            "id": 32,
+            "frontCard": "unbolts",
+            "backCard": "odryglowuje si\u0119"
+        },
+        {
+            "id": 33,
+            "frontCard": "extinguish",
+            "backCard": "gasi\u0107"
+        },
+        {
+            "id": 34,
+            "frontCard": "outtrading",
+            "backCard": "outtrading"
+        },
+        {
+            "id": 35,
+            "frontCard": "cyberlife",
+            "backCard": "\u017cycie w cyberprzestrzeni"
+        },
+        {
+            "id": 36,
+            "frontCard": "deinte",
+            "backCard": "deinte"
+        },
+        {
+            "id": 37,
+            "frontCard": "drudgery",
+            "backCard": "mord\u0119ga"
+        },
+        {
+            "id": 38,
+            "frontCard": "redophile",
+            "backCard": "redofil"
+        },
+        {
+            "id": 39,
+            "frontCard": "chorl",
+            "backCard": "ch\u00f3r"
+        },
+        {
+            "id": 40,
+            "frontCard": "sand-heat",
+            "backCard": "ciep\u0142o piasku"
+        },
+        {
+            "id": 41,
+            "frontCard": "brachyury",
+            "backCard": "brachyury"
+        },
+        {
+            "id": 42,
+            "frontCard": "JScript",
+            "backCard": "JScript"
+        },
+        {
+            "id": 43,
+            "frontCard": "shoe-pocket",
+            "backCard": "kiesze\u0144 na buty"
+        },
+        {
+            "id": 44,
+            "frontCard": "paralyze",
+            "backCard": "sparali\u017cowa\u0107"
+        },
+        {
+            "id": 45,
+            "frontCard": "overbridge",
+            "backCard": "przez most"
+        },
+        {
+            "id": 46,
+            "frontCard": "bleery",
+            "backCard": "bleery"
+        },
+        {
+            "id": 47,
+            "frontCard": "earthlike",
+            "backCard": "podobny do ziemi"
+        },
+        {
+            "id": 48,
+            "frontCard": "dogwood",
+            "backCard": "dere\u0144"
+        },
+        {
+            "id": 49,
+            "frontCard": "lady-cat",
+            "backCard": "kotka"
+        },
+        {
+            "id": 50,
+            "frontCard": "cynanthropy",
+            "backCard": "cynantropia"
         }
     ]
 }

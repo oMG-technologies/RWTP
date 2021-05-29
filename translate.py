@@ -51,7 +51,7 @@ class WordsTranslation():
         import json
         json_dict = {}
         json_dict['questions'] = self.collect_questions()
-        with open('json.db', 'w+') as f:
+        with open('db.json', 'w+') as f:
             json_string = json.dumps(json_dict, indent=4,
                                      ensure_ascii=False).encode('utf-8')
             f.write(json_string.decode())

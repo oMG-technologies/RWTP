@@ -13,7 +13,7 @@ class Translation(models.Model):
         verbose_name_plural = 'Translation'
 
     def __str__(self):
-        return 'id {}'.format(self.i)
+        return '{} entry'.format(self.i)
 
 
 def populate_db():
@@ -22,25 +22,40 @@ def populate_db():
 
     json_path = os.path.join(os.getcwd(), 'db.json')
     print(json_path)
+    with open(os.path.join(json_path), 'r') as f:
+        data = json.load(f)
+    questions = data['questions']
+    for question in questions:
+        i = question['id']
+        frontCard = question['frontCard']
+        backCard = question['backCard']
+        Translation.objects.create(
+            i=i,
+            frontCard=frontCard,
+            backCard=backCard
+        )
 
-    # for episode in os.listdir(response_path):
-    #     with open(os.path.join(response_path, episode), 'r') as f:
-    #         data = json.load(f)
 
-    #     link_to_mp3 = data['audio_url']
-    #     status = data['status']
-    #     idd = data['id']
-    #     text = data['text']
-    #     words = data['words']
-    #     try:
-    #         Transcript.objects.filter(
-    #             link_to_mp3=link_to_mp3).update(status=status,
-    #                                             idd=idd,
-    #                                             text=text,
-    #                                             words=words)
-    #     except IntegrityError:
-    #         Transcript.objects.filter(
-    #             link_to_mp3=link_to_mp3).update(status=status,
-    #                                             idd=idd,
-    #                                             text='in progress...',
-    #                                             words=' ')
+# populate_db()
+
+# for episode in os.listdir(response_path):
+#     with open(os.path.join(response_path, episode), 'r') as f:
+#         data = json.load(f)
+
+#     link_to_mp3 = data['audio_url']
+#     status = data['status']
+#     idd = data['id']
+#     text = data['text']
+#     words = data['words']
+#     try:
+#         Transcript.objects.filter(
+#             link_to_mp3=link_to_mp3).update(status=status,
+#                                             idd=idd,
+#                                             text=text,
+#                                             words=words)
+#     except IntegrityError:
+#         Transcript.objects.filter(
+#             link_to_mp3=link_to_mp3).update(status=status,
+#                                             idd=idd,
+#                                             text='in progress...',
+#                                             words=' ')

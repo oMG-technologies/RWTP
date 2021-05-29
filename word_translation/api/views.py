@@ -1,12 +1,14 @@
 from django.views.generic import TemplateView
+from django.http import JsonResponse
 
 from .models import Translation
+from .serializers import TranslationSerializers
 
 # Create your views here.
 
 
 class APIGetTranslations(TemplateView):
-    model = Tranlation
+    model = Translation
 
     def get(self, request):
         translation = Translation.objects.all()

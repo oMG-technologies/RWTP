@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,14 +86,26 @@ WSGI_APPLICATION = 'word_translation.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'word_translate',
+#         'USER': 'word_translate_user',
+#         'PASSWORD': 'dzin111majonez',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
+# Heroku DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'word_translate',
-        'USER': 'word_translate_user',
-        'PASSWORD': 'dzin111majonez',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': os.environ['words_translation_db_name'],
+        'USER': os.environ['words_translation_db_user'],
+        'PASSWORD': os.environ['words_translation_db_passwd'],
+        'HOST': os.environ['words_translation_db_host'],
+        'PORT': '5432',
     }
 }
 
@@ -171,4 +183,4 @@ if os.getcwd() == '/app':
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

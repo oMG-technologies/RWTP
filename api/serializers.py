@@ -15,8 +15,13 @@ class TranslationSerializers(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
+        _id = data['i']
+        frontCard = data['frontCard']
+        backCard = data['backCard']
+
         new_dict = {}
-        new_dict['questions'] = data
+        new_dict['questions'] = {'id': _id,
+                                 'frontCard': frontCard, 'backCard': backCard}
         return new_dict
 
     # def to_representation(self, instance):

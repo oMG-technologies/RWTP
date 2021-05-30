@@ -1,7 +1,17 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-from .views import APIGetTranslations
+from .views import APIGetTranslations, UserViewSet, GroupViewSet
+
+# ViewSets define the view behavior.
+
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'groups', GroupViewSet)
 
 urlpatterns = [
-    path('translations/', APIGetTranslations.as_view(), name='api_list')
+    path('', include(router.urls)),
+    path('translations/', APIGetTranslations.as_view(), name='api_list'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

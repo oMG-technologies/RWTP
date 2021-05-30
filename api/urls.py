@@ -13,5 +13,5 @@ router.register(r'groups', GroupViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('translations/', APIGetTranslations.as_view(), name='api_list'),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework-test'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework_test'))
 ]

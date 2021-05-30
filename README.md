@@ -21,3 +21,30 @@ To quickly test the server respons, try this:
 ````bash
 curl -H 'Accept: application/json; indent=4' https://words-translation.herokuapp.com/translations/```
 ````
+
+You should receive a response like that
+
+```bash
+[
+    {
+        "i": 1,
+        "frontCard": "proctors",
+        "backCard": "opiekunowie"
+    },
+    {
+        "i": 2,
+        "frontCard": "museum",
+        "backCard": "muzeum"
+    },
+    ...
+    {
+        ...
+    },
+    ...
+    {
+        "i": 50,
+        "frontCard": "diamond-cutter",
+        "backCard": "przecinak diamentowy"
+    }
+]
+```

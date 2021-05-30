@@ -1,1 +1,1 @@
-web: gunicorn words-translation.wsgi
+web: gunicorn word_translation.wsgi

@@ -1,0 +1,1 @@
+web: gunicorn words-translation.wsgi

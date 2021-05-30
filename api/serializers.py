@@ -4,15 +4,26 @@ from .models import Translation
 
 
 class TranslationSerializers(serializers.ModelSerializer):
+
     class Meta:
         model = Translation
-        fields = [
-            'i',
-            'frontCard',
-            'backCard'
-        ]
+        fields = ['i',
+                  'frontCard',
+                  'backCard'
+                  ]
+        depth = 3
 
-# Serializers define the API representation.
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        new_dict = {}
+        new_dict['questions'] = data
+        return new_dict
+
+    # def to_representation(self, instance):
+    #     response_dict = dict()
+    #     response_dict['questions'] = {
+    #     }
+    #     return response_dict
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

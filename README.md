@@ -25,26 +25,28 @@ curl -H 'Accept: application/json; indent=4' https://words-translation.herokuapp
 You should receive a response like that
 
 ```bash
-[
-    {
-        "i": 1,
-        "frontCard": "proctors",
-        "backCard": "opiekunowie"
-    },
-    {
-        "i": 2,
-        "frontCard": "museum",
-        "backCard": "muzeum"
-    },
-    ...
-    {
+{
+    "questions": [
+        {
+            "id": 1,
+            "frontCard": "proctors",
+            "backCard": "opiekunowie"
+        },
+        {
+            "id": 2,
+            "frontCard": "museum",
+            "backCard": "muzeum"
+        },
         ...
-    },
-    ...
-    {
-        "i": 50,
-        "frontCard": "diamond-cutter",
-        "backCard": "przecinak diamentowy"
-    }
-]
+        {
+            ...
+        }
+        ...
+        {
+            "id": 50,
+            "frontCard": "juvia",
+            "backCard": "juvia"
+        }
+    ]
+}
 ```

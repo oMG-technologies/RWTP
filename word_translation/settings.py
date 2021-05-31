@@ -183,10 +183,10 @@ if os.getcwd() == '/app':
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Deal with CORS
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',
+# )
 
 # Activate Django-Heroku.
 

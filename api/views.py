@@ -17,7 +17,9 @@ class APIGetTranslations(TemplateView):
     def get(self, request):
         translation = Translation.objects.all()
         serializer = TranslationSerializers(translation, many=True)
-        return JsonResponse(serializer.data,
+        new_dict = {}
+        new_dict['questions'] = serializer.data
+        return JsonResponse(new_dict,
                             safe=False,
                             json_dumps_params={'indent': 4})
 

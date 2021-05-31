@@ -55,7 +55,10 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    << << << < HEAD
     'django.middleware.common.CommonMiddleware',
+    == == == =
+    >>>>>> > 43ec794(fix: update settings.py)
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

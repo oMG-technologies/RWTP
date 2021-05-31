@@ -12,29 +12,32 @@ from rest_framework import permissions
 
 
 class APIGetTranslations(TemplateView):
+
     model = Translation
 
     def get(self, request):
         translation = Translation.objects.all()
-        serializer = TranslationSerializers(translation, many=True)
-        return JsonResponse(serializer.data,
+        raw_serializer = TranslationSerializers(translation, many=True)
+        serializer_data = {}
+        serializer_data['questions'] = raw_serializer.data
+        return JsonResponse(serializer_data,
                             safe=False,
                             json_dumps_params={'indent': 4})
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    """
+    '''
     API endpoint that allows users to be viewed or edited.
-    """
+    '''
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
 class GroupViewSet(viewsets.ModelViewSet):
-    """
+    '''
     API endpoint that allows groups to be viewed or edited.
-    """
+    '''
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]

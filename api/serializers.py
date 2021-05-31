@@ -11,16 +11,17 @@ class TranslationSerializers(serializers.ModelSerializer):
                   'frontCard',
                   'backCard'
                   ]
-        depth = 3
+        depth = 1
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
         _id = data['i']
         frontCard = data['frontCard']
         backCard = data['backCard']
-        new = {'id': _id,
-               'frontCard': frontCard, 'backCard': backCard}
-        return new
+        updated_data = {'id': _id,
+                        'frontCard': frontCard,
+                        'backCard': backCard}
+        return updated_data
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

@@ -171,16 +171,17 @@ if os.getcwd() == '/app':
     DATABASES['default'].update(db_from_env)
 
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    ALLOWED_HOSTS = ['words-translation.herokuapp.com',
-                     'http://localhost:3000']
+    # ALLOWED_HOSTS = ['words-translation.herokuapp.com',
+    #                  'http://localhost:3000']
+    ALLOWED_HOSTS = ['*']
     DEBUG = False
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Deal with CORS
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',
+# )
 
 # Activate Django-Heroku.
 

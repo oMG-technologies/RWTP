@@ -18,25 +18,9 @@ class TranslationSerializers(serializers.ModelSerializer):
         _id = data['i']
         frontCard = data['frontCard']
         backCard = data['backCard']
-
-        # new_dict = {}
-        # new_dict['questions'] = {'id': _id,
-        #                          'frontCard': frontCard, 'backCard': backCard}
         new = {'id': _id,
                'frontCard': frontCard, 'backCard': backCard}
         return new
-
-
-# class TranslationSerializers(serializers.ModelSerializer):
-#     # items = serializers.ListField(child=HelperSerializers())
-#     cashflows = HelperSerializers(many=True, read_only=True)
-#     # id = HelperSerializers(many=True)
-
-    # def to_representation(self, instance):
-    #     response_dict = dict()
-    #     response_dict['questions'] = {
-    #     }
-    #     return response_dict
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

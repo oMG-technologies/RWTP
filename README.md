@@ -1,3 +1,6 @@
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/mgierada/words_translation.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mgierada/words_translation/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/mgierada/words_translation.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mgierada/words_translation/context:python)
+
 # RND_WORDS_Translation
 
 An API for getting translation of random english words to a language of choise.

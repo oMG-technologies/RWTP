@@ -106,6 +106,15 @@ class SingleTranslationViewSet(generics.ListAPIView):
         return queryset
 
 
+class TranslationsViewSet(viewsets.ModelViewSet):
+    '''
+    API endpoint that allows to see translations.
+    '''
+    queryset = Translation.objects.all()
+    serializer_class = TranslationSerializers
+    permission_classes = [permissions.IsAuthenticated]
+
+
 class UserViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows users to be viewed or edited.

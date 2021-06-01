@@ -13,7 +13,6 @@ class WordsTranslation():
             while is_correct_word is False:
                 word = self.rw.get_random_word(hasDictionaryDef=True)
                 if word is not None:
-                    is_correct_word = True
                     random_words.append(word)
         return random_words
 

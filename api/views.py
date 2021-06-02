@@ -45,33 +45,7 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
-
-
-class LanguageViewSet(viewsets.ModelViewSet):
-    queryset = Language.objects.all()
-    serializer_class = LanguageSerializers
-
-
-class SingleTranslationViewSet(generics.ListAPIView):
-    serializer_class = SingleTranslationSerializers
-
-    def get_queryset(self):
-        '''
-        Optionally show translations only for a given conversion,
-        by filtering against a `conversion` query parameter in the URL.
-
-        e.g.
-
-        http://127.0.0.1:8000/translation/?conversion=en-de
-
-        will show translation only for en-de conversion
-
-        '''
-        queryset = Translation.objects.all()
-        conversion = self.request.query_params.get('conversion')
-        if conversion is not None:
-            queryset = queryset.filter(translation_id=conversion)
-        return queryset
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class UserViewSet(viewsets.ModelViewSet):

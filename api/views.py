@@ -112,7 +112,7 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class UserViewSet(viewsets.ModelViewSet):

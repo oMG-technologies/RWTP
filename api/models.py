@@ -9,8 +9,8 @@ class Language(models.Model):
 
 
 class Translation(models.Model):
-    lang = models.ForeignKey(
-        Language, related_name='lang', on_delete=models.CASCADE)
+    translation = models.ForeignKey(
+        Language, related_name='translation', on_delete=models.CASCADE)
     i = IntegerField(primary_key=True)
     frontCard = models.CharField(max_length=20)
     backCard = models.CharField(max_length=20)

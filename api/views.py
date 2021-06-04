@@ -25,6 +25,14 @@ class APIGetTranslations(TemplateView):
                             json_dumps_params={'indent': 4})
 
 
+class TranslationsViewSet(viewsets.ModelViewSet):
+    '''
+    API endpoint that allows to see translations.
+    '''
+    queryset = Translation.objects.all()
+    serializer_class = TranslationSerializers
+
+
 class UserViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows users to be viewed or edited.

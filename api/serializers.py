@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Translation
+from .models import Translation, Language
 
 
 class TranslationSerializers(serializers.ModelSerializer):
@@ -22,6 +22,16 @@ class TranslationSerializers(serializers.ModelSerializer):
                         'frontCard': frontCard,
                         'backCard': backCard}
         return updated_data
+
+
+class LanguageSerializers(serializers.ModelSerializer):
+
+    lang = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Language
+        fields = ['language', 'lang']
+        depth = 3
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

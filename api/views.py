@@ -1,8 +1,8 @@
 from django.views.generic import TemplateView
 from django.http import JsonResponse
 
-from .models import Translation
-from .serializers import TranslationSerializers, UserSerializer, GroupSerializer
+from .models import Translation, Language
+from .serializers import TranslationSerializers, UserSerializer, GroupSerializer, LanguageSerializers
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
@@ -31,6 +31,11 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
+
+
+class LanguageViewSet(viewsets.ModelViewSet):
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializers
 
 
 class UserViewSet(viewsets.ModelViewSet):

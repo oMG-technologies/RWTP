@@ -1,13 +1,14 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from .views import TranslationsViewSet, UserViewSet, GroupViewSet, APIGetTranslations
+from .views import TranslationsViewSet, UserViewSet, GroupViewSet, APIGetTranslations, LanguageViewSet
 
 # ViewSets define the view behavior.
 
 
 router = routers.DefaultRouter()
 router.register(r'translations', TranslationsViewSet)
+router.register(r'language', LanguageViewSet)
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 

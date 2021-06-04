@@ -4,7 +4,13 @@ from django.db.models.fields import IntegerField
 # Create your models here.
 
 
+class Language(models.Model):
+    language = models.CharField(max_length=3)
+
+
 class Translation(models.Model):
+    lang = models.ForeignKey(
+        Language, related_name='lang', on_delete=models.CASCADE)
     i = IntegerField(primary_key=True)
     frontCard = models.CharField(max_length=20)
     backCard = models.CharField(max_length=20)
@@ -13,7 +19,10 @@ class Translation(models.Model):
         verbose_name_plural = 'Translation'
 
     def __str__(self):
-        return '{} entry'.format(self.i)
+        # return '{} entry'.format(self.i)
+        new_dict = {'id': self.i, 'frontCard': self.frontCard,
+                    'backCard': self.backCard}
+        return str(new_dict)
 
 
 def populate_db():

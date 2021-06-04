@@ -1,15 +1,17 @@
 {
-    "language": "de",
+    "conversion": "en-de",
     "translations": [
         {
             "id": 1,
-            "frontCard": "rain",
-            "backCard": "deszcz"
+            "frontCard": "box",
+            "backCard": "Box",
+            "target_language": "de"
         },
         {
             "id": 2,
-            "frontCard": "bones",
-            "backCard": "kości"
+            "frontCard": "navigators",
+            "backCard": "Navigatoren",
+            "target_language": "de"
         }
     ]
 }

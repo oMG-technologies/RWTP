@@ -9,7 +9,8 @@ class TranslationSerializers(serializers.ModelSerializer):
         model = Translation
         fields = ['i',
                   'frontCard',
-                  'backCard'
+                  'backCard',
+                  'target_language'
                   ]
         depth = 1
 
@@ -18,9 +19,11 @@ class TranslationSerializers(serializers.ModelSerializer):
         _id = data['i']
         frontCard = data['frontCard']
         backCard = data['backCard']
+        target_language = data['target_language']
         updated_data = {'id': _id,
                         'frontCard': frontCard,
-                        'backCard': backCard}
+                        'backCard': backCard,
+                        'target_language': target_language}
         return updated_data
 
 
@@ -31,7 +34,7 @@ class LanguageSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Language
-        fields = ['language', 'translations']
+        fields = ['conversion', 'translations']
         depth = 3
 
 

@@ -36,7 +36,7 @@ class WordsTranslation():
     def create_json(self):
         import json
         json_dict = {}
-        json_dict['language'] = self.target_language
+        json_dict['conversion'] = 'en-{}'.format(self.target_language)
         json_dict['translations'] = self.collect_questions()
         with open('db.json', 'w+') as f:
             json_string = json.dumps(json_dict, indent=4,
@@ -58,10 +58,12 @@ class WordsTranslation():
         translation_dict['id'] = id + 1
         translation_dict['frontCard'] = word
         translation_dict['backCard'] = translated_word
+        translation_dict['target_language'] = self.target_language
         return translation_dict
 
 
 if __name__ == '__main__':
-    WordsTranslation(target_language='pl', count=2).create_json()
+    languages_list = ['pl', 'du']
+    WordsTranslation(target_language='de', count=2).create_json()
     # l = WordsTranslation(target_language='de').get_random_words(10)
 # WordsTranslation().translate_text('pl', 'paralyze')

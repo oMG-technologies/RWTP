@@ -10,8 +10,8 @@ class Language(models.Model):
 
 class Translation(models.Model):
     translation = models.ForeignKey(
-        Language, related_name='translation', on_delete=models.CASCADE)
-    i = IntegerField(primary_key=True)
+        Language, related_name='translations', on_delete=models.CASCADE)
+    i = IntegerField()
     frontCard = models.CharField(max_length=20)
     backCard = models.CharField(max_length=20)
 
@@ -39,7 +39,7 @@ def populate_db():
         frontCard = question['frontCard']
         backCard = question['backCard']
         Translation.objects.create(
-            i=i,
+            id=id,
             frontCard=frontCard,
             backCard=backCard
         )

@@ -27,11 +27,11 @@ class TranslationSerializers(serializers.ModelSerializer):
 class LanguageSerializers(serializers.ModelSerializer):
 
     # lang = serializers.StringRelatedField(many=True)
-    translation = TranslationSerializers(many=True, read_only=True)
+    translations = TranslationSerializers(many=True, read_only=True)
 
     class Meta:
         model = Language
-        fields = ['language', 'translation']
+        fields = ['language', 'translations']
         depth = 3
 
 

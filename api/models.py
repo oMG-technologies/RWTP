@@ -5,7 +5,7 @@ from django.db.models.fields import IntegerField
 
 
 class Language(models.Model):
-    language = models.CharField(max_length=3)
+    language = models.CharField(max_length=6)
 
 
 class Translation(models.Model):
@@ -19,7 +19,6 @@ class Translation(models.Model):
         verbose_name_plural = 'Translation'
 
     def __str__(self):
-        # return '{} entry'.format(self.i)
         new_dict = {'id': self.i, 'frontCard': self.frontCard,
                     'backCard': self.backCard}
         return str(new_dict)
@@ -33,16 +32,22 @@ def populate_db():
     print(json_path)
     with open(os.path.join(json_path), 'r') as f:
         data = json.load(f)
-    questions = data['questions']
-    for question in questions:
-        i = question['id']
-        frontCard = question['frontCard']
-        backCard = question['backCard']
+    translations = data['translations']
+    language = data['language']
+    Language.objects.create(
+        language=language,
+    )
+    for translation in translations:
+        i = translation['id']
+        frontCard = translation['frontCard']
+        backCard = translation['backCard']
         Translation.objects.create(
-            id=id,
+            translation=language,
+            i=i,
             frontCard=frontCard,
             backCard=backCard
         )
 
 
-# populate_db()
+#
+populate_db()

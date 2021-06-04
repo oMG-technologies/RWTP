@@ -2,253 +2,253 @@
     "questions": [
         {
             "id": 1,
-            "frontCard": "proctors",
-            "backCard": "opiekunowie"
+            "frontCard": "turves",
+            "backCard": "Turbulenzen"
         },
         {
             "id": 2,
-            "frontCard": "museum",
-            "backCard": "muzeum"
+            "frontCard": "effronteries",
+            "backCard": "Frechheiten"
         },
         {
             "id": 3,
-            "frontCard": "diamond-cutter",
-            "backCard": "przecinak diamentowy"
+            "frontCard": "unhesitant",
+            "backCard": "ohne zu zögern"
         },
         {
             "id": 4,
-            "frontCard": "forswear",
-            "backCard": "odprzysiąc"
+            "frontCard": "bullcrap",
+            "backCard": "Bullcrap"
         },
         {
             "id": 5,
-            "frontCard": "Cyrillic",
-            "backCard": "Cyrylica"
+            "frontCard": "lowercased",
+            "backCard": "kleingeschrieben"
         },
         {
             "id": 6,
-            "frontCard": "pushtun",
-            "backCard": "pushtun"
+            "frontCard": "aggroup",
+            "backCard": "aggroup"
         },
         {
             "id": 7,
-            "frontCard": "chkpt",
-            "backCard": "chkpt"
+            "frontCard": "wind-firm",
+            "backCard": "windfest"
         },
         {
             "id": 8,
-            "frontCard": "infotech",
-            "backCard": "infotech"
+            "frontCard": "undisputably",
+            "backCard": "unbestreitbar"
         },
         {
             "id": 9,
-            "frontCard": "sanctions",
-            "backCard": "sankcje"
+            "frontCard": "gambe",
+            "backCard": "Beine"
         },
         {
             "id": 10,
-            "frontCard": "unbridling",
-            "backCard": "nieokiełznany"
+            "frontCard": "takable",
+            "backCard": "einnehmbar"
         },
         {
             "id": 11,
-            "frontCard": "neurotherapy",
-            "backCard": "neuroterapia"
+            "frontCard": "grocer's",
+            "backCard": "Lebensmittelgeschäft"
         },
         {
             "id": 12,
-            "frontCard": "unfreed",
-            "backCard": "nieskrzydły"
+            "frontCard": "pigmies",
+            "backCard": "Pigmänen"
         },
         {
             "id": 13,
-            "frontCard": "parvanimity",
-            "backCard": "parwogłośność"
+            "frontCard": "numismatician",
+            "backCard": "Numismatiker"
         },
         {
             "id": 14,
-            "frontCard": "Monocotyledonae",
-            "backCard": "Monocotyledonae"
+            "frontCard": "fictionalizer",
+            "backCard": "Fiktionalisierer"
         },
         {
             "id": 15,
-            "frontCard": "hot-tempered",
-            "backCard": "porywczy"
+            "frontCard": "routings",
+            "backCard": "Routen"
         },
         {
             "id": 16,
-            "frontCard": "pioneers",
-            "backCard": "pionierzy"
+            "frontCard": "unbending",
+            "backCard": "unbeugsam"
         },
         {
             "id": 17,
-            "frontCard": "screenies",
-            "backCard": "screenies"
+            "frontCard": "unfavorableness",
+            "backCard": "Ungünstigkeit"
         },
         {
             "id": 18,
-            "frontCard": "cosmocratic",
-            "backCard": "kosmokratyczny"
+            "frontCard": "procerus",
+            "backCard": "procerus"
         },
         {
             "id": 19,
-            "frontCard": "copyedits",
-            "backCard": "copyedits"
+            "frontCard": "zincum",
+            "backCard": "Zinkum"
         },
         {
             "id": 20,
-            "frontCard": "Miyagi",
-            "backCard": "Miyagi"
+            "frontCard": "airmailer",
+            "backCard": "Luftpost"
         },
         {
             "id": 21,
-            "frontCard": "comparatives",
-            "backCard": "porównawcze"
+            "frontCard": "sociopath",
+            "backCard": "Soziopath"
         },
         {
             "id": 22,
-            "frontCard": "sceptring",
-            "backCard": "berło"
+            "frontCard": "lassitudinous",
+            "backCard": "träge"
         },
         {
             "id": 23,
-            "frontCard": "blondies",
-            "backCard": "blondynki"
+            "frontCard": "tiresome",
+            "backCard": "ermüdend"
         },
         {
             "id": 24,
-            "frontCard": "Sinologist",
-            "backCard": "Sinolog"
+            "frontCard": "tremblor",
+            "backCard": "zittern"
         },
         {
             "id": 25,
-            "frontCard": "anabiosis",
-            "backCard": "anabioza"
+            "frontCard": "whipstick",
+            "backCard": "Peitsche"
         },
         {
             "id": 26,
-            "frontCard": "howdunit",
-            "backCard": "howdunit"
+            "frontCard": "federalisms",
+            "backCard": "Föderalismus"
         },
         {
             "id": 27,
-            "frontCard": "whirl",
-            "backCard": "wir"
+            "frontCard": "tabarded",
+            "backCard": "getarnt"
         },
         {
             "id": 28,
-            "frontCard": "renouncing",
-            "backCard": "wyrzekając się"
+            "frontCard": "unsourced",
+            "backCard": "nicht bezogen"
         },
         {
             "id": 29,
-            "frontCard": "reallege",
-            "backCard": "reallege"
+            "frontCard": "forprofits",
+            "backCard": "gewinnorientiert"
         },
         {
             "id": 30,
-            "frontCard": "unblushing",
-            "backCard": "bezczelny"
+            "frontCard": "daydream",
+            "backCard": "Tagtraum"
         },
         {
             "id": 31,
-            "frontCard": "riverside",
-            "backCard": "nadrzecze"
+            "frontCard": "tiercels",
+            "backCard": "Tiercels"
         },
         {
             "id": 32,
-            "frontCard": "cheap",
-            "backCard": "tani"
+            "frontCard": "germo",
+            "backCard": "Zuhälter"
         },
         {
             "id": 33,
-            "frontCard": "carnal-minded",
-            "backCard": "cielesny"
+            "frontCard": "trifling",
+            "backCard": "unbedeutend"
         },
         {
             "id": 34,
-            "frontCard": "hallways",
-            "backCard": "korytarze"
+            "frontCard": "Nathalee",
+            "backCard": "Nathalee"
         },
         {
             "id": 35,
-            "frontCard": "fardle",
-            "backCard": "piekielny"
+            "frontCard": "fustigated",
+            "backCard": "geißelt"
         },
         {
             "id": 36,
-            "frontCard": "clearers",
-            "backCard": "odprawiacze"
+            "frontCard": "blackwash",
+            "backCard": "Schwarzwäsche"
         },
         {
             "id": 37,
-            "frontCard": "tremor",
-            "backCard": "drżenie"
+            "frontCard": "fortescue",
+            "backCard": "Fortescue"
         },
         {
             "id": 38,
-            "frontCard": "unloveable",
-            "backCard": "niekochany"
+            "frontCard": "vibrometry",
+            "backCard": "Vibrometrie"
         },
         {
             "id": 39,
-            "frontCard": "off-piste",
-            "backCard": "poza torem"
+            "frontCard": "big-bellied",
+            "backCard": "dickbäuchig"
         },
         {
             "id": 40,
-            "frontCard": "forgit",
-            "backCard": "zapomnieć"
+            "frontCard": "Alshain",
+            "backCard": "Alshine"
         },
         {
             "id": 41,
-            "frontCard": "nonresin",
-            "backCard": "nieżywica"
+            "frontCard": "Morihei",
+            "backCard": "Morihei"
         },
         {
             "id": 42,
-            "frontCard": "overgreatness",
-            "backCard": "nadwyżka"
+            "frontCard": "coffee-mill",
+            "backCard": "Kaffeemühle"
         },
         {
             "id": 43,
-            "frontCard": "herea-bout",
-            "backCard": "tutaj-bout"
+            "frontCard": "magnetisation",
+            "backCard": "Magnetisierung"
         },
         {
             "id": 44,
-            "frontCard": "Leamington",
-            "backCard": "Leamington"
+            "frontCard": "cotice",
+            "backCard": "Zitat"
         },
         {
             "id": 45,
-            "frontCard": "arrish",
-            "backCard": "dosięgnąć"
+            "frontCard": "fagus",
+            "backCard": "fagus"
         },
         {
             "id": 46,
-            "frontCard": "leptospira",
-            "backCard": "leptospira"
+            "frontCard": "albatross",
+            "backCard": "Albatros"
         },
         {
             "id": 47,
-            "frontCard": "unblockable",
-            "backCard": "nieblokowalne"
+            "frontCard": "betrayers",
+            "backCard": "Verräter"
         },
         {
             "id": 48,
-            "frontCard": "drying-chamber",
-            "backCard": "komora susząca"
+            "frontCard": "granulated",
+            "backCard": "granuliert"
         },
         {
             "id": 49,
-            "frontCard": "fondest",
-            "backCard": "najmilszy"
+            "frontCard": "feebly",
+            "backCard": "schwach"
         },
         {
             "id": 50,
-            "frontCard": "juvia",
-            "backCard": "juvia"
+            "frontCard": "taaweesh",
+            "backCard": "taaweesh"
         }
     ]
 }

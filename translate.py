@@ -2,9 +2,9 @@ from random_word import RandomWords
 
 
 class WordsTranslation():
-    def __init__(self):
+    def __init__(self, target_language='pl'):
         self.rw = RandomWords()
-        self.target_language = 'pl'
+        self.target_language = target_language
 
     def get_random_words_n(self, n=10):
         random_words = []
@@ -24,7 +24,7 @@ class WordsTranslation():
                 is_correct = True
                 return random_words
 
-    def translate_text(self, target_language, text):
+    def translate_text(self, text):
         ''' Translates text into the target language.
 
         Target must be an ISO 639-1 language code.
@@ -43,7 +43,7 @@ class WordsTranslation():
         # Text can also be a sequence of strings, in which case this method
         # will return a sequence of results for each text.
         result = translate_client.translate(
-            text, target_language=target_language)
+            text, target_language=self.target_language)
         return result
 
     def create_json(self):
@@ -63,7 +63,7 @@ class WordsTranslation():
 
     def create_inner_dict(self, id, word):
         translation_dict = {}
-        translation = self.translate_text(self.target_language, word)
+        translation = self.translate_text(word)
         translated_word = translation['translatedText']
 
         # update dict
@@ -73,5 +73,6 @@ class WordsTranslation():
         return translation_dict
 
 
-WordsTranslation().create_json()
+if __name__ == '__main__':
+    WordsTranslation(target_language='de').create_json()
 # WordsTranslation().translate_text('pl', 'paralyze')

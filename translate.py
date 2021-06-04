@@ -1,4 +1,4 @@
-from random_word import RandomWords
+from random_words import RandomWords
 
 
 class WordsTranslation():
@@ -6,23 +6,9 @@ class WordsTranslation():
         self.rw = RandomWords()
         self.target_language = target_language
 
-    def get_random_words_n(self, n=10):
-        random_words = []
-        for _ in range(n):
-            is_correct_word = False
-            while is_correct_word is False:
-                word = self.rw.get_random_word(hasDictionaryDef=True)
-                if word is not None:
-                    random_words.append(word)
-        return random_words
-
-    def get_random_words(self):
-        is_correct = False
-        while is_correct is False:
-            random_words = self.rw.get_random_words(hasDictionaryDef=True)
-            if random_words is not None:
-                is_correct = True
-                return random_words
+    def get_random_words(self, count=10):
+        words = self.rw.random_words(count=count)
+        return words
 
     def translate_text(self, text):
         ''' Translates text into the target language.
@@ -74,5 +60,7 @@ class WordsTranslation():
 
 
 if __name__ == '__main__':
-    WordsTranslation(target_language='de').create_json()
+    # WordsTranslation(target_language='de').create_json()
+    l = WordsTranslation(target_language='de').get_random_words()
+    print(l)
 # WordsTranslation().translate_text('pl', 'paralyze')

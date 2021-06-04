@@ -7,6 +7,9 @@ from django.db.models.fields import IntegerField
 class Language(models.Model):
     language = models.CharField(max_length=6)
 
+    def __str__(self):
+        return self.language
+
 
 class Translation(models.Model):
     translation = models.ForeignKey(
@@ -38,6 +41,7 @@ def populate_db():
         language=language,
     )
     for translation in translations:
+        language = Language.objects.filter(language__contains='pl')[0]
         i = translation['id']
         frontCard = translation['frontCard']
         backCard = translation['backCard']
@@ -50,4 +54,4 @@ def populate_db():
 
 
 #
-populate_db()
+# populate_db()

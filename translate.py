@@ -2,12 +2,13 @@ from random_words import RandomWords
 
 
 class WordsTranslation():
-    def __init__(self, target_language='pl'):
+    def __init__(self, target_language='pl', count=2):
         self.rw = RandomWords()
         self.target_language = target_language
+        self.count = count
 
-    def get_random_words(self, count=10):
-        words = self.rw.random_words(count=count)
+    def get_random_words(self):
+        words = self.rw.random_words(count=self.count)
         return words
 
     def translate_text(self, text):
@@ -35,7 +36,8 @@ class WordsTranslation():
     def create_json(self):
         import json
         json_dict = {}
-        json_dict['questions'] = self.collect_questions()
+        json_dict['language'] = self.target_language
+        json_dict['translations'] = self.collect_questions()
         with open('db.json', 'w+') as f:
             json_string = json.dumps(json_dict, indent=4,
                                      ensure_ascii=False).encode('utf-8')
@@ -60,7 +62,6 @@ class WordsTranslation():
 
 
 if __name__ == '__main__':
-    # WordsTranslation(target_language='de').create_json()
-    l = WordsTranslation(target_language='de').get_random_words()
-    print(l)
+    WordsTranslation(target_language='pl', count=2).create_json()
+    # l = WordsTranslation(target_language='de').get_random_words(10)
 # WordsTranslation().translate_text('pl', 'paralyze')

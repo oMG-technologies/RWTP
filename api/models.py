@@ -1,11 +1,12 @@
 from django.db import models
 from django.db.models.fields import IntegerField
+from django.db.utils import IntegrityError
 
 # Create your models here.
 
 
 class Language(models.Model):
-    language = models.CharField(max_length=6)
+    language = models.CharField(max_length=6, primary_key=True)
 
     def __str__(self):
         return self.language
@@ -13,7 +14,7 @@ class Language(models.Model):
 
 class Translation(models.Model):
     translation = models.ForeignKey(
-        Language, related_name='translations', on_delete=models.CASCADE)
+        Language, related_name='translations', on_delete=models.CASCADE,)
     i = IntegerField()
     frontCard = models.CharField(max_length=20)
     backCard = models.CharField(max_length=20)
@@ -37,11 +38,20 @@ def populate_db():
         data = json.load(f)
     translations = data['translations']
     language = data['language']
-    Language.objects.create(
-        language=language,
-    )
+    try:
+        Language.objects.create(
+            language=language,
+        )
+    except IntegrityError:
+        print('#############')
+        print('#  WARNING  #')
+        print('"{}" key already exist. Skipping creation of Language instance'.format(
+            language))
+        print('#############')
+        pass
+
     for translation in translations:
-        language = Language.objects.filter(language__contains='pl')[0]
+        language = Language.objects.filter(language__contains=language)[0]
         i = translation['id']
         frontCard = translation['frontCard']
         backCard = translation['backCard']
@@ -54,4 +64,4 @@ def populate_db():
 
 
 #
-# populate_db()
+populate_db()

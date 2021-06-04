@@ -9,7 +9,7 @@ class Language(models.Model):
     conversion = models.CharField(max_length=6, primary_key=True)
 
     def __str__(self):
-        return self.language
+        return self.conversion
 
 
 class Translation(models.Model):

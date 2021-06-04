@@ -1,17 +1,17 @@
 {
-    "conversion": "en-de",
+    "conversion": "en-pl",
     "translations": [
         {
             "id": 1,
-            "frontCard": "box",
-            "backCard": "Box",
-            "target_language": "de"
+            "frontCard": "beings",
+            "backCard": "istoty",
+            "target_language": "pl"
         },
         {
             "id": 2,
-            "frontCard": "navigators",
-            "backCard": "Navigatoren",
-            "target_language": "de"
+            "frontCard": "sunset",
+            "backCard": "zachód słońca",
+            "target_language": "pl"
         }
     ]
 }

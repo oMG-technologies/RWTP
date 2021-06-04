@@ -25,6 +25,19 @@ class APIGetTranslations(TemplateView):
                             json_dumps_params={'indent': 4})
 
 
+class SingleTranslation(TemplateView):
+
+    model = Language
+
+    def get(self, request, language):
+        # episode = Language.objects.get(translation_id=language)
+        episode = Language.objects.get(conversion='en-pl')
+        serializer = TranslationSerializers(episode)
+        return JsonResponse(serializer.data,
+                            safe=False,
+                            json_dumps_params={'indent': 4})
+
+
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see translations.
@@ -36,6 +49,11 @@ class TranslationsViewSet(viewsets.ModelViewSet):
 class LanguageViewSet(viewsets.ModelViewSet):
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
+
+
+class SingleTranslationViewSet(viewsets.ModelViewSet):
+    queryset = Translation.objects.filter(translation_id='en-pl')
+    serializer_class = TranslationSerializers
 
 
 class UserViewSet(viewsets.ModelViewSet):

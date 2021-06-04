@@ -7,16 +7,16 @@ class TranslationSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Translation
-        fields = ['i',
+        fields = ['id',
                   'frontCard',
                   'backCard',
                   'target_language'
                   ]
-        depth = 1
+        depth = 3
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        _id = data['i']
+        _id = data['id']
         frontCard = data['frontCard']
         backCard = data['backCard']
         target_language = data['target_language']

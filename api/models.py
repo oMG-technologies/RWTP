@@ -16,7 +16,7 @@ class Translation(models.Model):
     translation = models.ForeignKey(
         Language, related_name='translations', on_delete=models.CASCADE,)
     i = IntegerField()
-    frontCard = models.CharField(max_length=20)
+    frontCard = models.CharField(max_length=20, primary_key=True)
     backCard = models.CharField(max_length=20)
 
     class Meta:
@@ -51,17 +51,24 @@ def populate_db():
         pass
 
     for translation in translations:
-        language = Language.objects.filter(language__contains=language)[0]
+        language_obj = Language.objects.filter(language__contains=language)[0]
         i = translation['id']
         frontCard = translation['frontCard']
         backCard = translation['backCard']
-        Translation.objects.create(
-            translation=language,
-            i=i,
-            frontCard=frontCard,
-            backCard=backCard
-        )
+
+        exact_language_object = Language.objects.filter(
+            language__exact=language)
+        exact_translation_object = Translation.objects.filter(
+            frontCard__exact=frontCard)
+
+        if not exact_language_object or not exact_translation_object:
+            Translation.objects.create(
+                translation=language_obj,
+                i=i,
+                frontCard=frontCard,
+                backCard=backCard
+            )
 
 
 #
-populate_db()
+# populate_db()

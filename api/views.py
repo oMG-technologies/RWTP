@@ -6,7 +6,7 @@ from .serializers import (TranslationSerializers, UserSerializer,
                           GroupSerializer, LanguageSerializers, SingleTranslationSerializers)
 
 from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from rest_framework import permissions
 
 # Create your views here.
@@ -52,9 +52,31 @@ class LanguageViewSet(viewsets.ModelViewSet):
     serializer_class = LanguageSerializers
 
 
-class SingleTranslationViewSet(viewsets.ModelViewSet):
-    queryset = Translation.objects.filter(translation_id='en-pl')
+class SingleTranslationViewSet(generics.ListAPIView):
     serializer_class = SingleTranslationSerializers
+
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = Translation.objects.all()
+        username = self.request.query_params.get('username')
+        if username is not None:
+            queryset = queryset.filter(translation_id=username)
+            # queryset = queryset.filter(purchaser__username=username)
+        return queryset
+
+    # def get_queryset(self):
+    #     user = self.kwargs['username']
+
+    #     return Translation.objects.filter(translation_id=user)
+
+        # def list(self, request, *args, **kwargs):
+        #     param = request.GET.get('param')
+        #     print(param)
+        # queryset = Translation.objects.filter(translation_id='en-pl')
+        # serializer_class = SingleTranslationSerializers
 
 
 class UserViewSet(viewsets.ModelViewSet):

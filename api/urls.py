@@ -11,7 +11,7 @@ from .views import (TranslationsViewSet, UserViewSet, GroupViewSet,
 router = routers.DefaultRouter()
 router.register(r'translations', TranslationsViewSet)
 router.register(r'language', LanguageViewSet)
-# router.register(r'sigle', SingleTranslationViewSet)
+router.register(r'single', SingleTranslationViewSet)
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 

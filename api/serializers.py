@@ -27,6 +27,15 @@ class TranslationSerializers(serializers.ModelSerializer):
         return updated_data
 
 
+class SingleTranslationSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Translation
+        fields = ['frontCard',
+                  'backCard',
+                  'target_language'
+                  ]
+
+
 class LanguageSerializers(serializers.ModelSerializer):
 
     # lang = serializers.StringRelatedField(many=True)

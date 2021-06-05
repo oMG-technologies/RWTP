@@ -21,7 +21,7 @@ urlpatterns = [
     # path('translations/', APIGetTranslations.as_view(), name='api_list'),
     path('translations/<str:language>',
          SingleTranslation.as_view(), name='single_translation'),
-    path('example/', SingleTranslationViewSet.as_view(), name='single'),
+    path('translation/', SingleTranslationViewSet.as_view(), name='single'),
     path('api-auth/', include('rest_framework.urls',
          namespace='rest_framework_test')),
 ]

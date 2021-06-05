@@ -61,9 +61,9 @@ class SingleTranslationViewSet(generics.ListAPIView):
         by filtering against a `username` query parameter in the URL.
         """
         queryset = Translation.objects.all()
-        username = self.request.query_params.get('username')
-        if username is not None:
-            queryset = queryset.filter(translation_id=username)
+        conversion = self.request.query_params.get('conversion')
+        if conversion is not None:
+            queryset = queryset.filter(translation_id=conversion)
             # queryset = queryset.filter(purchaser__username=username)
         return queryset
 

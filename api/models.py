@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models.fields import IntegerField
 from django.db.utils import IntegrityError
+# import django
+# django.setup()
 
 # Create your models here.
 
@@ -24,7 +26,8 @@ class Translation(models.Model):
         verbose_name_plural = 'Translation'
 
     def __str__(self):
-        new_dict = {'id': self.i, 'frontCard': self.frontCard,
+        new_dict = {'id': self.i,
+                    'frontCard': self.frontCard,
                     'backCard': self.backCard}
         return str(new_dict)
 
@@ -54,8 +57,11 @@ def populate_db():
     # print(Translation.objects.filter(translation_id='en-pl'))
 
     for translation in translations:
+        print(translation)
         language_obj = Language.objects.filter(
             conversion__contains=conversion)[0]
+        print()
+        # print(t)
         i = translation['id']
         frontCard = translation['frontCard']
         backCard = translation['backCard']
@@ -63,13 +69,15 @@ def populate_db():
 
         # latest_id = get_latest_id(language)
         # print(latest_id)
-        # if not Translation.objects.filter(translation_id='en-pl'):
-        Translation.objects.create(
-            translation=language_obj,
-            i=i,
-            frontCard=frontCard,
-            backCard=backCard,
-            target_language=target_language)
+        if not Translation.objects.filter(translation_id='en-pl'):
+            print('words')
+        # if language_obj.conversion[3:] != language_obj:
+            # Translation.objects.create(
+            #     translation=language_obj,
+            #     i=i,
+            #     frontCard=frontCard,
+            #     backCard=backCard,
+            #     target_language=target_language)
 
 
 def get_latest_id(language):
@@ -78,5 +86,5 @@ def get_latest_id(language):
     return latest_id
 
 
-#
-# populate_db()
+if __name__ == '__main__':
+    populate_db()

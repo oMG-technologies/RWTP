@@ -4,6 +4,7 @@ from django.db.utils import IntegrityError
 
 
 class Language(models.Model):
+    ''' Create Language model '''
     conversion = models.CharField(max_length=6, primary_key=True)
 
     def __str__(self):
@@ -11,6 +12,9 @@ class Language(models.Model):
 
 
 class Translation(models.Model):
+    ''' Create Translation model and link translation field to Language model
+    Many-to-one relationship '''
+
     translation = models.ForeignKey(
         Language, related_name='translations', on_delete=models.CASCADE)
     i = IntegerField()
@@ -27,7 +31,9 @@ class Translation(models.Model):
         return str(new_dict)
 
 
-def populate_db():
+def populate_db() -> None:
+    ''' Populate DataBase using db.json file '''
+
     import os
     import json
 

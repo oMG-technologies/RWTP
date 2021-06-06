@@ -51,8 +51,6 @@ def populate_db():
     for translation in translations:
         language_obj = Language.objects.filter(
             conversion__contains=conversion)[0]
-        print(language_obj)
-        print(type(language_obj))
         i = translation['id']
         frontCard = translation['frontCard']
         backCard = translation['backCard']

@@ -63,7 +63,5 @@ class WordsTranslation():
 
 
 if __name__ == '__main__':
-    languages_list = ['pl', 'du']
-    WordsTranslation(target_language='pl', count=2).create_json()
-    # l = WordsTranslation(target_language='de').get_random_words(10)
-# WordsTranslation().translate_text('pl', 'paralyze')
+    # languages_list = ['pl', 'du']
+    WordsTranslation(target_language='pl', count=50).create_json()

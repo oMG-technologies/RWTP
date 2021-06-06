@@ -69,15 +69,17 @@ def populate_db():
 
         # latest_id = get_latest_id(language)
         # print(latest_id)
-        if not Translation.objects.filter(translation_id='en-pl'):
-            print('words')
-        # if language_obj.conversion[3:] != language_obj:
-            # Translation.objects.create(
-            #     translation=language_obj,
-            #     i=i,
-            #     frontCard=frontCard,
-            #     backCard=backCard,
-            #     target_language=target_language)
+        if not Translation.objects.filter(translation_id='en-de', frontCard=frontCard):
+            # if Translation.objects.filter(translation_id='en-de'):
+            # print('words')
+            # if not Translation.objects.filter(frontCard=frontCard):
+            # print('words2')
+            Translation.objects.create(
+                translation=language_obj,
+                i=i,
+                frontCard=frontCard,
+                backCard=backCard,
+                target_language=target_language)
 
 
 def get_latest_id(language):

@@ -1,305 +1,305 @@
 {
-    "conversion": "en-pl",
+    "conversion": "en-zh",
     "translations": [
         {
             "id": 1,
-            "frontCard": "upside",
-            "backCard": "do góry",
-            "target_language": "pl"
+            "frontCard": "buildings",
+            "backCard": "建筑物",
+            "target_language": "zh"
         },
         {
             "id": 2,
-            "frontCard": "bear",
-            "backCard": "Niedźwiedź",
-            "target_language": "pl"
+            "frontCard": "perforation",
+            "backCard": "穿孔",
+            "target_language": "zh"
         },
         {
             "id": 3,
-            "frontCard": "governments",
-            "backCard": "rządy",
-            "target_language": "pl"
+            "frontCard": "setup",
+            "backCard": "设置",
+            "target_language": "zh"
         },
         {
             "id": 4,
-            "frontCard": "defections",
-            "backCard": "dezercje",
-            "target_language": "pl"
+            "frontCard": "district",
+            "backCard": "区",
+            "target_language": "zh"
         },
         {
             "id": 5,
-            "frontCard": "delimiters",
-            "backCard": "ograniczniki",
-            "target_language": "pl"
+            "frontCard": "fur",
+            "backCard": "毛皮",
+            "target_language": "zh"
         },
         {
             "id": 6,
-            "frontCard": "hoist",
-            "backCard": "wciągnik",
-            "target_language": "pl"
+            "frontCard": "distress",
+            "backCard": "苦恼",
+            "target_language": "zh"
         },
         {
             "id": 7,
-            "frontCard": "thoughts",
-            "backCard": "myśli",
-            "target_language": "pl"
+            "frontCard": "tape",
+            "backCard": "磁带",
+            "target_language": "zh"
         },
         {
             "id": 8,
-            "frontCard": "seawater",
-            "backCard": "woda morska",
-            "target_language": "pl"
+            "frontCard": "guesses",
+            "backCard": "猜测",
+            "target_language": "zh"
         },
         {
             "id": 9,
-            "frontCard": "stocking",
-            "backCard": "pończocha",
-            "target_language": "pl"
+            "frontCard": "nickels",
+            "backCard": "镍币",
+            "target_language": "zh"
         },
         {
             "id": 10,
-            "frontCard": "visitors",
-            "backCard": "goście",
-            "target_language": "pl"
+            "frontCard": "oil",
+            "backCard": "油",
+            "target_language": "zh"
         },
         {
             "id": 11,
-            "frontCard": "hem",
-            "backCard": "mu",
-            "target_language": "pl"
+            "frontCard": "dimension",
+            "backCard": "尺寸",
+            "target_language": "zh"
         },
         {
             "id": 12,
-            "frontCard": "lashes",
-            "backCard": "rzęsy",
-            "target_language": "pl"
+            "frontCard": "offense",
+            "backCard": "罪行",
+            "target_language": "zh"
         },
         {
             "id": 13,
-            "frontCard": "diodes",
-            "backCard": "diody",
-            "target_language": "pl"
+            "frontCard": "class",
+            "backCard": "班级",
+            "target_language": "zh"
         },
         {
             "id": 14,
-            "frontCard": "hump",
-            "backCard": "garb",
-            "target_language": "pl"
+            "frontCard": "invoice",
+            "backCard": "发票",
+            "target_language": "zh"
         },
         {
             "id": 15,
-            "frontCard": "fallout",
-            "backCard": "opad",
-            "target_language": "pl"
+            "frontCard": "bow",
+            "backCard": "弓",
+            "target_language": "zh"
         },
         {
             "id": 16,
-            "frontCard": "unions",
-            "backCard": "związki",
-            "target_language": "pl"
+            "frontCard": "copies",
+            "backCard": "副本",
+            "target_language": "zh"
         },
         {
             "id": 17,
-            "frontCard": "preventions",
-            "backCard": "środki zapobiegawcze",
-            "target_language": "pl"
+            "frontCard": "implement",
+            "backCard": "实施",
+            "target_language": "zh"
         },
         {
             "id": 18,
-            "frontCard": "carload",
-            "backCard": "ładunek samochodowy",
-            "target_language": "pl"
+            "frontCard": "tumble",
+            "backCard": "翻滚",
+            "target_language": "zh"
         },
         {
             "id": 19,
-            "frontCard": "fifths",
-            "backCard": "piąty",
-            "target_language": "pl"
+            "frontCard": "slate",
+            "backCard": "石板",
+            "target_language": "zh"
         },
         {
             "id": 20,
-            "frontCard": "saddle",
-            "backCard": "siodło",
-            "target_language": "pl"
+            "frontCard": "radios",
+            "backCard": "收音机",
+            "target_language": "zh"
         },
         {
             "id": 21,
-            "frontCard": "dependencies",
-            "backCard": "zależności",
-            "target_language": "pl"
+            "frontCard": "hoofs",
+            "backCard": "蹄子",
+            "target_language": "zh"
         },
         {
             "id": 22,
-            "frontCard": "highlines",
-            "backCard": "highlines",
-            "target_language": "pl"
+            "frontCard": "dishes",
+            "backCard": "菜肴",
+            "target_language": "zh"
         },
         {
             "id": 23,
-            "frontCard": "manpower",
-            "backCard": "siła robocza",
-            "target_language": "pl"
+            "frontCard": "patter",
+            "backCard": "啪啪啪",
+            "target_language": "zh"
         },
         {
             "id": 24,
-            "frontCard": "walls",
-            "backCard": "ściany",
-            "target_language": "pl"
+            "frontCard": "overcoat",
+            "backCard": "大衣",
+            "target_language": "zh"
         },
         {
             "id": 25,
-            "frontCard": "trays",
-            "backCard": "tace",
-            "target_language": "pl"
+            "frontCard": "effectiveness",
+            "backCard": "效力",
+            "target_language": "zh"
         },
         {
             "id": 26,
-            "frontCard": "locks",
-            "backCard": "zamki",
-            "target_language": "pl"
+            "frontCard": "violations",
+            "backCard": "违规",
+            "target_language": "zh"
         },
         {
             "id": 27,
-            "frontCard": "utilization",
-            "backCard": "wykorzystanie",
-            "target_language": "pl"
+            "frontCard": "picture",
+            "backCard": "图片",
+            "target_language": "zh"
         },
         {
             "id": 28,
-            "frontCard": "firers",
-            "backCard": "podpalacze",
-            "target_language": "pl"
+            "frontCard": "rate",
+            "backCard": "速度",
+            "target_language": "zh"
         },
         {
             "id": 29,
-            "frontCard": "earth",
-            "backCard": "Ziemia",
-            "target_language": "pl"
+            "frontCard": "lack",
+            "backCard": "缺少",
+            "target_language": "zh"
         },
         {
             "id": 30,
-            "frontCard": "tables",
-            "backCard": "stoły",
-            "target_language": "pl"
+            "frontCard": "bias",
+            "backCard": "偏见",
+            "target_language": "zh"
         },
         {
             "id": 31,
-            "frontCard": "input",
-            "backCard": "Wejście",
-            "target_language": "pl"
+            "frontCard": "voices",
+            "backCard": "声音",
+            "target_language": "zh"
         },
         {
             "id": 32,
-            "frontCard": "thread",
-            "backCard": "wątek",
-            "target_language": "pl"
+            "frontCard": "chills",
+            "backCard": "发冷",
+            "target_language": "zh"
         },
         {
             "id": 33,
-            "frontCard": "elapses",
-            "backCard": "upływa",
-            "target_language": "pl"
+            "frontCard": "invention",
+            "backCard": "发明",
+            "target_language": "zh"
         },
         {
             "id": 34,
-            "frontCard": "vehicle",
-            "backCard": "pojazd",
-            "target_language": "pl"
+            "frontCard": "category",
+            "backCard": "类别",
+            "target_language": "zh"
         },
         {
             "id": 35,
-            "frontCard": "change",
-            "backCard": "zmiana",
-            "target_language": "pl"
+            "frontCard": "hums",
+            "backCard": "嗡嗡声",
+            "target_language": "zh"
         },
         {
             "id": 36,
-            "frontCard": "moon",
-            "backCard": "księżyc",
-            "target_language": "pl"
+            "frontCard": "flag",
+            "backCard": "旗帜",
+            "target_language": "zh"
         },
         {
             "id": 37,
-            "frontCard": "scratch",
-            "backCard": "zadraśnięcie",
-            "target_language": "pl"
+            "frontCard": "air",
+            "backCard": "空气",
+            "target_language": "zh"
         },
         {
             "id": 38,
-            "frontCard": "concentrations",
-            "backCard": "stężenia",
-            "target_language": "pl"
+            "frontCard": "age",
+            "backCard": "年龄",
+            "target_language": "zh"
         },
         {
             "id": 39,
-            "frontCard": "owner",
-            "backCard": "właściciel",
-            "target_language": "pl"
+            "frontCard": "linens",
+            "backCard": "床单",
+            "target_language": "zh"
         },
         {
             "id": 40,
-            "frontCard": "tool",
-            "backCard": "narzędzie",
-            "target_language": "pl"
+            "frontCard": "label",
+            "backCard": "标签",
+            "target_language": "zh"
         },
         {
             "id": 41,
-            "frontCard": "reservoirs",
-            "backCard": "zbiorniki wodne",
-            "target_language": "pl"
+            "frontCard": "photographs",
+            "backCard": "照片",
+            "target_language": "zh"
         },
         {
             "id": 42,
-            "frontCard": "trials",
-            "backCard": "próby",
-            "target_language": "pl"
+            "frontCard": "keyword",
+            "backCard": "关键词",
+            "target_language": "zh"
         },
         {
             "id": 43,
-            "frontCard": "law",
-            "backCard": "prawo",
-            "target_language": "pl"
+            "frontCard": "music",
+            "backCard": "音乐",
+            "target_language": "zh"
         },
         {
             "id": 44,
-            "frontCard": "hazard",
-            "backCard": "zaryzykować",
-            "target_language": "pl"
+            "frontCard": "feeder",
+            "backCard": "喂食器",
+            "target_language": "zh"
         },
         {
             "id": 45,
-            "frontCard": "warfare",
-            "backCard": "działania wojenne",
-            "target_language": "pl"
+            "frontCard": "glides",
+            "backCard": "滑翔",
+            "target_language": "zh"
         },
         {
             "id": 46,
-            "frontCard": "cash",
-            "backCard": "gotówka",
-            "target_language": "pl"
+            "frontCard": "specialist",
+            "backCard": "专家",
+            "target_language": "zh"
         },
         {
             "id": 47,
-            "frontCard": "amplitude",
-            "backCard": "amplituda",
-            "target_language": "pl"
+            "frontCard": "death",
+            "backCard": "死亡",
+            "target_language": "zh"
         },
         {
             "id": 48,
-            "frontCard": "specialties",
-            "backCard": "specjalności",
-            "target_language": "pl"
+            "frontCard": "highway",
+            "backCard": "高速公路",
+            "target_language": "zh"
         },
         {
             "id": 49,
-            "frontCard": "foreground",
-            "backCard": "pierwszoplanowy",
-            "target_language": "pl"
+            "frontCard": "privileges",
+            "backCard": "特权",
+            "target_language": "zh"
         },
         {
             "id": 50,
-            "frontCard": "manifests",
-            "backCard": "manifestuje się",
-            "target_language": "pl"
+            "frontCard": "bauds",
+            "backCard": "波特率",
+            "target_language": "zh"
         }
     ]
 }

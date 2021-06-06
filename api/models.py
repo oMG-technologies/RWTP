@@ -46,7 +46,6 @@ def populate_db():
         print('"{}" key already exist. Skipping creation of Language instance'.format(
             conversion))
         print('#############')
-        pass
 
     for translation in translations:
         language_obj = Language.objects.filter(

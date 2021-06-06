@@ -1,10 +1,6 @@
 from django.db import models
 from django.db.models.fields import IntegerField
 from django.db.utils import IntegrityError
-# import django
-# django.setup()
-
-# Create your models here.
 
 
 class Language(models.Model):
@@ -23,11 +19,10 @@ class Translation(models.Model):
     target_language = models.CharField(max_length=20)
 
     class Meta:
-        verbose_name_plural = 'Translation'
+        verbose_name_plural = 'Translations'
 
     def __str__(self):
-        new_dict = {'id': self.i,
-                    'frontCard': self.frontCard,
+        new_dict = {'frontCard': self.frontCard,
                     'backCard': self.backCard}
         return str(new_dict)
 
@@ -37,7 +32,6 @@ def populate_db():
     import json
 
     json_path = os.path.join(os.getcwd(), 'db.json')
-    print(json_path)
     with open(os.path.join(json_path), 'r') as f:
         data = json.load(f)
     translations = data['translations']
@@ -54,26 +48,18 @@ def populate_db():
         print('#############')
         pass
 
-    # print(Translation.objects.filter(translation_id='en-pl'))
-
     for translation in translations:
-        print(translation)
         language_obj = Language.objects.filter(
             conversion__contains=conversion)[0]
-        print()
-        # print(t)
+        print(language_obj)
+        print(type(language_obj))
         i = translation['id']
         frontCard = translation['frontCard']
         backCard = translation['backCard']
         target_language = translation['target_language']
 
-        # latest_id = get_latest_id(language)
-        # print(latest_id)
-        if not Translation.objects.filter(translation_id='en-de', frontCard=frontCard):
-            # if Translation.objects.filter(translation_id='en-de'):
-            # print('words')
-            # if not Translation.objects.filter(frontCard=frontCard):
-            # print('words2')
+        if not Translation.objects.filter(translation_id=conversion,
+                                          frontCard=frontCard):
             Translation.objects.create(
                 translation=language_obj,
                 i=i,

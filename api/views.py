@@ -2,14 +2,15 @@ from django.views.generic import TemplateView
 from django.http import JsonResponse
 
 from .models import Translation, Language
-from .serializers import (TranslationSerializers, UserSerializer,
-                          GroupSerializer, LanguageSerializers, SingleTranslationSerializers)
+from .serializers import (TranslationSerializers,
+                          LanguageSerializers,
+                          SingleTranslationSerializers,
+                          UserSerializer,
+                          GroupSerializer,)
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from rest_framework import permissions
-
-# Create your views here.
 
 
 class APIGetTranslations(TemplateView):
@@ -31,7 +32,6 @@ class SingleTranslation(TemplateView):
     model = Language
 
     def get(self, request, language):
-        # episode = Language.objects.get(translation_id=language)
         episode = Language.objects.get(conversion='en-pl')
         serializer = TranslationSerializers(episode)
         return JsonResponse(serializer.data,
@@ -56,27 +56,22 @@ class SingleTranslationViewSet(generics.ListAPIView):
     serializer_class = SingleTranslationSerializers
 
     def get_queryset(self):
-        """
-        Optionally restricts the returned purchases to a given user,
-        by filtering against a `username` query parameter in the URL.
-        """
+        '''
+        Optionally show translations only for a given conversion,
+        by filtering against a `conversion` query parameter in the URL.
+
+        e.g.
+
+        http://127.0.0.1:8000/translation/?conversion=en-de
+
+        will show translation only for en-de conversion
+
+        '''
         queryset = Translation.objects.all()
         conversion = self.request.query_params.get('conversion')
         if conversion is not None:
             queryset = queryset.filter(translation_id=conversion)
-            # queryset = queryset.filter(purchaser__username=username)
         return queryset
-
-    # def get_queryset(self):
-    #     user = self.kwargs['username']
-
-    #     return Translation.objects.filter(translation_id=user)
-
-        # def list(self, request, *args, **kwargs):
-        #     param = request.GET.get('param')
-        #     print(param)
-        # queryset = Translation.objects.filter(translation_id='en-pl')
-        # serializer_class = SingleTranslationSerializers
 
 
 class UserViewSet(viewsets.ModelViewSet):

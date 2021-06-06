@@ -32,25 +32,27 @@ class SingleTranslationSerializers(serializers.ModelSerializer):
         model = Translation
         fields = ['frontCard',
                   'backCard',
-                  'target_language'
-                  ]
+                  'target_language']
 
 
 class LanguageSerializers(serializers.ModelSerializer):
 
-    # lang = serializers.StringRelatedField(many=True)
     translations = TranslationSerializers(many=True, read_only=True)
 
     class Meta:
         model = Language
-        fields = ['conversion', 'translations']
+        fields = ['conversion',
+                  'translations']
         depth = 3
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['url',
+                  'username',
+                  'email',
+                  'is_staff']
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):

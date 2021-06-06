@@ -43,8 +43,8 @@ def populate_db():
     except IntegrityError:
         print('#############')
         print('#  WARNING  #')
-        print('"{}" key already exist. Skipping creation of Language instance'.format(
-            conversion))
+        print('"{}" key already exist. Skipping creation of '
+              'Language instance'.format(conversion))
         print('#############')
 
     for translation in translations:
@@ -55,6 +55,7 @@ def populate_db():
         backCard = translation['backCard']
         target_language = translation['target_language']
 
+        # make sure duplicates will not be generated
         if not Translation.objects.filter(translation_id=conversion,
                                           frontCard=frontCard):
             Translation.objects.create(
@@ -63,12 +64,6 @@ def populate_db():
                 frontCard=frontCard,
                 backCard=backCard,
                 target_language=target_language)
-
-
-def get_latest_id(language):
-    filtered = Translation.objects.filter(translation_id=language)
-    latest_id = len(filtered)
-    return latest_id
 
 
 if __name__ == '__main__':

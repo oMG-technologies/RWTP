@@ -13,20 +13,6 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 
 
-class APIGetTranslations(TemplateView):
-
-    model = Translation
-
-    def get(self, request):
-        translation = Translation.objects.all()
-        raw_serializer = TranslationSerializers(translation, many=True)
-        serializer_data = {}
-        serializer_data['questions'] = raw_serializer.data
-        return JsonResponse(serializer_data,
-                            safe=False,
-                            json_dumps_params={'indent': 4})
-
-
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see translations.

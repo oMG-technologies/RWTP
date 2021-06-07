@@ -1,6 +1,3 @@
-from django.views.generic import TemplateView
-from django.http import JsonResponse
-
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
                           LanguageSerializers,

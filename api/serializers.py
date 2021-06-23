@@ -43,7 +43,8 @@ class SingleTranslationSerializers(serializers.ModelSerializer):
     ''' SingleTranslationSerializers '''
     class Meta:
         model = Translation
-        fields = ['frontCard',
+        fields = ['id',
+                  'frontCard',
                   'backCard',
                   'target_language']
 

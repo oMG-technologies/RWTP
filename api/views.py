@@ -1,13 +1,16 @@
+from django.db.models import query
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
                           LanguageSerializers,
                           SingleTranslationSerializers,
+                          AvailableLanguagesSerializers,
                           UserSerializer,
-                          GroupSerializer,)
+                          GroupSerializer)
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from rest_framework import permissions
+from rest_framework.response import Response
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -23,6 +26,27 @@ class LanguageViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
+
+
+class AvailableLanguagesViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Language.objects.all()
+    serializer_class = AvailableLanguagesSerializers
+
+    # def retrieve(self, request, *args, **kwargs):
+    #     return Response({'something': 'my custom JSON'})
+
+    def list(self, request, *args, **kwargs):
+        queryset = Language.objects.all()
+        serializers = self.get_serializer(queryset, many=True)
+        new_dict = {}
+        for i, item in enumerate(serializers.data):
+            new_dict[i] = item['conversion']
+        print(new_dict)
+
+        return Response({'language': new_dict})
+    #     # print(serializer)
+        # return Response({'something': queryset})
 
 
 class SingleTranslationViewSet(generics.ListAPIView):

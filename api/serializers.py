@@ -61,6 +61,25 @@ class LanguageSerializers(serializers.ModelSerializer):
         depth = 3
 
 
+class AvailableLanguagesSerializers(serializers.ModelSerializer):
+
+    class Meta:
+        model = Language
+
+        fields = ['conversion']
+
+    # def to_representation(self, instance):
+    #     data = super().to_representation(instance)
+    #     #     updated_data = {'language': data['conversion']}
+    #     #     return updated_data
+    #     # check the request is list view or detail view
+    #     is_list_view = isinstance(self.instance, list)
+    #     extra_ret = {'key': 'list value'} if is_list_view else {
+    #         'key': 'single value'}
+    #     data.update(extra_ret)
+    #     return ret
+
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     ''' Create UserSerializer '''
     class Meta:

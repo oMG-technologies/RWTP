@@ -5,13 +5,15 @@ from .views import (TranslationsViewSet,
                     LanguageViewSet,
                     SingleTranslationViewSet,
                     UserViewSet,
-                    GroupViewSet)
+                    GroupViewSet,
+                    AvailableLanguagesViewSet)
 
 router = routers.DefaultRouter()
 router.register(r'translations', TranslationsViewSet)
 router.register(r'language', LanguageViewSet)
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
+router.register(r'available_conversions', AvailableLanguagesViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

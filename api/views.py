@@ -32,17 +32,27 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
     queryset = Language.objects.all()
     serializer_class = AvailableLanguagesSerializers
 
+    # ISO 639-1 code has always lenght of 2
+    length = 2
+
     # def retrieve(self, request, *args, **kwargs):
     #     return Response({'something': 'my custom JSON'})
 
     def list(self, request, *args, **kwargs):
-        languages = Language.objects.all()
-        serializers = self.get_serializer(languages, many=True)
+        from iso639 import languages
+
+        languages_objects = Language.objects.all()
+        serializers = self.get_serializer(languages_objects, many=True)
         conversions_list = []
         for id, item in enumerate(serializers.data):
             conversion = {}
+            iso639_lang_code = item['conversion'][self.length+1:]
+            language_name = languages.get(part1=str(iso639_lang_code)).name
+
             conversion['id'] = id
             conversion['conversion'] = item['conversion']
+            conversion['target_language'] = iso639_lang_code
+            conversion['name'] = language_name
             conversions_list.append(conversion)
 
         return Response({'available_conversions': conversions_list})

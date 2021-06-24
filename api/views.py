@@ -1,4 +1,3 @@
-from django.db.models import query
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
                           LanguageSerializers,
@@ -37,16 +36,16 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
     #     return Response({'something': 'my custom JSON'})
 
     def list(self, request, *args, **kwargs):
-        queryset = Language.objects.all()
-        serializers = self.get_serializer(queryset, many=True)
-        new_dict = {}
-        for i, item in enumerate(serializers.data):
-            new_dict[i] = item['conversion']
-        print(new_dict)
+        languages = Language.objects.all()
+        serializers = self.get_serializer(languages, many=True)
+        conversions_list = []
+        for id, item in enumerate(serializers.data):
+            conversion = {}
+            conversion['id'] = id
+            conversion['conversion'] = item['conversion']
+            conversions_list.append(conversion)
 
-        return Response({'language': new_dict})
-    #     # print(serializer)
-        # return Response({'something': queryset})
+        return Response({'available_conversions': conversions_list})
 
 
 class SingleTranslationViewSet(generics.ListAPIView):

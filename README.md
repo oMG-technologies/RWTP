@@ -13,11 +13,12 @@ The root url:
 
 List of endpoints
 
-| endpoint                        |                                                                             feature                                                                             | method |
-| ------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: | -----: |
-| `\translations`                 |                                            get 50 random English words with translations for all supported languages                                            |  `GET` |
-| `\translation\?conversion=en-x` | get 50 random English words with translations to a language `x`, which has to be in a [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format |  `GET` |
-| `\languages `                   |                          get 50 random English words and translations for all supported languages, categorized by language conversion                           |  `GET` |
+| endpoint                         |                                                                                                                  feature                                                                                                                  | method |
+| -------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | -----: |
+| `/translations`                  |                                                                                 get 50 random English words with translations for all supported languages                                                                                 |  `GET` |
+| `/available_conversions/`        | get all available conversions, i.e. translation from english `en` to various languages `x` in the `en-x` format. Currently, `x` can only be any of the following `pl`, `de`, `fr`, `es`, `ru`, `it`, `sv` and `zh`. More will come later. |  `GET` |
+| `/translation/?conversion=en-x/` |                                      get 50 random English words with translations to a language `x`, which has to be in a [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format                                      |  `GET` |
+| `/languages/`                    |                                                               get 50 random English words and translations for all supported languages, categorized by language conversion                                                                |  `GET` |
 
 # Quicktest
 

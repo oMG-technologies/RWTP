@@ -75,16 +75,19 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see translations.
     '''
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
 
 
 class LanguageViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
 
 
 class SingleTranslationViewSet(generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = SingleTranslationSerializers
 
     def get_queryset(self):

@@ -3,10 +3,10 @@ from rest_framework import routers
 
 from .views import (TranslationsViewSet,
                     LanguageViewSet,
+                    AvailableLanguagesViewSet,
                     SingleTranslationViewSet,
                     UserViewSet,
-                    GroupViewSet,
-                    AvailableLanguagesViewSet)
+                    GroupViewSet,)
 
 router = routers.DefaultRouter()
 router.register(r'translations', TranslationsViewSet)

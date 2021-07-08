@@ -21,6 +21,7 @@ class Translation(models.Model):
     frontCard = models.CharField(max_length=20)
     backCard = models.CharField(max_length=20)
     target_language = models.CharField(max_length=20)
+    pronunciation = models.FileField()
 
     class Meta:
         verbose_name_plural = 'Translations'

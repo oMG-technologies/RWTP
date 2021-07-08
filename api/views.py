@@ -11,6 +11,14 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
 
+from django.views.generic import TemplateView
+
+
+class Audio(TemplateView):
+    model = Translation
+    template_name = 'play_audio.html'
+    context_object_name = 'audio'
+
 
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''

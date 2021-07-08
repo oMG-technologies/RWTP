@@ -12,12 +12,13 @@ def text_to_speech():
     client = texttospeech.TextToSpeechClient()
 
     # Set the text input to be synthesized
-    synthesis_input = texttospeech.SynthesisInput(text="Hi how are you?")
+    synthesis_input = texttospeech.SynthesisInput(
+        text="Bonjour comment vas-tu?")
 
     # Build the voice request, select the language code ("en-US") and the ssml
     # voice gender ("neutral")
     voice = texttospeech.VoiceSelectionParams(
-        language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        language_code="fr", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
     )
 
     # Select the type of audio file you want returned
@@ -36,3 +37,6 @@ def text_to_speech():
         # Write the response to the output file.
         out.write(response.audio_content)
         print('Audio content written to file "output.mp3"')
+
+
+text_to_speech()

@@ -40,6 +40,7 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         from iso639 import languages
+        from .iso639_to_iso3166 import iso_exceptions_dict
 
         languages_objects = Language.objects.all()
         serializers = self.get_serializer(languages_objects, many=True)
@@ -49,9 +50,15 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
             iso639_lang_code = item['conversion'][self.length+1:]
             language_name = languages.get(part1=str(iso639_lang_code)).name
 
+            iso3166_lang_code = iso639_lang_code
+            if iso639_lang_code in iso_exceptions_dict:
+                iso3166_lang_code = iso_exceptions_dict[iso639_lang_code]
+
+            # prepare a json response
             conversion['id'] = id
             conversion['conversion'] = item['conversion']
-            conversion['target_language'] = iso639_lang_code
+            conversion['target_language_iso639'] = iso639_lang_code
+            conversion['target_language_iso3166'] = iso3166_lang_code
             conversion['name'] = language_name
             conversions_list.append(conversion)
 

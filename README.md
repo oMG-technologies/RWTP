@@ -3,7 +3,7 @@
 
 # RWTP
 
-An API for getting translation of random english words to a language of choise.
+An API for getting translation of random english words to a language of choice.
 
 # REST API - list of endpoints
 

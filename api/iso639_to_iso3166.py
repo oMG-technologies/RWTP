@@ -1,4 +1,4 @@
 iso_exceptions_dict = {
-    'zh': 'ch',
+    'zh': 'cn',
     'sv': 'se'
 }

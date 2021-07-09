@@ -1,5 +1,7 @@
 from random_words import RandomWords
 from typing import List, Dict
+from text_to_speech import TextToSpeech
+import os
 
 
 class WordsTranslation():
@@ -7,6 +9,7 @@ class WordsTranslation():
         self.rw = RandomWords()
         self.target_language = target_language
         self.count = count
+        self.tts = TextToSpeech(self.target_language)
 
     def get_random_words(self) -> List[str]:
         '''Get count ammount of random English words[summary]
@@ -65,7 +68,8 @@ class WordsTranslation():
         json_dict = {}
         json_dict['conversion'] = 'en-{}'.format(self.target_language)
         json_dict['translations'] = self.collect_questions()
-        with open('db.json', 'w+') as f:
+        path_to_db = os.path.join(os.path.dirname(__file__), 'db.json')
+        with open(path_to_db, 'w+') as f:
             json_string = json.dumps(json_dict, indent=4,
                                      ensure_ascii=False).encode('utf-8')
             f.write(json_string.decode())
@@ -129,15 +133,17 @@ class WordsTranslation():
         translation_dict = {}
         translation = self.translate_text(word)
         translated_word = translation['translatedText']
+        pronunciation = self.tts.get_pronunciation(id, translated_word)
 
         # update dict
         translation_dict['id'] = id + 1
         translation_dict['frontCard'] = word
         translation_dict['backCard'] = translated_word
         translation_dict['target_language'] = self.target_language
+        translation_dict['pronunciation'] = pronunciation
         return translation_dict
 
 
 if __name__ == '__main__':
     # languages_list = ['pl', 'de', 'fr, 'es', 'ru', 'it', 'sv', 'zh', '']
-    WordsTranslation(target_language='zh', count=50).create_json()
+    WordsTranslation(target_language='fr', count=2).create_json()

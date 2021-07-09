@@ -2,12 +2,12 @@ import os
 
 
 class TextToSpeech():
-    def __init__(self, id, word, target_language):
-        self.id = id
-        self.word = word
+    def __init__(
+            self,
+            target_language):
         self.target_language = target_language
 
-    def convert(self):
+    def get_pronunciation(self, id, word):
         from google.cloud import texttospeech
 
         ''' Synthesizes speech from the input string of text or ssml.
@@ -21,7 +21,7 @@ class TextToSpeech():
 
         # Set the text input to be synthesized
         synthesis_input = texttospeech.SynthesisInput(
-            text=self.word)
+            text=word)
 
         # Build the voice request, select the language code ("en-US") and the ssml
         # voice gender ("neutral")
@@ -42,13 +42,19 @@ class TextToSpeech():
         )
 
         # The response's audio_content is binary.
-        filename = '{}_{}.mp3'.format(self.id, self.word)
-        path_to_file = os.path.join(
-            os.path.dirname(__file__), 'media', filename)
+        filename = '{}_{}.mp3'.format(id, word)
+        dirname = os.path.join(
+            os.path.dirname(__file__), 'media', self.target_language)
+
+        # create a language dir if necessary
+        if not os.path.isdir((dirname)):
+            os.makedirs(dirname)
+        path_to_file = os.path.join(dirname, filename)
         with open(path_to_file, "wb") as out:
             # Write the response to the output file.
             out.write(response.audio_content)
             print('Audio content written to file "{}"'.format(path_to_file))
+        return path_to_file
 
 
-TextToSpeech(1, 'environment', 'en-US').convert()
+# TextToSpeech(1, 'environment', 'en-US').convert()

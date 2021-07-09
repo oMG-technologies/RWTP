@@ -61,6 +61,7 @@ def populate_db() -> None:
         frontCard = translation['frontCard']
         backCard = translation['backCard']
         target_language = translation['target_language']
+        pronunciation = translation['pronunciation']
 
         # make sure duplicates will not be generated
         if not Translation.objects.filter(translation_id=conversion,
@@ -70,7 +71,8 @@ def populate_db() -> None:
                 i=i,
                 frontCard=frontCard,
                 backCard=backCard,
-                target_language=target_language)
+                target_language=target_language,
+                pronunciation='/'.join(pronunciation.split('/')[-2:]))
 
 
 if __name__ == '__main__':

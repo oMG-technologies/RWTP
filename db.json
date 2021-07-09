@@ -3,303 +3,353 @@
     "translations": [
         {
             "id": 1,
-            "frontCard": "buildings",
-            "backCard": "建筑物",
-            "target_language": "zh"
+            "frontCard": "acquisitions",
+            "backCard": "收购",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/0_.mp3"
         },
         {
             "id": 2,
-            "frontCard": "perforation",
-            "backCard": "穿孔",
-            "target_language": "zh"
+            "frontCard": "beats",
+            "backCard": "节拍",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/1_.mp3"
         },
         {
             "id": 3,
-            "frontCard": "setup",
-            "backCard": "设置",
-            "target_language": "zh"
+            "frontCard": "consequence",
+            "backCard": "结果",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/2_.mp3"
         },
         {
             "id": 4,
-            "frontCard": "district",
-            "backCard": "区",
-            "target_language": "zh"
+            "frontCard": "image",
+            "backCard": "图像",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/3_.mp3"
         },
         {
             "id": 5,
-            "frontCard": "fur",
-            "backCard": "毛皮",
-            "target_language": "zh"
+            "frontCard": "solution",
+            "backCard": "解决方案",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/4_.mp3"
         },
         {
             "id": 6,
-            "frontCard": "distress",
-            "backCard": "苦恼",
-            "target_language": "zh"
+            "frontCard": "carbons",
+            "backCard": "碳",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/5_.mp3"
         },
         {
             "id": 7,
-            "frontCard": "tape",
-            "backCard": "磁带",
-            "target_language": "zh"
+            "frontCard": "checkpoint",
+            "backCard": "检查站",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/6_.mp3"
         },
         {
             "id": 8,
-            "frontCard": "guesses",
-            "backCard": "猜测",
-            "target_language": "zh"
+            "frontCard": "corners",
+            "backCard": "角落",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/7_.mp3"
         },
         {
             "id": 9,
-            "frontCard": "nickels",
-            "backCard": "镍币",
-            "target_language": "zh"
+            "frontCard": "alcoholism",
+            "backCard": "酗酒",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/8_.mp3"
         },
         {
             "id": 10,
-            "frontCard": "oil",
-            "backCard": "油",
-            "target_language": "zh"
+            "frontCard": "contracts",
+            "backCard": "合同",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/9_.mp3"
         },
         {
             "id": 11,
-            "frontCard": "dimension",
-            "backCard": "尺寸",
-            "target_language": "zh"
+            "frontCard": "memorandums",
+            "backCard": "备忘录",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/10_.mp3"
         },
         {
             "id": 12,
-            "frontCard": "offense",
-            "backCard": "罪行",
-            "target_language": "zh"
+            "frontCard": "indicate",
+            "backCard": "表明",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/11_.mp3"
         },
         {
             "id": 13,
-            "frontCard": "class",
-            "backCard": "班级",
-            "target_language": "zh"
+            "frontCard": "generals",
+            "backCard": "将军",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/12_.mp3"
         },
         {
             "id": 14,
-            "frontCard": "invoice",
-            "backCard": "发票",
-            "target_language": "zh"
+            "frontCard": "guests",
+            "backCard": "客人",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/13_.mp3"
         },
         {
             "id": 15,
-            "frontCard": "bow",
-            "backCard": "弓",
-            "target_language": "zh"
+            "frontCard": "scraps",
+            "backCard": "下脚料",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/14_.mp3"
         },
         {
             "id": 16,
-            "frontCard": "copies",
-            "backCard": "副本",
-            "target_language": "zh"
+            "frontCard": "churn",
+            "backCard": "搅拌",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/15_.mp3"
         },
         {
             "id": 17,
-            "frontCard": "implement",
-            "backCard": "实施",
-            "target_language": "zh"
+            "frontCard": "rear",
+            "backCard": "后部",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/16_.mp3"
         },
         {
             "id": 18,
-            "frontCard": "tumble",
-            "backCard": "翻滚",
-            "target_language": "zh"
+            "frontCard": "leave",
+            "backCard": "离开",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/17_.mp3"
         },
         {
             "id": 19,
-            "frontCard": "slate",
-            "backCard": "石板",
-            "target_language": "zh"
+            "frontCard": "sundays",
+            "backCard": "星期日",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/18_.mp3"
         },
         {
             "id": 20,
-            "frontCard": "radios",
-            "backCard": "收音机",
-            "target_language": "zh"
+            "frontCard": "routine",
+            "backCard": "常规",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/19_.mp3"
         },
         {
             "id": 21,
-            "frontCard": "hoofs",
-            "backCard": "蹄子",
-            "target_language": "zh"
+            "frontCard": "lips",
+            "backCard": "嘴唇",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/20_.mp3"
         },
         {
             "id": 22,
-            "frontCard": "dishes",
-            "backCard": "菜肴",
-            "target_language": "zh"
+            "frontCard": "hate",
+            "backCard": "恨",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/21_.mp3"
         },
         {
             "id": 23,
-            "frontCard": "patter",
-            "backCard": "啪啪啪",
-            "target_language": "zh"
+            "frontCard": "passenger",
+            "backCard": "乘客",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/22_.mp3"
         },
         {
             "id": 24,
-            "frontCard": "overcoat",
-            "backCard": "大衣",
-            "target_language": "zh"
+            "frontCard": "advertisements",
+            "backCard": "广告",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/23_.mp3"
         },
         {
             "id": 25,
-            "frontCard": "effectiveness",
-            "backCard": "效力",
-            "target_language": "zh"
+            "frontCard": "rags",
+            "backCard": "破布",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/24_.mp3"
         },
         {
             "id": 26,
-            "frontCard": "violations",
-            "backCard": "违规",
-            "target_language": "zh"
+            "frontCard": "cannon",
+            "backCard": "大炮",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/25_.mp3"
         },
         {
             "id": 27,
-            "frontCard": "picture",
-            "backCard": "图片",
-            "target_language": "zh"
+            "frontCard": "specialization",
+            "backCard": "专业化",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/26_.mp3"
         },
         {
             "id": 28,
-            "frontCard": "rate",
-            "backCard": "速度",
-            "target_language": "zh"
+            "frontCard": "abuses",
+            "backCard": "滥用",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/27_.mp3"
         },
         {
             "id": 29,
-            "frontCard": "lack",
-            "backCard": "缺少",
-            "target_language": "zh"
+            "frontCard": "receipt",
+            "backCard": "收据",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/28_.mp3"
         },
         {
             "id": 30,
-            "frontCard": "bias",
-            "backCard": "偏见",
-            "target_language": "zh"
+            "frontCard": "strokes",
+            "backCard": "笔画",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/29_.mp3"
         },
         {
             "id": 31,
-            "frontCard": "voices",
-            "backCard": "声音",
-            "target_language": "zh"
+            "frontCard": "topic",
+            "backCard": "话题",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/30_.mp3"
         },
         {
             "id": 32,
-            "frontCard": "chills",
-            "backCard": "发冷",
-            "target_language": "zh"
+            "frontCard": "pegs",
+            "backCard": "钉子",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/31_.mp3"
         },
         {
             "id": 33,
-            "frontCard": "invention",
-            "backCard": "发明",
-            "target_language": "zh"
+            "frontCard": "propose",
+            "backCard": "提供",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/32_.mp3"
         },
         {
             "id": 34,
-            "frontCard": "category",
-            "backCard": "类别",
-            "target_language": "zh"
+            "frontCard": "workings",
+            "backCard": "运作",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/33_.mp3"
         },
         {
             "id": 35,
-            "frontCard": "hums",
-            "backCard": "嗡嗡声",
-            "target_language": "zh"
+            "frontCard": "authority",
+            "backCard": "权威",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/34_.mp3"
         },
         {
             "id": 36,
-            "frontCard": "flag",
-            "backCard": "旗帜",
-            "target_language": "zh"
+            "frontCard": "effects",
+            "backCard": "效果",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/35_.mp3"
         },
         {
             "id": 37,
-            "frontCard": "air",
-            "backCard": "空气",
-            "target_language": "zh"
+            "frontCard": "end",
+            "backCard": "结尾",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/36_.mp3"
         },
         {
             "id": 38,
-            "frontCard": "age",
-            "backCard": "年龄",
-            "target_language": "zh"
+            "frontCard": "toes",
+            "backCard": "脚趾",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/37_.mp3"
         },
         {
             "id": 39,
-            "frontCard": "linens",
-            "backCard": "床单",
-            "target_language": "zh"
+            "frontCard": "tap",
+            "backCard": "轻敲",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/38_.mp3"
         },
         {
             "id": 40,
-            "frontCard": "label",
-            "backCard": "标签",
-            "target_language": "zh"
+            "frontCard": "jacks",
+            "backCard": "千斤顶",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/39_.mp3"
         },
         {
             "id": 41,
-            "frontCard": "photographs",
-            "backCard": "照片",
-            "target_language": "zh"
+            "frontCard": "mugs",
+            "backCard": "杯子",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/40_.mp3"
         },
         {
             "id": 42,
-            "frontCard": "keyword",
-            "backCard": "关键词",
-            "target_language": "zh"
+            "frontCard": "sheeting",
+            "backCard": "片材",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/41_.mp3"
         },
         {
             "id": 43,
-            "frontCard": "music",
-            "backCard": "音乐",
-            "target_language": "zh"
+            "frontCard": "primes",
+            "backCard": "奖金",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/42_.mp3"
         },
         {
             "id": 44,
-            "frontCard": "feeder",
-            "backCard": "喂食器",
-            "target_language": "zh"
+            "frontCard": "diamonds",
+            "backCard": "钻石",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/43_.mp3"
         },
         {
             "id": 45,
-            "frontCard": "glides",
-            "backCard": "滑翔",
-            "target_language": "zh"
+            "frontCard": "charts",
+            "backCard": "图表",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/44_.mp3"
         },
         {
             "id": 46,
-            "frontCard": "specialist",
-            "backCard": "专家",
-            "target_language": "zh"
+            "frontCard": "leaf",
+            "backCard": "叶子",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/45_.mp3"
         },
         {
             "id": 47,
-            "frontCard": "death",
-            "backCard": "死亡",
-            "target_language": "zh"
+            "frontCard": "date",
+            "backCard": "日期",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/46_.mp3"
         },
         {
             "id": 48,
-            "frontCard": "highway",
-            "backCard": "高速公路",
-            "target_language": "zh"
+            "frontCard": "programmers",
+            "backCard": "程序员",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/47_.mp3"
         },
         {
             "id": 49,
-            "frontCard": "privileges",
-            "backCard": "特权",
-            "target_language": "zh"
+            "frontCard": "smell",
+            "backCard": "闻",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/48_.mp3"
         },
         {
             "id": 50,
-            "frontCard": "bauds",
-            "backCard": "波特率",
-            "target_language": "zh"
+            "frontCard": "parties",
+            "backCard": "派对",
+            "target_language": "zh",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/49_.mp3"
         }
     ]
 }

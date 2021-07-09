@@ -36,10 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'cloudinary',
 ]
 
 REST_FRAMEWORK = {
@@ -204,4 +206,12 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ['cloudinary_CLOUD_NAME'],
+    'API_KEY': os.environ['cloudinary_API_KEY'],
+    'API_SECRET': os.environ['cloudinary_API_SECRET'],
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 django_heroku.settings(locals())

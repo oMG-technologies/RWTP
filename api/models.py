@@ -18,9 +18,10 @@ class Translation(models.Model):
     translation = models.ForeignKey(
         Language, related_name='translations', on_delete=models.CASCADE)
     i = IntegerField()
-    frontCard = models.CharField(max_length=20)
-    backCard = models.CharField(max_length=20)
-    target_language = models.CharField(max_length=20)
+    frontCard = models.CharField(max_length=40)
+    backCard = models.CharField(max_length=40)
+    target_language = models.CharField(max_length=10)
+    pronunciation = models.FileField()
 
     class Meta:
         verbose_name_plural = 'Translations'
@@ -36,6 +37,7 @@ def populate_db() -> None:
 
     import os
     import json
+    import unicodedata
 
     json_path = os.path.join(os.getcwd(), 'db.json')
     with open(os.path.join(json_path), 'r') as f:
@@ -60,6 +62,8 @@ def populate_db() -> None:
         frontCard = translation['frontCard']
         backCard = translation['backCard']
         target_language = translation['target_language']
+        pronunciation_full_path = translation['pronunciation']
+        pronunciation = '/'.join(pronunciation_full_path.split('/')[-2:])
 
         # make sure duplicates will not be generated
         if not Translation.objects.filter(translation_id=conversion,
@@ -69,7 +73,9 @@ def populate_db() -> None:
                 i=i,
                 frontCard=frontCard,
                 backCard=backCard,
-                target_language=target_language)
+                target_language=target_language,
+                pronunciation=pronunciation
+            )
 
 
 if __name__ == '__main__':

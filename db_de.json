@@ -1,0 +1,355 @@
+{
+    "conversion": "en-de",
+    "translations": [
+        {
+            "id": 1,
+            "frontCard": "trousers",
+            "backCard": "Hose",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/0_Hose.mp3"
+        },
+        {
+            "id": 2,
+            "frontCard": "slices",
+            "backCard": "Scheiben",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/1_Scheiben.mp3"
+        },
+        {
+            "id": 3,
+            "frontCard": "apprehensions",
+            "backCard": "Befürchtungen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/2_Befurchtungen.mp3"
+        },
+        {
+            "id": 4,
+            "frontCard": "truck",
+            "backCard": "LKW",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/3_LKW.mp3"
+        },
+        {
+            "id": 5,
+            "frontCard": "jack",
+            "backCard": "Jack",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/4_Jack.mp3"
+        },
+        {
+            "id": 6,
+            "frontCard": "davit",
+            "backCard": "Davit",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/5_Davit.mp3"
+        },
+        {
+            "id": 7,
+            "frontCard": "creeks",
+            "backCard": "Bäche",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/6_Bache.mp3"
+        },
+        {
+            "id": 8,
+            "frontCard": "cord",
+            "backCard": "Kabel",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/7_Kabel.mp3"
+        },
+        {
+            "id": 9,
+            "frontCard": "bail",
+            "backCard": "Kaution",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/8_Kaution.mp3"
+        },
+        {
+            "id": 10,
+            "frontCard": "talkers",
+            "backCard": "Redner",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/9_Redner.mp3"
+        },
+        {
+            "id": 11,
+            "frontCard": "interviewer",
+            "backCard": "Interviewer",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/10_Interviewer.mp3"
+        },
+        {
+            "id": 12,
+            "frontCard": "strike",
+            "backCard": "Streik",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/11_Streik.mp3"
+        },
+        {
+            "id": 13,
+            "frontCard": "radiuses",
+            "backCard": "Radien",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/12_Radien.mp3"
+        },
+        {
+            "id": 14,
+            "frontCard": "motor",
+            "backCard": "Motor-",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/13_Motor-.mp3"
+        },
+        {
+            "id": 15,
+            "frontCard": "keywords",
+            "backCard": "Schlüsselwörter",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/14_Schlusselworter.mp3"
+        },
+        {
+            "id": 16,
+            "frontCard": "police",
+            "backCard": "Polizei",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/15_Polizei.mp3"
+        },
+        {
+            "id": 17,
+            "frontCard": "arrival",
+            "backCard": "Ankunft",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/16_Ankunft.mp3"
+        },
+        {
+            "id": 18,
+            "frontCard": "lettering",
+            "backCard": "Beschriftung",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/17_Beschriftung.mp3"
+        },
+        {
+            "id": 19,
+            "frontCard": "soles",
+            "backCard": "Sohlen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/18_Sohlen.mp3"
+        },
+        {
+            "id": 20,
+            "frontCard": "peace",
+            "backCard": "Frieden",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/19_Frieden.mp3"
+        },
+        {
+            "id": 21,
+            "frontCard": "margin",
+            "backCard": "Spanne",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/20_Spanne.mp3"
+        },
+        {
+            "id": 22,
+            "frontCard": "cheat",
+            "backCard": "betrügen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/21_betrugen.mp3"
+        },
+        {
+            "id": 23,
+            "frontCard": "ceremonies",
+            "backCard": "Zeremonien",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/22_Zeremonien.mp3"
+        },
+        {
+            "id": 24,
+            "frontCard": "dopes",
+            "backCard": "betäubt",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/23_betaubt.mp3"
+        },
+        {
+            "id": 25,
+            "frontCard": "replenishment",
+            "backCard": "Nachschub",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/24_Nachschub.mp3"
+        },
+        {
+            "id": 26,
+            "frontCard": "percents",
+            "backCard": "Prozent",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/25_Prozent.mp3"
+        },
+        {
+            "id": 27,
+            "frontCard": "commission",
+            "backCard": "Kommission",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/26_Kommission.mp3"
+        },
+        {
+            "id": 28,
+            "frontCard": "apostrophe",
+            "backCard": "Apostroph",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/27_Apostroph.mp3"
+        },
+        {
+            "id": 29,
+            "frontCard": "lumps",
+            "backCard": "Klumpen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/28_Klumpen.mp3"
+        },
+        {
+            "id": 30,
+            "frontCard": "angle",
+            "backCard": "Winkel",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/29_Winkel.mp3"
+        },
+        {
+            "id": 31,
+            "frontCard": "caution",
+            "backCard": "Vorsicht",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/30_Vorsicht.mp3"
+        },
+        {
+            "id": 32,
+            "frontCard": "toothpick",
+            "backCard": "Zahnstocher",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/31_Zahnstocher.mp3"
+        },
+        {
+            "id": 33,
+            "frontCard": "angles",
+            "backCard": "Winkel",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/32_Winkel.mp3"
+        },
+        {
+            "id": 34,
+            "frontCard": "baby",
+            "backCard": "Baby",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/33_Baby.mp3"
+        },
+        {
+            "id": 35,
+            "frontCard": "pier",
+            "backCard": "Seebrücke",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/34_Seebrucke.mp3"
+        },
+        {
+            "id": 36,
+            "frontCard": "majors",
+            "backCard": "Hauptfächer",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/35_Hauptfacher.mp3"
+        },
+        {
+            "id": 37,
+            "frontCard": "armaments",
+            "backCard": "Rüstungen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/36_Rustungen.mp3"
+        },
+        {
+            "id": 38,
+            "frontCard": "awards",
+            "backCard": "Auszeichnungen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/37_Auszeichnungen.mp3"
+        },
+        {
+            "id": 39,
+            "frontCard": "surge",
+            "backCard": "anschwellen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/38_anschwellen.mp3"
+        },
+        {
+            "id": 40,
+            "frontCard": "cams",
+            "backCard": "Nocken",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/39_Nocken.mp3"
+        },
+        {
+            "id": 41,
+            "frontCard": "wings",
+            "backCard": "Flügel",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/40_Flugel.mp3"
+        },
+        {
+            "id": 42,
+            "frontCard": "initials",
+            "backCard": "Initialen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/41_Initialen.mp3"
+        },
+        {
+            "id": 43,
+            "frontCard": "latitudes",
+            "backCard": "Breitengrade",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/42_Breitengrade.mp3"
+        },
+        {
+            "id": 44,
+            "frontCard": "servants",
+            "backCard": "Diener",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/43_Diener.mp3"
+        },
+        {
+            "id": 45,
+            "frontCard": "rudder",
+            "backCard": "Ruder",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/44_Ruder.mp3"
+        },
+        {
+            "id": 46,
+            "frontCard": "impedance",
+            "backCard": "Impedanz",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/45_Impedanz.mp3"
+        },
+        {
+            "id": 47,
+            "frontCard": "volts",
+            "backCard": "Volt",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/46_Volt.mp3"
+        },
+        {
+            "id": 48,
+            "frontCard": "permits",
+            "backCard": "Genehmigungen",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/47_Genehmigungen.mp3"
+        },
+        {
+            "id": 49,
+            "frontCard": "threaders",
+            "backCard": "Einfädler",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/48_Einfadler.mp3"
+        },
+        {
+            "id": 50,
+            "frontCard": "coughs",
+            "backCard": "hustet",
+            "target_language": "de",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/de/49_hustet.mp3"
+        }
+    ]
+}

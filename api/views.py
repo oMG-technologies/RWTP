@@ -11,6 +11,22 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
 
+from django.views.generic import TemplateView
+
+
+class Audio(TemplateView):
+    model = Translation
+    template_name = 'play_audio.html'
+    context_object_name = 'audio'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['book_list'] = Translation.objects.all()
+        print(context)
+        return context
+
 
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
@@ -33,6 +49,7 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
     serializer_class = AvailableLanguagesSerializers
 
     # ISO 639-1 code has always lenght of 2
+
     length = 2
 
     # def retrieve(self, request, *args, **kwargs):

@@ -21,7 +21,7 @@ class Translation(models.Model):
     frontCard = models.CharField(max_length=40)
     backCard = models.CharField(max_length=40)
     target_language = models.CharField(max_length=10)
-    pronunciation = models.FileField()
+    pronunciation = models.CharField(max_length=200)
 
     class Meta:
         verbose_name_plural = 'Translations'
@@ -37,7 +37,6 @@ def populate_db() -> None:
 
     import os
     import json
-    import unicodedata
 
     json_path = os.path.join(os.getcwd(), 'db.json')
     with open(os.path.join(json_path), 'r') as f:

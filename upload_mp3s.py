@@ -21,18 +21,10 @@ def upload():
 
     path_to_file = os.path.join(os.path.dirname(
         __file__), 'media', 'pl', '49_garsc.mp3')
-    # print(path_to_file)
 
-    # response = cloudinary.uploader.upload(
-    #     path_to_file, resource_type='raw')
-    # url = response['url']
-
-    # t = Translation.objects.get(pronunciation__contains='49_garsc.mp3')
     t = Translation.objects.get(backCard__contains='garść')
-    print(t.pronunciation)
-    # t.pronunciation = url
     t.save()
     print(t.pronunciation)
 
 
-upload()
+# def get_all

@@ -145,5 +145,5 @@ class WordsTranslation():
 
 
 if __name__ == '__main__':
-    # languages_list = ['pl', 'de', 'fr, 'es', 'ru', 'it', 'sv', 'zh', '']
-    WordsTranslation(target_language='fr', count=2).create_json()
+    # languages_list = ['pl', 'de', 'fr, 'es', 'ru', 'it', 'sv', 'zh']
+    WordsTranslation(target_language='ru', count=50).create_json()

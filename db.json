@@ -1,19 +1,355 @@
 {
-    "conversion": "en-fr",
+    "conversion": "en-ru",
     "translations": [
         {
             "id": 1,
-            "frontCard": "colors",
-            "backCard": "couleurs",
-            "target_language": "fr",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/fr/0_couleurs.mp3"
+            "frontCard": "tune",
+            "backCard": "настраивать",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/0_.mp3"
         },
         {
             "id": 2,
-            "frontCard": "hisses",
-            "backCard": "siffle",
-            "target_language": "fr",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/fr/1_siffle.mp3"
+            "frontCard": "depot",
+            "backCard": "депо",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/1_.mp3"
+        },
+        {
+            "id": 3,
+            "frontCard": "field",
+            "backCard": "поле",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/2_.mp3"
+        },
+        {
+            "id": 4,
+            "frontCard": "ingredient",
+            "backCard": "ингредиент",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/3_.mp3"
+        },
+        {
+            "id": 5,
+            "frontCard": "jumpers",
+            "backCard": "прыгуны",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/4_.mp3"
+        },
+        {
+            "id": 6,
+            "frontCard": "cents",
+            "backCard": "центы",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/5_.mp3"
+        },
+        {
+            "id": 7,
+            "frontCard": "forests",
+            "backCard": "леса",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/6_.mp3"
+        },
+        {
+            "id": 8,
+            "frontCard": "watts",
+            "backCard": "Вт",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/7_.mp3"
+        },
+        {
+            "id": 9,
+            "frontCard": "carbons",
+            "backCard": "угли",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/8_.mp3"
+        },
+        {
+            "id": 10,
+            "frontCard": "updates",
+            "backCard": "обновления",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/9_.mp3"
+        },
+        {
+            "id": 11,
+            "frontCard": "son",
+            "backCard": "его",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/10_.mp3"
+        },
+        {
+            "id": 12,
+            "frontCard": "seventies",
+            "backCard": "семидесятые",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/11_.mp3"
+        },
+        {
+            "id": 13,
+            "frontCard": "boatswain",
+            "backCard": "боцман",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/12_.mp3"
+        },
+        {
+            "id": 14,
+            "frontCard": "yolk",
+            "backCard": "желток",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/13_.mp3"
+        },
+        {
+            "id": 15,
+            "frontCard": "regions",
+            "backCard": "регионы",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/14_.mp3"
+        },
+        {
+            "id": 16,
+            "frontCard": "compress",
+            "backCard": "компресс",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/15_.mp3"
+        },
+        {
+            "id": 17,
+            "frontCard": "magnet",
+            "backCard": "магнит",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/16_.mp3"
+        },
+        {
+            "id": 18,
+            "frontCard": "weather",
+            "backCard": "Погода",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/17_.mp3"
+        },
+        {
+            "id": 19,
+            "frontCard": "evaluation",
+            "backCard": "оценка",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/18_.mp3"
+        },
+        {
+            "id": 20,
+            "frontCard": "drydock",
+            "backCard": "сухой док",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/19_ .mp3"
+        },
+        {
+            "id": 21,
+            "frontCard": "exchangers",
+            "backCard": "обменники",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/20_.mp3"
+        },
+        {
+            "id": 22,
+            "frontCard": "acquittals",
+            "backCard": "оправдательные приговоры",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/21_ .mp3"
+        },
+        {
+            "id": 23,
+            "frontCard": "shirts",
+            "backCard": "рубашки",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/22_.mp3"
+        },
+        {
+            "id": 24,
+            "frontCard": "ax",
+            "backCard": "топор",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/23_.mp3"
+        },
+        {
+            "id": 25,
+            "frontCard": "thresholds",
+            "backCard": "пороги",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/24_.mp3"
+        },
+        {
+            "id": 26,
+            "frontCard": "ballast",
+            "backCard": "балласт",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/25_.mp3"
+        },
+        {
+            "id": 27,
+            "frontCard": "tunes",
+            "backCard": "мелодии",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/26_.mp3"
+        },
+        {
+            "id": 28,
+            "frontCard": "stock",
+            "backCard": "склад",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/27_.mp3"
+        },
+        {
+            "id": 29,
+            "frontCard": "audits",
+            "backCard": "аудиты",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/28_.mp3"
+        },
+        {
+            "id": 30,
+            "frontCard": "alignments",
+            "backCard": "выравнивания",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/29_.mp3"
+        },
+        {
+            "id": 31,
+            "frontCard": "potatos",
+            "backCard": "картофель",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/30_.mp3"
+        },
+        {
+            "id": 32,
+            "frontCard": "leaders",
+            "backCard": "лидеры",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/31_.mp3"
+        },
+        {
+            "id": 33,
+            "frontCard": "instructions",
+            "backCard": "инструкции",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/32_.mp3"
+        },
+        {
+            "id": 34,
+            "frontCard": "tires",
+            "backCard": "шины",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/33_.mp3"
+        },
+        {
+            "id": 35,
+            "frontCard": "smiles",
+            "backCard": "улыбается",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/34_.mp3"
+        },
+        {
+            "id": 36,
+            "frontCard": "names",
+            "backCard": "имена",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/35_.mp3"
+        },
+        {
+            "id": 37,
+            "frontCard": "authorities",
+            "backCard": "органы власти",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/36_ .mp3"
+        },
+        {
+            "id": 38,
+            "frontCard": "shelters",
+            "backCard": "приюты",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/37_.mp3"
+        },
+        {
+            "id": 39,
+            "frontCard": "guns",
+            "backCard": "пушки",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/38_.mp3"
+        },
+        {
+            "id": 40,
+            "frontCard": "choice",
+            "backCard": "выбор",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/39_.mp3"
+        },
+        {
+            "id": 41,
+            "frontCard": "tips",
+            "backCard": "чаевые",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/40_.mp3"
+        },
+        {
+            "id": 42,
+            "frontCard": "boxcar",
+            "backCard": "товарный вагон",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/41_ .mp3"
+        },
+        {
+            "id": 43,
+            "frontCard": "sediments",
+            "backCard": "отложения",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/42_.mp3"
+        },
+        {
+            "id": 44,
+            "frontCard": "ports",
+            "backCard": "порты",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/43_.mp3"
+        },
+        {
+            "id": 45,
+            "frontCard": "tolerance",
+            "backCard": "толерантность",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/44_.mp3"
+        },
+        {
+            "id": 46,
+            "frontCard": "indicators",
+            "backCard": "индикаторы",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/45_.mp3"
+        },
+        {
+            "id": 47,
+            "frontCard": "drinks",
+            "backCard": "напитки",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/46_.mp3"
+        },
+        {
+            "id": 48,
+            "frontCard": "block",
+            "backCard": "блокировать",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/47_.mp3"
+        },
+        {
+            "id": 49,
+            "frontCard": "turbines",
+            "backCard": "турбины",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/48_.mp3"
+        },
+        {
+            "id": 50,
+            "frontCard": "forecastle",
+            "backCard": "бак",
+            "target_language": "ru",
+            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/ru/49_.mp3"
         }
     ]
 }

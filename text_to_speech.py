@@ -42,7 +42,11 @@ class TextToSpeech():
         )
 
         # The response's audio_content is binary.
-        filename = '{}_{}.mp3'.format(id, word)
+        import unicodedata
+        normalized_word_bytes = unicodedata.normalize(
+            'NFKD', word).encode('ascii', 'ignore')
+        normalized_word = normalized_word_bytes.decode('utf-8')
+        filename = '{}_{}.mp3'.format(id, normalized_word)
         dirname = os.path.join(
             os.path.dirname(__file__), 'media', self.target_language)
 
@@ -55,6 +59,3 @@ class TextToSpeech():
             out.write(response.audio_content)
             print('Audio content written to file "{}"'.format(path_to_file))
         return path_to_file
-
-
-# TextToSpeech(1, 'environment', 'en-US').convert()

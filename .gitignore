@@ -4,3 +4,5 @@
 *pyc*
 __pycache__
 ./api/migrations*
+media
+db.json

@@ -3,353 +3,453 @@
     "translations": [
         {
             "id": 1,
-            "frontCard": "acquisitions",
-            "backCard": "收购",
+            "frontCard": "deck",
+            "backCard": "甲板",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906539/en-US/deck.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906540/zh/%E7%94%B2%E6%9D%BF.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/0_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 2,
-            "frontCard": "beats",
-            "backCard": "节拍",
+            "frontCard": "loaf",
+            "backCard": "面包",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906542/en-US/loaf.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906542/zh/%E9%9D%A2%E5%8C%85.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/1_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 3,
-            "frontCard": "consequence",
-            "backCard": "结果",
+            "frontCard": "mattress",
+            "backCard": "床垫",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906544/en-US/mattress.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906545/zh/%E5%BA%8A%E5%9E%AB.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/2_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 4,
-            "frontCard": "image",
-            "backCard": "图像",
+            "frontCard": "commanders",
+            "backCard": "指挥官",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906546/en-US/commanders.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906547/zh/%E6%8C%87%E6%8C%A5%E5%AE%98.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/3_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 5,
-            "frontCard": "solution",
-            "backCard": "解决方案",
+            "frontCard": "guilt",
+            "backCard": "有罪",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906548/en-US/guilt.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906549/zh/%E6%9C%89%E7%BD%AA.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/4_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 6,
-            "frontCard": "carbons",
-            "backCard": "碳",
+            "frontCard": "gold",
+            "backCard": "金子",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906550/en-US/gold.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906551/zh/%E9%87%91%E5%AD%90.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/5_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 7,
-            "frontCard": "checkpoint",
-            "backCard": "检查站",
+            "frontCard": "foot",
+            "backCard": "脚",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906552/en-US/foot.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906553/zh/%E8%84%9A.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/6_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 8,
-            "frontCard": "corners",
-            "backCard": "角落",
+            "frontCard": "pain",
+            "backCard": "疼痛",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906554/en-US/pain.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906555/zh/%E7%96%BC%E7%97%9B.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/7_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 9,
-            "frontCard": "alcoholism",
-            "backCard": "酗酒",
+            "frontCard": "launches",
+            "backCard": "发射",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906556/en-US/launches.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906557/zh/%E5%8F%91%E5%B0%84.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/8_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 10,
-            "frontCard": "contracts",
-            "backCard": "合同",
+            "frontCard": "medals",
+            "backCard": "奖牌",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906558/en-US/medals.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906559/zh/%E5%A5%96%E7%89%8C.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/9_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 11,
-            "frontCard": "memorandums",
-            "backCard": "备忘录",
+            "frontCard": "budgets",
+            "backCard": "预算",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906560/en-US/budgets.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906561/zh/%E9%A2%84%E7%AE%97.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/10_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 12,
-            "frontCard": "indicate",
-            "backCard": "表明",
+            "frontCard": "bill",
+            "backCard": "账单",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906562/en-US/bill.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906563/zh/%E8%B4%A6%E5%8D%95.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/11_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 13,
-            "frontCard": "generals",
-            "backCard": "将军",
+            "frontCard": "sill",
+            "backCard": "窗台",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906564/en-US/sill.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906565/zh/%E7%AA%97%E5%8F%B0.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/12_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 14,
-            "frontCard": "guests",
-            "backCard": "客人",
+            "frontCard": "collar",
+            "backCard": "衣领",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906566/en-US/collar.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906567/zh/%E8%A1%A3%E9%A2%86.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/13_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 15,
-            "frontCard": "scraps",
-            "backCard": "下脚料",
+            "frontCard": "separation",
+            "backCard": "分离",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906568/en-US/separation.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906569/zh/%E5%88%86%E7%A6%BB.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/14_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 16,
-            "frontCard": "churn",
-            "backCard": "搅拌",
+            "frontCard": "torpedoes",
+            "backCard": "鱼雷",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906570/en-US/torpedoes.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906571/zh/%E9%B1%BC%E9%9B%B7.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/15_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 17,
-            "frontCard": "rear",
-            "backCard": "后部",
+            "frontCard": "verses",
+            "backCard": "诗句",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906572/en-US/verses.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906572/zh/%E8%AF%97%E5%8F%A5.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/16_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 18,
-            "frontCard": "leave",
-            "backCard": "离开",
+            "frontCard": "service",
+            "backCard": "服务",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906574/en-US/service.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906574/zh/%E6%9C%8D%E5%8A%A1.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/17_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 19,
-            "frontCard": "sundays",
-            "backCard": "星期日",
+            "frontCard": "signs",
+            "backCard": "迹象",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906576/en-US/signs.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906576/zh/%E8%BF%B9%E8%B1%A1.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/18_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 20,
-            "frontCard": "routine",
-            "backCard": "常规",
+            "frontCard": "basements",
+            "backCard": "地下室",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906578/en-US/basements.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906579/zh/%E5%9C%B0%E4%B8%8B%E5%AE%A4.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/19_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 21,
-            "frontCard": "lips",
-            "backCard": "嘴唇",
+            "frontCard": "volt",
+            "backCard": "伏特",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906580/en-US/volt.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906581/zh/%E4%BC%8F%E7%89%B9.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/20_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 22,
-            "frontCard": "hate",
-            "backCard": "恨",
+            "frontCard": "steeples",
+            "backCard": "尖塔",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906582/en-US/steeples.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906582/zh/%E5%B0%96%E5%A1%94.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/21_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 23,
-            "frontCard": "passenger",
-            "backCard": "乘客",
+            "frontCard": "selectors",
+            "backCard": "选择器",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906584/en-US/selectors.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906585/zh/%E9%80%89%E6%8B%A9%E5%99%A8.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/22_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 24,
-            "frontCard": "advertisements",
-            "backCard": "广告",
+            "frontCard": "investment",
+            "backCard": "投资",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906586/en-US/investment.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906586/zh/%E6%8A%95%E8%B5%84.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/23_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 25,
-            "frontCard": "rags",
-            "backCard": "破布",
+            "frontCard": "attorneys",
+            "backCard": "律师",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906588/en-US/attorneys.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906588/zh/%E5%BE%8B%E5%B8%88.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/24_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 26,
-            "frontCard": "cannon",
-            "backCard": "大炮",
+            "frontCard": "milestone",
+            "backCard": "里程碑",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906589/en-US/milestone.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906590/zh/%E9%87%8C%E7%A8%8B%E7%A2%91.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/25_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 27,
-            "frontCard": "specialization",
-            "backCard": "专业化",
+            "frontCard": "accumulations",
+            "backCard": "积累",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906591/en-US/accumulations.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906592/zh/%E7%A7%AF%E7%B4%AF.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/26_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 28,
-            "frontCard": "abuses",
-            "backCard": "滥用",
+            "frontCard": "course",
+            "backCard": "课程",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906594/en-US/course.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906594/zh/%E8%AF%BE%E7%A8%8B.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/27_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 29,
-            "frontCard": "receipt",
-            "backCard": "收据",
+            "frontCard": "filter",
+            "backCard": "筛选",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906596/en-US/filter.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906597/zh/%E7%AD%9B%E9%80%89.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/28_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 30,
-            "frontCard": "strokes",
-            "backCard": "笔画",
+            "frontCard": "wrecks",
+            "backCard": "残骸",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906598/en-US/wrecks.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906599/zh/%E6%AE%8B%E9%AA%B8.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/29_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 31,
-            "frontCard": "topic",
-            "backCard": "话题",
+            "frontCard": "adjectives",
+            "backCard": "形容词",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906600/en-US/adjectives.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906601/zh/%E5%BD%A2%E5%AE%B9%E8%AF%8D.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/30_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 32,
-            "frontCard": "pegs",
-            "backCard": "钉子",
+            "frontCard": "offer",
+            "backCard": "提供",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906602/en-US/offer.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906602/zh/%E6%8F%90%E4%BE%9B.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/31_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 33,
-            "frontCard": "propose",
-            "backCard": "提供",
+            "frontCard": "clouds",
+            "backCard": "云",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906604/en-US/clouds.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906604/zh/%E4%BA%91.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/32_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 34,
-            "frontCard": "workings",
-            "backCard": "运作",
+            "frontCard": "inclination",
+            "backCard": "倾角",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906605/en-US/inclination.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906606/zh/%E5%80%BE%E8%A7%92.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/33_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 35,
-            "frontCard": "authority",
-            "backCard": "权威",
+            "frontCard": "rest",
+            "backCard": "休息",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906608/en-US/rest.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906608/zh/%E4%BC%91%E6%81%AF.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/34_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 36,
-            "frontCard": "effects",
-            "backCard": "效果",
+            "frontCard": "restaurants",
+            "backCard": "餐馆",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906610/en-US/restaurants.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906611/zh/%E9%A4%90%E9%A6%86.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/35_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 37,
-            "frontCard": "end",
-            "backCard": "结尾",
+            "frontCard": "attacker",
+            "backCard": "攻击者",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906612/en-US/attacker.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906613/zh/%E6%94%BB%E5%87%BB%E8%80%85.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/36_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 38,
-            "frontCard": "toes",
-            "backCard": "脚趾",
+            "frontCard": "coals",
+            "backCard": "煤",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906614/en-US/coals.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906615/zh/%E7%85%A4.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/37_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 39,
-            "frontCard": "tap",
-            "backCard": "轻敲",
+            "frontCard": "tracks",
+            "backCard": "曲目",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906617/en-US/tracks.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906618/zh/%E6%9B%B2%E7%9B%AE.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/38_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 40,
-            "frontCard": "jacks",
-            "backCard": "千斤顶",
+            "frontCard": "users",
+            "backCard": "用户",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906619/en-US/users.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906620/zh/%E7%94%A8%E6%88%B7.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/39_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 41,
-            "frontCard": "mugs",
-            "backCard": "杯子",
+            "frontCard": "business",
+            "backCard": "商业",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906622/en-US/business.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906622/zh/%E5%95%86%E4%B8%9A.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/40_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 42,
-            "frontCard": "sheeting",
-            "backCard": "片材",
+            "frontCard": "foreground",
+            "backCard": "前景",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906624/en-US/foreground.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906624/zh/%E5%89%8D%E6%99%AF.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/41_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 43,
-            "frontCard": "primes",
-            "backCard": "奖金",
+            "frontCard": "crewmembers",
+            "backCard": "机组人员",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906626/en-US/crewmembers.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906626/zh/%E6%9C%BA%E7%BB%84%E4%BA%BA%E5%91%98.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/42_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 44,
-            "frontCard": "diamonds",
-            "backCard": "钻石",
+            "frontCard": "toe",
+            "backCard": "请",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906628/en-US/toe.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906628/zh/%E8%AF%B7.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/43_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 45,
-            "frontCard": "charts",
-            "backCard": "图表",
+            "frontCard": "smokes",
+            "backCard": "抽烟",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625905988/en-US/smokes.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906630/zh/%E6%8A%BD%E7%83%9F.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/44_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 46,
-            "frontCard": "leaf",
-            "backCard": "叶子",
+            "frontCard": "bearings",
+            "backCard": "轴承",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906632/en-US/bearings.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906632/zh/%E8%BD%B4%E6%89%BF.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/45_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 47,
-            "frontCard": "date",
-            "backCard": "日期",
+            "frontCard": "marches",
+            "backCard": "游行",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906634/en-US/marches.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906634/zh/%E6%B8%B8%E8%A1%8C.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/46_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 48,
-            "frontCard": "programmers",
-            "backCard": "程序员",
+            "frontCard": "bends",
+            "backCard": "弯曲",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906636/en-US/bends.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906637/zh/%E5%BC%AF%E6%9B%B2.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/47_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 49,
-            "frontCard": "smell",
-            "backCard": "闻",
+            "frontCard": "terminators",
+            "backCard": "终结者",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906638/en-US/terminators.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906639/zh/%E7%BB%88%E7%BB%93%E8%80%85.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/48_.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 50,
-            "frontCard": "parties",
-            "backCard": "派对",
+            "frontCard": "tongues",
+            "backCard": "方言",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906640/en-US/tongues.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625906641/zh/%E6%96%B9%E8%A8%80.mp3",
             "target_language": "zh",
-            "pronunciation": "/Volumes/Samsung_T3/Google_Drive/04_SCRIPTS_CODES/000_projects/words_translation/media/zh/49_.mp3"
+            "source_language": "en-US"
         }
     ]
 }

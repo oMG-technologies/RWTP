@@ -3,13 +3,24 @@ from typing import List, Dict
 from text_to_speech import TextToSpeech
 import os
 
+import django
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.exceptions import Error
+
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "word_translation.settings")
+
+django.setup()
+
 
 class WordsTranslation():
     def __init__(self, target_language='pl', count=2):
         self.rw = RandomWords()
         self.target_language = target_language
         self.count = count
-        self.tts = TextToSpeech(self.target_language)
+        self.tts = TextToSpeech()
 
     def get_random_words(self) -> List[str]:
         '''Get count ammount of random English words[summary]
@@ -45,7 +56,8 @@ class WordsTranslation():
 
             e.g.
             >>> WordsTranslation(target_language='pl', count=1).translate_text('hill')
-            {'translatedText': 'wzgórze', 'detectedSourceLanguage': 'en', 'input': 'hill'}
+            {'translatedText': 'wzgórze',
+                'detectedSourceLanguage': 'en', 'input': 'hill'}
 
         '''
         import six
@@ -60,6 +72,7 @@ class WordsTranslation():
         # will return a sequence of results for each text.
         result = translate_client.translate(
             text, target_language=self.target_language)
+        print('{} translation finshed with no errors'.format(text))
         return result
 
     def create_json(self) -> None:
@@ -106,7 +119,7 @@ class WordsTranslation():
     def create_inner_dict(
             self,
             id: int,
-            word: str) -> Dict[str, str]:
+            frontCard: str) -> Dict[str, str]:
         ''' Create an inner dictionary with info about id, frontCard,
         backCard and target_language
 
@@ -114,7 +127,7 @@ class WordsTranslation():
         ----------
         id : int
             unique integer id
-        word : str
+        frontCard : str
             a word to be translated
 
         Returns
@@ -131,17 +144,65 @@ class WordsTranslation():
 
         '''
         translation_dict = {}
-        translation = self.translate_text(word)
-        translated_word = translation['translatedText']
-        pronunciation = self.tts.get_pronunciation(id, translated_word)
+        translation_response = self.translate_text(frontCard)
+        backCard = translation_response['translatedText']
+
+        pronunciation_frontCard = self.get_pronunciation_link(
+            id,
+            frontCard,
+            'en-US')
+
+        pronunciation_backCard = self.get_pronunciation_link(
+            id,
+            backCard,
+            self.target_language)
 
         # update dict
         translation_dict['id'] = id + 1
-        translation_dict['frontCard'] = word
-        translation_dict['backCard'] = translated_word
+        translation_dict['frontCard'] = frontCard
+        translation_dict['backCard'] = backCard
+        translation_dict['pronunciation_frontCard'] = pronunciation_frontCard
+        translation_dict['pronunciation_backCard'] = pronunciation_backCard
         translation_dict['target_language'] = self.target_language
-        translation_dict['pronunciation'] = pronunciation
+        translation_dict['source_language'] = 'en-US'
         return translation_dict
+
+    def get_pronunciation_link(self, id, word, language_code):
+        path_to_pronunciation_word = self.tts.get_pronunciation(
+            id, word, language_code)
+        remote_folder = language_code + '/'
+        pronunciation = self.upload_mp3(word,
+                                        path_to_pronunciation_word,
+                                        remote_folder)
+        return pronunciation
+
+    def upload_mp3(
+            self,
+            public_id,
+            path_to_pronunciation_local,
+            remote_folder):
+
+        # Specify cloudinary configuration
+        cloudinary.config(
+            cloud_name=os.environ['cloudinary_CLOUD_NAME'],
+            api_key=os.environ['cloudinary_API_KEY'],
+            api_secret=os.environ['cloudinary_API_SECRET'],
+            secure=True,
+        )
+        try:
+            response = cloudinary.uploader.upload(path_to_pronunciation_local,
+                                                  folder=remote_folder,
+                                                  public_id=public_id,
+                                                  overwrite=True,
+                                                  resource_type='raw')
+        except Error:
+            response = cloudinary.uploader.upload(path_to_pronunciation_local,
+                                                  folder=remote_folder,
+                                                  overwrite=True,
+                                                  resource_type='raw')
+        url = response['url']
+        print('Link to audio content succesfully generated')
+        return url
 
 
 if __name__ == '__main__':

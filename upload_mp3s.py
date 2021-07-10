@@ -10,7 +10,7 @@ django.setup()
 
 
 def upload():
-    from api.models import Translation
+    # from api.models import Translation
 
     cloudinary.config(
         cloud_name=os.environ['cloudinary_CLOUD_NAME'],
@@ -22,9 +22,16 @@ def upload():
     path_to_file = os.path.join(os.path.dirname(
         __file__), 'media', 'pl', '49_garsc.mp3')
 
-    t = Translation.objects.get(backCard__contains='garść')
-    t.save()
-    print(t.pronunciation)
+    response = cloudinary.uploader.upload(path_to_file,
+                                          folder="pl/",
+                                          overwrite=True,
+                                          resource_type='raw')
+    url = response['url']
+    return url
+
+    # t = Translation.objects.get(backCard__contains='garść')
+    # t.save()
+    # print(t.pronunciation)
 
 
-# def get_all
+upload()

@@ -116,7 +116,7 @@ class WordsTranslation():
     def create_inner_dict(
             self,
             id: int,
-            word: str) -> Dict[str, str]:
+            frontCard: str) -> Dict[str, str]:
         ''' Create an inner dictionary with info about id, frontCard,
         backCard and target_language
 
@@ -124,7 +124,7 @@ class WordsTranslation():
         ----------
         id : int
             unique integer id
-        word : str
+        frontCard : str
             a word to be translated
 
         Returns
@@ -141,21 +141,24 @@ class WordsTranslation():
 
         '''
         translation_dict = {}
-        translation = self.translate_text(word)
-        translated_word = translation['translatedText']
-        pronunciation = self.tts.get_pronunciation(id, translated_word)
+        translation_response = self.translate_text(frontCard)
+        backCard = translation_response['translatedText']
+        path_to_pronunciation_backCard = self.tts.get_pronunciation(
+            id, backCard)
+        pronunciation_backCard = self.upload_mp3(
+            path_to_pronunciation_backCard)
 
         # update dict
         translation_dict['id'] = id + 1
-        translation_dict['frontCard'] = word
-        translation_dict['backCard'] = translated_word
+        translation_dict['frontCard'] = frontCard
+        translation_dict['backCard'] = backCard
         translation_dict['target_language'] = self.target_language
-        translation_dict['pronunciation'] = pronunciation
+        translation_dict['pronunciation_backCard'] = pronunciation_backCard
         return translation_dict
 
-    def upload_mp3(self):
-        from api.models import Translation
+    def upload_mp3(self, path_to_pronunciation_local):
 
+        # Specify cloudinary configuration
         cloudinary.config(
             cloud_name=os.environ['cloudinary_CLOUD_NAME'],
             api_key=os.environ['cloudinary_API_KEY'],
@@ -163,14 +166,16 @@ class WordsTranslation():
             secure=True,
         )
 
-        path_to_file = os.path.join(os.path.dirname(
-            __file__), 'media', 'pl', '49_garsc.mp3')
+        folder = self.target_language + '/'
 
-        t = Translation.objects.get(backCard__contains='garść')
-        t.save()
-        print(t.pronunciation)
+        response = cloudinary.uploader.upload(path_to_pronunciation_local,
+                                              folder=folder,
+                                              overwrite=True,
+                                              resource_type='raw')
+        url = response['url']
+        return url
 
 
 if __name__ == '__main__':
     # languages_list = ['pl', 'de', 'fr, 'es', 'ru', 'it', 'sv', 'zh']
-    WordsTranslation(target_language='zh', count=50).create_json()
+    WordsTranslation(target_language='pl', count=2).create_json()

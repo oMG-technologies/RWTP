@@ -19,7 +19,7 @@ class WordsTranslation():
         self.rw = RandomWords()
         self.target_language = target_language
         self.count = count
-        self.tts = TextToSpeech(self.target_language)
+        self.tts = TextToSpeech()
 
     def get_random_words(self) -> List[str]:
         '''Get count ammount of random English words[summary]
@@ -55,7 +55,8 @@ class WordsTranslation():
 
             e.g.
             >>> WordsTranslation(target_language='pl', count=1).translate_text('hill')
-            {'translatedText': 'wzgórze', 'detectedSourceLanguage': 'en', 'input': 'hill'}
+            {'translatedText': 'wzgórze',
+                'detectedSourceLanguage': 'en', 'input': 'hill'}
 
         '''
         import six
@@ -143,20 +144,37 @@ class WordsTranslation():
         translation_dict = {}
         translation_response = self.translate_text(frontCard)
         backCard = translation_response['translatedText']
-        path_to_pronunciation_backCard = self.tts.get_pronunciation(
-            id, backCard)
-        pronunciation_backCard = self.upload_mp3(
-            path_to_pronunciation_backCard)
+
+        pronunciation_frontCard = self.get_pronunciation_link(
+            id,
+            frontCard,
+            'en-US')
+
+        pronunciation_backCard = self.get_pronunciation_link(
+            id,
+            backCard,
+            self.target_language)
 
         # update dict
         translation_dict['id'] = id + 1
         translation_dict['frontCard'] = frontCard
         translation_dict['backCard'] = backCard
-        translation_dict['target_language'] = self.target_language
+        translation_dict['pronunciation_frontCard'] = pronunciation_frontCard
         translation_dict['pronunciation_backCard'] = pronunciation_backCard
+        translation_dict['target_language'] = self.target_language
+        translation_dict['source_language'] = 'en-US'
         return translation_dict
 
-    def upload_mp3(self, path_to_pronunciation_local):
+    def get_pronunciation_link(self, id, word, language_code):
+        path_to_pronunciation_word = self.tts.get_pronunciation(
+            id, word, language_code)
+        remote_folder = language_code + '/'
+        pronunciation = self.upload_mp3(word,
+                                        path_to_pronunciation_word,
+                                        remote_folder)
+        return pronunciation
+
+    def upload_mp3(self, public_id, path_to_pronunciation_local, remote_folder):
 
         # Specify cloudinary configuration
         cloudinary.config(
@@ -166,10 +184,9 @@ class WordsTranslation():
             secure=True,
         )
 
-        folder = self.target_language + '/'
-
         response = cloudinary.uploader.upload(path_to_pronunciation_local,
-                                              folder=folder,
+                                              folder=remote_folder,
+                                              public_id=public_id,
                                               overwrite=True,
                                               resource_type='raw')
         url = response['url']

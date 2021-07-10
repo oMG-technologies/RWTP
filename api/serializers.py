@@ -12,8 +12,10 @@ class TranslationSerializers(serializers.ModelSerializer):
         fields = ['id',
                   'frontCard',
                   'backCard',
+                  'pronunciation_frontCard',
+                  'pronunciation_backCard',
                   'target_language',
-                  'pronunciation'
+                  'source_language',
                   ]
         depth = 3
 
@@ -32,13 +34,18 @@ class TranslationSerializers(serializers.ModelSerializer):
         _id = data['id']
         frontCard = data['frontCard']
         backCard = data['backCard']
+        pronunciation_frontCard = data['pronunciation_frontCard']
+        pronunciation_backCard = data['pronunciation_backCard']
         target_language = data['target_language']
-        pronunciation = data['pronunciation']
+        source_language = data['source_language']
         updated_data = {'id': _id,
                         'frontCard': frontCard,
                         'backCard': backCard,
-                        'target_language': target_language,
-                        'pronunciation': pronunciation}
+                        'pronunciation_frontCard': pronunciation_frontCard,
+                        'pronunciation_backCard': pronunciation_backCard,
+                        'frontCard_language': source_language,
+                        'backCard_language': target_language,
+                        }
         return updated_data
 
 

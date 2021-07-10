@@ -3,17 +3,21 @@
     "translations": [
         {
             "id": 1,
-            "frontCard": "varieties",
-            "backCard": "odmiany",
+            "frontCard": "regulator",
+            "backCard": "regulator",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902264/en-US/regulator.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902265/pl/regulator.mp3",
             "target_language": "pl",
-            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625900331/pl/ac8fvz47tktwrw9zhimo.mp3"
+            "source_language": "en-US"
         },
         {
             "id": 2,
-            "frontCard": "peaks",
-            "backCard": "powinien",
+            "frontCard": "equations",
+            "backCard": "równania",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902266/en-US/equations.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902267/pl/r%C3%B3wnania.mp3",
             "target_language": "pl",
-            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625900332/pl/zy3wxcl67jtahk95bnih.mp3"
+            "source_language": "en-US"
         }
     ]
 }

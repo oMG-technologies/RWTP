@@ -2,12 +2,7 @@ import os
 
 
 class TextToSpeech():
-    def __init__(
-            self,
-            target_language):
-        self.target_language = target_language
-
-    def get_pronunciation(self, id, word):
+    def get_pronunciation(self, id, word, target_language):
         from google.cloud import texttospeech
 
         ''' Synthesizes speech from the input string of text or ssml.
@@ -26,7 +21,7 @@ class TextToSpeech():
         # Build the voice request, select the language code ("en-US") and the ssml
         # voice gender ("neutral")
         voice = texttospeech.VoiceSelectionParams(
-            language_code=self.target_language,
+            language_code=target_language,
             ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
         )
 
@@ -48,7 +43,7 @@ class TextToSpeech():
         normalized_word = normalized_word_bytes.decode('utf-8')
         filename = '{}_{}.mp3'.format(id, normalized_word)
         dirname = os.path.join(
-            os.path.dirname(__file__), 'media', self.target_language)
+            os.path.dirname(__file__), 'media', target_language)
 
         # create a language dir if necessary
         if not os.path.isdir((dirname)):

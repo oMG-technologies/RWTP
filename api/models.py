@@ -20,8 +20,10 @@ class Translation(models.Model):
     i = IntegerField()
     frontCard = models.CharField(max_length=40)
     backCard = models.CharField(max_length=40)
+    source_language = models.CharField(max_length=10)
     target_language = models.CharField(max_length=10)
-    pronunciation = models.CharField(max_length=200)
+    pronunciation_frontCard = models.CharField(max_length=200)
+    pronunciation_backCard = models.CharField(max_length=200)
 
     class Meta:
         verbose_name_plural = 'Translations'
@@ -60,9 +62,10 @@ def populate_db() -> None:
         i = translation['id']
         frontCard = translation['frontCard']
         backCard = translation['backCard']
+        pronunciation_frontCard = translation['pronunciation_frontCard']
+        pronunciation_backCard = translation['pronunciation_backCard']
         target_language = translation['target_language']
-        pronunciation_full_path = translation['pronunciation']
-        pronunciation = '/'.join(pronunciation_full_path.split('/')[-2:])
+        source_language = translation['source_language']
 
         # make sure duplicates will not be generated
         if not Translation.objects.filter(translation_id=conversion,
@@ -72,8 +75,10 @@ def populate_db() -> None:
                 i=i,
                 frontCard=frontCard,
                 backCard=backCard,
+                pronunciation_frontCard=pronunciation_frontCard,
+                pronunciation_backCard=pronunciation_backCard,
+                source_language=source_language,
                 target_language=target_language,
-                pronunciation=pronunciation
             )
 
 

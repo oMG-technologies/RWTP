@@ -34,15 +34,21 @@ You should receive a response like that
 [
     {
         "id": 1,
-        "frontCard": "upside",
-        "backCard": "do góry",
-        "target_language": "pl"
+        "frontCard": "adviser",
+        "backCard": "doradca",
+        "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625904765/en-US/adviser.mp3",
+        "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625904766/pl/doradca.mp3",
+        "frontCard_language": "en-US",
+        "backCard_language": "pl"
     },
     {
         "id": 2,
-        "frontCard": "bear",
-        "backCard": "Niedźwiedź",
-        "target_language": "pl"
+        "frontCard": "personality",
+        "backCard": "osobowość",
+        "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625904767/en-US/personality.mp3",
+        "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625904768/pl/osobowo%C5%9B%C4%87.mp3",
+        "frontCard_language": "en-US",
+        "backCard_language": "pl"
     },
     ...
     {

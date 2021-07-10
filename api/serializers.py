@@ -56,8 +56,11 @@ class SingleTranslationSerializers(serializers.ModelSerializer):
         fields = ['id',
                   'frontCard',
                   'backCard',
+                  'pronunciation_frontCard',
+                  'pronunciation_backCard',
+                  'source_language',
                   'target_language',
-                  'pronunciation']
+                  ]
 
 
 class LanguageSerializers(serializers.ModelSerializer):

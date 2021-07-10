@@ -5,3 +5,4 @@
 __pycache__
 ./api/migrations*
 media
+db.json

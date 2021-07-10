@@ -7,6 +7,7 @@ import django
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from cloudinary.exceptions import Error
 
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "word_translation.settings")
@@ -71,6 +72,7 @@ class WordsTranslation():
         # will return a sequence of results for each text.
         result = translate_client.translate(
             text, target_language=self.target_language)
+        print('{} translation finshed with no errors'.format(text))
         return result
 
     def create_json(self) -> None:
@@ -174,7 +176,11 @@ class WordsTranslation():
                                         remote_folder)
         return pronunciation
 
-    def upload_mp3(self, public_id, path_to_pronunciation_local, remote_folder):
+    def upload_mp3(
+            self,
+            public_id,
+            path_to_pronunciation_local,
+            remote_folder):
 
         # Specify cloudinary configuration
         cloudinary.config(
@@ -183,16 +189,22 @@ class WordsTranslation():
             api_secret=os.environ['cloudinary_API_SECRET'],
             secure=True,
         )
-
-        response = cloudinary.uploader.upload(path_to_pronunciation_local,
-                                              folder=remote_folder,
-                                              public_id=public_id,
-                                              overwrite=True,
-                                              resource_type='raw')
+        try:
+            response = cloudinary.uploader.upload(path_to_pronunciation_local,
+                                                  folder=remote_folder,
+                                                  public_id=public_id,
+                                                  overwrite=True,
+                                                  resource_type='raw')
+        except Error:
+            response = cloudinary.uploader.upload(path_to_pronunciation_local,
+                                                  folder=remote_folder,
+                                                  overwrite=True,
+                                                  resource_type='raw')
         url = response['url']
+        print('Link to audio content succesfully generated')
         return url
 
 
 if __name__ == '__main__':
     # languages_list = ['pl', 'de', 'fr, 'es', 'ru', 'it', 'sv', 'zh']
-    WordsTranslation(target_language='pl', count=2).create_json()
+    WordsTranslation(target_language='zh', count=50).create_json()

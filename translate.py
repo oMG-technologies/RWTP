@@ -78,6 +78,7 @@ class WordsTranslation():
     def create_json(self) -> None:
         '''Create a db.json file which will be used to populate 
         a production DB '''
+
         import json
         json_dict = {}
         json_dict['conversion'] = 'en-{}'.format(self.target_language)

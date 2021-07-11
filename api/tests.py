@@ -21,17 +21,17 @@ class APIResponseTestCase(TestCase):
                 print('! {} test not passed'.format(language))
                 raise AssertionError
 
-    # def test_single_translation_endpoint_content(self):
-    #     languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
-    #     for language in languages_list:
-    #         url = 'http://127.0.0.1:8000/translation/?conversion=en-{}'.format(
-    #             language)
-    #         response = requests.get(url)
-    #         try:
-    #             self.assertNotEqual(response.text, '[]')
-    #         except AssertionError:
-    #             print('    ! x={} test not passed'.format(language))
-    #             raise AssertionError
+    def test_single_translation_endpoint_content(self):
+        languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
+        for language in languages_list:
+            url = 'http://127.0.0.1:8000/translation/?conversion=en-{}'.format(
+                language)
+            response = requests.get(url)
+            try:
+                self.assertNotEqual(response.text, '[]')
+            except AssertionError:
+                print('    ! x={} test not passed'.format(language))
+                raise AssertionError
 
     def test_single_translation_content_id(self):
         languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']

@@ -34,7 +34,7 @@ class APIResponseTestCase(TestCase):
                 print('    ! x={} test not passed'.format(language))
                 raise AssertionError
 
-    def test_single_translation_content_id(self):
+    def test_single_translation_content_inner(self):
         # languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
         languages_list = ['pl']
         for language in languages_list:
@@ -48,6 +48,18 @@ class APIResponseTestCase(TestCase):
                         'source_language', 'target_language']
                 for key in keys:
                     self.assertIn(key, inner_dict)
+
+    def test_single_translation_content_inner_count(self):
+        # languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
+        languages_list = ['pl']
+        for language in languages_list:
+            url = 'http://127.0.0.1:8000/translation/?conversion=en-{}'.format(
+                language)
+            response = requests.get(url)
+            if response.json():
+                inner_dict = response.json()[0]
+                n_inner_dict = len(inner_dict)
+                self.assertEqual(n_inner_dict, 7)
 
     def test_language_endpoint_response(self):
         response = requests.get('http://127.0.0.1:8000/language/')

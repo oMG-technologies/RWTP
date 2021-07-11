@@ -9,7 +9,6 @@ import cloudinary.uploader
 import cloudinary.api
 from cloudinary.exceptions import Error
 
-import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "word_translation.settings")
 
 django.setup()

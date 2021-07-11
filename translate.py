@@ -69,13 +69,15 @@ class WordsTranslation():
 
         # Text can also be a sequence of strings, in which case this method
         # will return a sequence of results for each text.
+
         result = translate_client.translate(
             text, target_language=self.target_language)
         print('{} translation finshed with no errors'.format(text))
         return result
 
     def create_json(self) -> None:
-        '''Create a db.json file which will be used to populate DB '''
+        '''Create a db.json file which will be used to populate 
+        a production DB '''
         import json
         json_dict = {}
         json_dict['conversion'] = 'en-{}'.format(self.target_language)
@@ -125,7 +127,7 @@ class WordsTranslation():
         Parameters
         ----------
         id : int
-            unique integer id
+            unique integer for each translated word
         frontCard : str
             a word to be translated
 
@@ -156,7 +158,7 @@ class WordsTranslation():
             backCard,
             self.target_language)
 
-        # update dict
+        # update translation_dict
         translation_dict['id'] = id + 1
         translation_dict['frontCard'] = frontCard
         translation_dict['backCard'] = backCard
@@ -164,9 +166,32 @@ class WordsTranslation():
         translation_dict['pronunciation_backCard'] = pronunciation_backCard
         translation_dict['target_language'] = self.target_language
         translation_dict['source_language'] = 'en-US'
+
         return translation_dict
 
-    def get_pronunciation_link(self, id, word, language_code):
+    def get_pronunciation_link(
+            self,
+            id: int,
+            word: str,
+            language_code: str) -> str:
+        ''' Prepare input to get a link to uploaded .mp3 file (Cloudinary)
+
+        Parameters
+        ----------
+        id : int
+            unique integer for each translated word
+        word : str
+            an English word to be translated
+        language_code : str
+            the same code as the one used for translation - here just
+            for organization of uploaded files
+
+        Returns
+        -------
+        str
+            link to Cloudinary uploaded .mp3 file
+
+        '''
         path_to_pronunciation_word = self.tts.get_pronunciation(
             id, word, language_code)
         remote_folder = language_code + '/'
@@ -177,10 +202,26 @@ class WordsTranslation():
 
     def upload_mp3(
             self,
-            public_id,
-            path_to_pronunciation_local,
-            remote_folder):
+            public_id: str,
+            path_to_pronunciation_local: str,
+            remote_folder: str) -> str:
+        ''' Upload .mp3 file with correct pronunciation to Cloudinary
 
+        Parameters
+        ----------
+        public_id : str
+            a name for file stored in Couldinary
+        path_to_pronunciation_local : str
+            local path to .mp3 file
+        remote_folder : str
+            a name of the directory to store an uploaded /mp3 file
+
+        Returns
+        -------
+        str
+            link to Cloudinary uploaded .mp3 file
+
+        '''
         # Specify cloudinary configuration
         cloudinary.config(
             cloud_name=os.environ['cloudinary_CLOUD_NAME'],
@@ -188,6 +229,9 @@ class WordsTranslation():
             api_secret=os.environ['cloudinary_API_SECRET'],
             secure=True,
         )
+        # for some languages, the unicode cleaning of file name does not work
+        # perfectly. In such cases, the public_id property would be a randomly
+        # generated string
         try:
             response = cloudinary.uploader.upload(path_to_pronunciation_local,
                                                   folder=remote_folder,

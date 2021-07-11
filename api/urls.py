@@ -6,8 +6,8 @@ from .views import (TranslationsViewSet,
                     AvailableLanguagesViewSet,
                     SingleTranslationViewSet,
                     UserViewSet,
-                    GroupViewSet,
-                    Audio)
+                    GroupViewSet
+                    )
 
 router = routers.DefaultRouter()
 router.register(r'translations', TranslationsViewSet)
@@ -20,7 +20,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('translation/', SingleTranslationViewSet.as_view(),
          name='translation_single_lang'),
-    path('media/', Audio.as_view()),
     path('api-auth/', include('rest_framework.urls',
          namespace='rest_framework_test')),
 ]

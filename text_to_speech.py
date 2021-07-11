@@ -1,14 +1,33 @@
 import os
+from google.cloud import texttospeech
 
 
 class TextToSpeech():
-    def get_pronunciation(self, id, word, target_language):
-        from google.cloud import texttospeech
-
-        ''' Synthesizes speech from the input string of text or ssml.
+    def get_pronunciation(
+            self,
+            id: str,
+            word: str,
+            target_language: str) -> str:
+        '''Synthesizes speech from the input string of text or ssml.
 
             Note: ssml must be well-formed according to:
                 https://www.w3.org/TR/speech-synthesis/
+
+        Parameters
+        ----------
+        id : int
+            unique integer for each translated word
+        word : str
+            an English word to be translated
+        target_language : str
+            the same code as the one used for translation - here just
+            for organization of uploaded files
+            e.g. 'en-US' or 'pl'
+
+        Returns
+        -------
+        str
+            [description]
         '''
 
         # Instantiates a client
@@ -18,8 +37,8 @@ class TextToSpeech():
         synthesis_input = texttospeech.SynthesisInput(
             text=word)
 
-        # Build the voice request, select the language code ("en-US") and the ssml
-        # voice gender ("neutral")
+        # Build the voice request, select the language code (e.g. "en-US") and
+        # the ssml voice gender ("neutral")
         voice = texttospeech.VoiceSelectionParams(
             language_code=target_language,
             ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL

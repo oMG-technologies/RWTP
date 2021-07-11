@@ -186,6 +186,7 @@ class WordsTranslation():
         language_code : str
             the same code as the one used for translation - here just
             for organization of uploaded files
+            e.g. 'en-US' or 'pl'
 
         Returns
         -------

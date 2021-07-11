@@ -11,22 +11,6 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
 
-from django.views.generic import TemplateView
-
-
-class Audio(TemplateView):
-    model = Translation
-    template_name = 'play_audio.html'
-    context_object_name = 'audio'
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        context['book_list'] = Translation.objects.all()
-        print(context)
-        return context
-
 
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
@@ -38,6 +22,9 @@ class TranslationsViewSet(viewsets.ModelViewSet):
 
 
 class LanguageViewSet(viewsets.ModelViewSet):
+    '''
+    API endpoint that allows to see Languages.
+    '''
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
@@ -55,7 +42,13 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
     # def retrieve(self, request, *args, **kwargs):
     #     return Response({'something': 'my custom JSON'})
 
-    def list(self, request, *args, **kwargs):
+    def list(
+            self,
+            request,
+            *args,
+            **kwargs):
+        ''' Overwrite the defaut list method to return flatten
+        list of conversions '''
         from iso639 import languages
         from .iso639_to_iso3166 import iso_exceptions_dict
 

@@ -8,7 +8,7 @@ class APIResponseTestCase(TestCase):
         response = requests.get('http://127.0.0.1:8000/translations/')
         assert response.status_code == 200
 
-    def test_signle_tranlation_endpoint_response(self):
+    def test_single_tranlation_endpoint_response(self):
         print('\n  ### Testing \'/translation/?conversion=en-x\' endpoint')
         languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
         for language in languages_list:
@@ -22,7 +22,8 @@ class APIResponseTestCase(TestCase):
                 raise AssertionError
 
     def test_single_translation_endpoint_content(self):
-        languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
+        # languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
+        languages_list = ['pl']
         for language in languages_list:
             url = 'http://127.0.0.1:8000/translation/?conversion=en-{}'.format(
                 language)
@@ -34,7 +35,8 @@ class APIResponseTestCase(TestCase):
                 raise AssertionError
 
     def test_single_translation_content_id(self):
-        languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
+        # languages_list = ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
+        languages_list = ['pl']
         for language in languages_list:
             url = 'http://127.0.0.1:8000/translation/?conversion=en-{}'.format(
                 language)
@@ -54,3 +56,24 @@ class APIResponseTestCase(TestCase):
     def test_available_conversion_endpoint_response(self):
         response = requests.get('http://127.0.0.1:8000/available_conversions/')
         assert response.status_code == 200
+
+    def test_available_conversion_endpoint_content(self):
+        response = requests.get('http://127.0.0.1:8000/available_conversions/')
+        response_json = response.json()
+        self.assertIn('available_conversions', response_json)
+
+    def test_available_conversion_endpoint_content_inner(self):
+        response = requests.get('http://127.0.0.1:8000/available_conversions/')
+        response_json = response.json()
+        inner_dict = response_json['available_conversions'][0]
+        keys = ['id', 'conversion', 'target_language_iso639',
+                'target_language_iso3166', 'name']
+        for key in keys:
+            self.assertIn(key, inner_dict)
+
+    def test_available_conversion_endpoint_content_inner_count(self):
+        response = requests.get('http://127.0.0.1:8000/available_conversions/')
+        response_json = response.json()
+        inner_dict = response_json['available_conversions'][0]
+        n_inner_dict = len(inner_dict)
+        self.assertEqual(n_inner_dict, 5)

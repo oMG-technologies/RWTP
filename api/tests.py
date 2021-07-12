@@ -2,7 +2,7 @@ from django.test import TestCase
 import requests
 
 
-class APIResponseTestCase(TestCase):
+class APIResponseTestCaseGET(TestCase):
     def test_tranlations_endpoint_response(self):
         print('\n  ### Testing \'/translations endpoint\'')
         response = requests.get('http://127.0.0.1:8000/translations/')
@@ -89,3 +89,57 @@ class APIResponseTestCase(TestCase):
         inner_dict = response_json['available_conversions'][0]
         n_inner_dict = len(inner_dict)
         self.assertEqual(n_inner_dict, 5)
+
+
+class APIResponseTestCasePOST(TestCase):
+    def test_translations_endpoint_response_post_unauthenticated(self):
+        example_input = {
+            'translations': 'en-pl',
+            "i": 1,
+            "frontCard": "regulator",
+            "backCard": "regulator",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902264/en-US/regulator.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902265/pl/regulator.mp3",
+            "source_language": "en-US",
+            "target_language": "pl"
+        }
+        url = 'http://127.0.0.1:8000/translations/'
+        response = requests.post(url, example_input)
+        self.assertEqual(response.status_code, 403)
+
+    def test_language_endpoint_response_post_authenticated(self):
+        import os
+        from requests.auth import HTTPBasicAuth
+        url = 'http://127.0.0.1:8000/language/'
+
+        example = {
+            "conversion": "en-pl"
+        }
+        su = os.environ['RWTP_su']
+        su_passwd = os.environ['RWTP_su_passwd']
+
+        response = requests.post(
+            url, example, auth=HTTPBasicAuth(su, su_passwd))
+        self.assertEqual(response.status_code, 201)
+
+    # def test_translations_endpoint_response_post_authenticated(self):
+    #     import os
+    #     example_input = {
+    #         'translations': 'en-pl',
+    #         "i": 3,
+    #         "frontCard": "regulator",
+    #         "backCard": "regulator",
+    #         "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902264/en-US/regulator.mp3",
+    #         "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902265/pl/regulator.mp3",
+    #         "source_language": "en-US",
+    #         "target_language": "pl"
+    #     }
+
+    #     url = 'http://127.0.0.1:8000/translations/'
+
+    #     su = os.environ['RWTP_su']
+    #     su_passwd = os.environ['RWTP_su_passwd']
+
+    #     response = requests.post(url, example_input, auth=(su, su_passwd))
+    #     print(response)
+    #     self.assertEqual(response.status_code, 201)

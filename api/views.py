@@ -10,6 +10,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -25,9 +26,14 @@ class LanguageViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see Languages.
     '''
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly]
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
+
+    # @action(methods=['delete'], detail=False)
+    # def delete(self, request):
+    #     pass
 
 
 class AvailableLanguagesViewSet(viewsets.ModelViewSet):

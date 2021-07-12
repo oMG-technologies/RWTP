@@ -107,13 +107,23 @@ class APIResponseTestCasePOST(TestCase):
         response = requests.post(url, example_input)
         self.assertEqual(response.status_code, 403)
 
+    def test_language_endpoint_response_post_unauthenticated(self):
+        url = 'http://127.0.0.1:8000/language/'
+
+        example = {
+            "conversion": "en-pl"
+        }
+
+        response = requests.post(url, example)
+        self.assertEqual(response.status_code, 403)
+
     def test_language_endpoint_response_post_authenticated(self):
         import os
         from requests.auth import HTTPBasicAuth
         url = 'http://127.0.0.1:8000/language/'
 
         example = {
-            "conversion": "en-pl"
+            "conversion": "en-xx"
         }
         su = os.environ['RWTP_su']
         su_passwd = os.environ['RWTP_su_passwd']
@@ -121,6 +131,25 @@ class APIResponseTestCasePOST(TestCase):
         response = requests.post(
             url, example, auth=HTTPBasicAuth(su, su_passwd))
         self.assertEqual(response.status_code, 201)
+
+    def test_language_endpoint_response_delete_authenticated(self):
+        import os
+        from requests.auth import HTTPBasicAuth
+        import json
+        url = 'http://127.0.0.1:8000/language/'
+
+        example = {
+            "conversion": "en-xx"
+        }
+        su = os.environ['RWTP_su']
+        su_passwd = os.environ['RWTP_su_passwd']
+
+        response = requests.delete(
+            url,
+            data=json.dumps(example),
+            headers={'content-type': 'application/json'},
+            auth=HTTPBasicAuth(su, su_passwd))
+        self.assertEqual(response.status_code, 405)
 
     # def test_translations_endpoint_response_post_authenticated(self):
     #     import os

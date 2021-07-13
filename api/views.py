@@ -26,18 +26,6 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
 
-    # def get_serializer_class(self):
-    #     if self.action == 'retrieve':
-    #         return TranslationDetailSerializers
-    #     return TranslationSerializers
-
-    def retrieve(self, request, pk=None):
-        queryset = Translation.objects.all()
-        trans = get_object_or_404(queryset, pk=pk)
-        serializer = TranslationSerializers(trans)
-        print('here')
-        return Response(serializer.data)
-
     @action(detail=True, methods=['get'])
     def single(self, request, pk=None):
         queryset = Translation.objects.get(pk=pk)
@@ -47,23 +35,9 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['delete'])
     def remove(self, request, pk=None):
         Translation.objects.filter(pk=pk).delete()
-        # serializer = TranslationSerializers(queryset)
         return Response({'pk': 'Successfully removed'})
 
 
-# @action(detail=True, methods=['delete'])
-# class TranslationDetail(generics.ListAPIView):
-#     serializer_class = TranslationSerializers
-
-#     def get_queryset(self):
-#         queryset = Translation.objects.all()
-#         id = self.request.query_params.get('id')
-#         if id is not None:
-#             queryset = queryset.filter(i=id)
-#         return queryset
-
-
-# @action(detail=True, methods=['get'])
 class LanguageViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see Languages.
@@ -72,17 +46,18 @@ class LanguageViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticatedOrReadOnly]
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
+    lookup_field = 'conversion'
 
+    @action(detail=True, methods=['get'])
+    def single(self, request, conversion=None):
+        queryset = Language.objects.get(conversion=conversion)
+        serializer = LanguageSerializers(queryset)
+        return Response(serializer.data)
 
-class LanguageDetail(generics.ListAPIView):
-    def get_queryset(self):
-
-        queryset = Language.objects.all()
-        pass
-
-    # @action(methods=['get'], detail=True)
-    # def delete(self, request):
-    #     pass
+    @action(detail=True, methods=['delete'])
+    def remove(self, request, conversion=None):
+        Language.objects.filter(conversion=conversion).delete()
+        return Response({'Conversion': 'Successfully removed'})
 
 
 class AvailableLanguagesViewSet(viewsets.ModelViewSet):

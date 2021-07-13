@@ -123,7 +123,7 @@ class APIResponseTestCasePOST(TestCase):
         url = 'http://127.0.0.1:8000/language/'
 
         example = {
-            "conversion": "en-xx"
+            "conversion": "en-de"
         }
         su = os.environ['RWTP_su']
         su_passwd = os.environ['RWTP_su_passwd']
@@ -132,18 +132,18 @@ class APIResponseTestCasePOST(TestCase):
             url, example, auth=HTTPBasicAuth(su, su_passwd))
         self.assertEqual(response.status_code, 201)
 
+
+class APIResponseTestCaseDELETE(TestCase):
     def test_translation_endpoint_response_delete_authenticated(self):
         import os
         from requests.auth import HTTPBasicAuth
-        import json
-        url = 'http://127.0.0.1:8000/translations/11/remove/'
+        url = 'http://127.0.0.1:8000/translations/12/remove/'
         su = os.environ['RWTP_su']
         su_passwd = os.environ['RWTP_su_passwd']
         response = requests.delete(
             url,
             headers={'content-type': 'application/json'},
             auth=HTTPBasicAuth(su, su_passwd))
-        print(response)
         self.assertEqual(response.status_code, 200)
 
     def test_language_endpoint_response_delete_authenticated(self):
@@ -153,7 +153,7 @@ class APIResponseTestCasePOST(TestCase):
         url = 'http://127.0.0.1:8000/language/'
 
         example = {
-            "conversion": "en-xx"
+            "conversion": "en-de"
         }
         su = os.environ['RWTP_su']
         su_passwd = os.environ['RWTP_su_passwd']

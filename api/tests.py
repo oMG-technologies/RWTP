@@ -1,9 +1,10 @@
 from django.test import TestCase
 import requests
 import os
+import json
 
 
-class APIResponseTestCaseGET(TestCase):
+class APIResponseTestCase_01_GET(TestCase):
     print('# Testing GET requests #')
 
     def test_tranlations_endpoint_response(self):
@@ -94,7 +95,7 @@ class APIResponseTestCaseGET(TestCase):
         self.assertEqual(n_inner_dict, 5)
 
 
-class APIResponseTestCasePOST(TestCase):
+class APIResponseTestCase_02_POST(TestCase):
     print('# Testing POST requests #')
 
     @property
@@ -108,21 +109,23 @@ class APIResponseTestCasePOST(TestCase):
     def test_translations_endpoint_response_post_unauthenticated(self):
         example_input = {
             'conversion': 'en-pl',
-            "i": 1,
-            "frontCard": "regulator",
-            "backCard": "regulator",
-            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902264/en-US/regulator.mp3",
-            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902265/pl/regulator.mp3",
+            "i": 18,
+            "frontCard": "some_word",
+            "backCard": "some_translation",
+            "pronunciation_frontCard": "here_will_be_the_link",
+            "pronunciation_backCard": "here_will_be_the_link",
             "source_language": "en-US",
             "target_language": "pl"
         }
-        url = 'http://127.0.0.1:8000/translations/'
-        response = requests.post(url, example_input)
+        url = 'http://127.0.0.1:8000/translations/18/post/'
+        response = requests.post(
+            url,
+            data=json.dumps(example_input),
+            headers={'content-type': 'application/json'})
         self.assertEqual(response.status_code, 403)
 
     def test_translations_endpoint_response_post_authenticated(self):
         from requests.auth import HTTPBasicAuth
-        import json
         example_input = {
             'conversion': 'en-pl',
             "i": 18,
@@ -139,8 +142,6 @@ class APIResponseTestCasePOST(TestCase):
             data=json.dumps(example_input),
             headers={'content-type': 'application/json'},
             auth=HTTPBasicAuth(self.su, self.su_passwd))
-        print(response.text)
-
         self.assertEqual(response.status_code, 200)
 
     def test_language_endpoint_response_post_unauthenticated(self):
@@ -168,7 +169,7 @@ class APIResponseTestCasePOST(TestCase):
         self.assertEqual(response.status_code, 201)
 
 
-class APIResponseTestCaseDELETE(TestCase):
+class APIResponseTestCase_03_DELETE(TestCase):
     print('# Testing DELETE requests #')
 
     @property
@@ -181,7 +182,7 @@ class APIResponseTestCaseDELETE(TestCase):
 
     def test_translation_endpoint_response_delete_authenticated(self):
         from requests.auth import HTTPBasicAuth
-        url = 'http://127.0.0.1:8000/translations/12/remove/'
+        url = 'http://127.0.0.1:8000/translations/18/remove/'
         response = requests.delete(
             url,
             headers={'content-type': 'application/json'},
@@ -196,6 +197,7 @@ class APIResponseTestCaseDELETE(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_language_endpoint_response_delete_authenticated(self):
+        print('I am here')
         from requests.auth import HTTPBasicAuth
         url = 'http://127.0.0.1:8000/language/en-de/remove/'
 

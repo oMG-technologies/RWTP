@@ -10,22 +10,9 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
-
-from django.views.generic import TemplateView
-
-
-class Audio(TemplateView):
-    model = Translation
-    template_name = 'play_audio.html'
-    context_object_name = 'audio'
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        context['book_list'] = Translation.objects.all()
-        print(context)
-        return context
+from rest_framework.decorators import action
+from django.shortcuts import get_object_or_404
+from django.db.utils import IntegrityError
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -36,11 +23,76 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
 
+    @action(detail=True, methods=['get'])
+    def single(self, request, pk=None):
+        queryset = Translation.objects.get(pk=pk)
+        serializer = TranslationSerializers(queryset)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['delete'])
+    def remove(self, request, pk=None):
+        Translation.objects.filter(pk=pk).delete()
+        return Response({'pk': 'Successfully removed'})
+
+    @action(detail=True, methods=['post'])
+    def post(self, request, pk=None):
+
+        data = request.data
+        print(data)
+
+        # conversion = request['conversion']
+        conversion = 'en-pl'
+        # i = request['i']
+        i = 18
+        frontCard = data['frontCard']
+        backCard = data['backCard']
+        pronunciation_frontCard = data['pronunciation_frontCard']
+        pronunciation_backCard = data['pronunciation_backCard']
+        source_language = data['source_language']
+        target_language = data['target_language']
+
+        try:
+            Language.objects.create(
+                conversion=conversion,
+            )
+        except IntegrityError:
+            pass
+
+        language_obj = Language.objects.filter(
+            conversion__contains=conversion)[0]
+        Translation.objects.create(
+            translation=language_obj,
+            i=i,
+            frontCard=frontCard,
+            backCard=backCard,
+            pronunciation_frontCard=pronunciation_frontCard,
+            pronunciation_backCard=pronunciation_backCard,
+            source_language=source_language,
+            target_language=target_language,
+        )
+        return Response({'POST': 'Object created successfully!'})
+
 
 class LanguageViewSet(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    '''
+    API endpoint that allows to see Languages.
+    '''
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly]
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
+    lookup_field = 'conversion'
+
+    @action(detail=True, methods=['get'])
+    def single(self, request, conversion=None):
+        queryset = Language.objects.get(conversion=conversion)
+        serializer = LanguageSerializers(queryset)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['delete'])
+    def remove(self, request, conversion=None):
+        Language.objects.filter(conversion=conversion).delete()
+        return Response({'Conversion': 'Successfully removed'})
 
 
 class AvailableLanguagesViewSet(viewsets.ModelViewSet):
@@ -54,7 +106,13 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
     # def retrieve(self, request, *args, **kwargs):
     #     return Response({'something': 'my custom JSON'})
 
-    def list(self, request, *args, **kwargs):
+    def list(
+            self,
+            request,
+            *args,
+            **kwargs):
+        ''' Overwrite the defaut list method to return flatten
+        list of conversions '''
         from iso639 import languages
         from .iso639_to_iso3166 import iso_exceptions_dict
 

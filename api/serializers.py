@@ -5,7 +5,8 @@ from typing import Dict
 
 
 class TranslationSerializers(serializers.ModelSerializer):
-    ''' Create TranslationSerializers '''
+    ''' Create TranslationSerializers to get a JSON response with translations
+    for all available cnversions/languages'''
 
     class Meta:
         model = Translation
@@ -22,7 +23,7 @@ class TranslationSerializers(serializers.ModelSerializer):
     def to_representation(
             self,
             instance) -> Dict[str, str]:
-        ''' Modify representation a bit
+        ''' Modify representation appropriately
 
         Returns
         -------
@@ -50,7 +51,8 @@ class TranslationSerializers(serializers.ModelSerializer):
 
 
 class SingleTranslationSerializers(serializers.ModelSerializer):
-    ''' SingleTranslationSerializers '''
+    ''' SingleTranslationSerializers to get a JSON Response with translations
+    for a single conversion/language '''
     class Meta:
         model = Translation
         fields = ['id',
@@ -76,22 +78,11 @@ class LanguageSerializers(serializers.ModelSerializer):
 
 
 class AvailableLanguagesSerializers(serializers.ModelSerializer):
-
+    ''' Serializar to get an object with all available conversions '''
     class Meta:
         model = Language
 
         fields = ['conversion']
-
-    # def to_representation(self, instance):
-    #     data = super().to_representation(instance)
-    #     #     updated_data = {'language': data['conversion']}
-    #     #     return updated_data
-    #     # check the request is list view or detail view
-    #     is_list_view = isinstance(self.instance, list)
-    #     extra_ret = {'key': 'list value'} if is_list_view else {
-    #         'key': 'single value'}
-    #     data.update(extra_ret)
-    #     return ret
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

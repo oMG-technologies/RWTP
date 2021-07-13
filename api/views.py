@@ -1,8 +1,5 @@
-from django.db.models import query
-from django.db.models.query_utils import Q
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
-                          TranslationDetailSerializers,
                           LanguageSerializers,
                           SingleTranslationSerializers,
                           AvailableLanguagesSerializers,
@@ -15,9 +12,9 @@ from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.shortcuts import get_object_or_404
+from django.db.utils import IntegrityError
 
 
-# @action(detail=True, methods=['get'])
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see translations.
@@ -38,8 +35,42 @@ class TranslationsViewSet(viewsets.ModelViewSet):
         return Response({'pk': 'Successfully removed'})
 
     @action(detail=True, methods=['post'])
-    def post(self, request):
-        pass
+    def post(self, request, pk=None):
+
+        data = request.data
+        print(data)
+
+        # conversion = request['conversion']
+        conversion = 'en-pl'
+        # i = request['i']
+        i = 18
+        frontCard = data['frontCard']
+        backCard = data['backCard']
+        pronunciation_frontCard = data['pronunciation_frontCard']
+        pronunciation_backCard = data['pronunciation_backCard']
+        source_language = data['source_language']
+        target_language = data['target_language']
+
+        try:
+            Language.objects.create(
+                conversion=conversion,
+            )
+        except IntegrityError:
+            pass
+
+        language_obj = Language.objects.filter(
+            conversion__contains=conversion)[0]
+        Translation.objects.create(
+            translation=language_obj,
+            i=i,
+            frontCard=frontCard,
+            backCard=backCard,
+            pronunciation_frontCard=pronunciation_frontCard,
+            pronunciation_backCard=pronunciation_backCard,
+            source_language=source_language,
+            target_language=target_language,
+        )
+        return Response({'POST': 'Object created successfully!'})
 
 
 class LanguageViewSet(viewsets.ModelViewSet):

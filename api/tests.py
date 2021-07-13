@@ -107,7 +107,7 @@ class APIResponseTestCasePOST(TestCase):
 
     def test_translations_endpoint_response_post_unauthenticated(self):
         example_input = {
-            'translations': 'en-pl',
+            'conversion': 'en-pl',
             "i": 1,
             "frontCard": "regulator",
             "backCard": "regulator",
@@ -121,7 +121,27 @@ class APIResponseTestCasePOST(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_translations_endpoint_response_post_authenticated(self):
-        pass
+        from requests.auth import HTTPBasicAuth
+        import json
+        example_input = {
+            'conversion': 'en-pl',
+            "i": 18,
+            "frontCard": "kkk",
+            "backCard": "KKK",
+            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902264/en-US/regulator.mp3",
+            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902265/pl/regulator.mp3",
+            "source_language": "en-US",
+            "target_language": "pl"
+        }
+        url = 'http://127.0.0.1:8000/translations/18/post/'
+        response = requests.post(
+            url,
+            data=json.dumps(example_input),
+            headers={'content-type': 'application/json'},
+            auth=HTTPBasicAuth(self.su, self.su_passwd))
+        print(response.text)
+
+        self.assertEqual(response.status_code, 201)
 
     def test_language_endpoint_response_post_unauthenticated(self):
         url = 'http://127.0.0.1:8000/language/'
@@ -134,18 +154,17 @@ class APIResponseTestCasePOST(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_language_endpoint_response_post_authenticated(self):
-        import os
         from requests.auth import HTTPBasicAuth
         url = 'http://127.0.0.1:8000/language/'
 
         example = {
             "conversion": "en-de"
         }
-        su = os.environ['RWTP_su']
-        su_passwd = os.environ['RWTP_su_passwd']
 
         response = requests.post(
-            url, example, auth=HTTPBasicAuth(su, su_passwd))
+            url,
+            example,
+            auth=HTTPBasicAuth(self.su, self.su_passwd))
         self.assertEqual(response.status_code, 201)
 
 

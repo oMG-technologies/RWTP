@@ -126,10 +126,10 @@ class APIResponseTestCasePOST(TestCase):
         example_input = {
             'conversion': 'en-pl',
             "i": 18,
-            "frontCard": "kkk",
-            "backCard": "KKK",
-            "pronunciation_frontCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902264/en-US/regulator.mp3",
-            "pronunciation_backCard": "http://res.cloudinary.com/hqzs7d3nl/raw/upload/v1625902265/pl/regulator.mp3",
+            "frontCard": "some_word",
+            "backCard": "some_translation",
+            "pronunciation_frontCard": "here_will_be_the_link",
+            "pronunciation_backCard": "here_will_be_the_link",
             "source_language": "en-US",
             "target_language": "pl"
         }
@@ -141,7 +141,7 @@ class APIResponseTestCasePOST(TestCase):
             auth=HTTPBasicAuth(self.su, self.su_passwd))
         print(response.text)
 
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
 
     def test_language_endpoint_response_post_unauthenticated(self):
         url = 'http://127.0.0.1:8000/language/'

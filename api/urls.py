@@ -10,7 +10,7 @@ from .views import (TranslationsViewSet,
                     GroupViewSet
                     )
 
-router = routers.DefaultRouter()
+router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'translations',
                 TranslationsViewSet, basename='translations')
 # router.register(r'tran', TranslationDetailViewSet)

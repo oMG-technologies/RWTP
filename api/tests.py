@@ -4,6 +4,7 @@ import os
 
 
 class APIResponseTestCaseGET(TestCase):
+    print('# Testing GET requests #')
 
     def test_tranlations_endpoint_response(self):
         print('\n  ### Testing \'/translations endpoint\'')
@@ -94,6 +95,7 @@ class APIResponseTestCaseGET(TestCase):
 
 
 class APIResponseTestCasePOST(TestCase):
+    print('# Testing POST requests #')
 
     @property
     def su(self):
@@ -102,7 +104,6 @@ class APIResponseTestCasePOST(TestCase):
     @property
     def su_passwd(self):
         return os.environ['RWTP_su_passwd']
-
 
     def test_translations_endpoint_response_post_unauthenticated(self):
         example_input = {
@@ -118,6 +119,9 @@ class APIResponseTestCasePOST(TestCase):
         url = 'http://127.0.0.1:8000/translations/'
         response = requests.post(url, example_input)
         self.assertEqual(response.status_code, 403)
+
+    def test_translations_endpoint_response_post_authenticated(self):
+        pass
 
     def test_language_endpoint_response_post_unauthenticated(self):
         url = 'http://127.0.0.1:8000/language/'
@@ -146,6 +150,7 @@ class APIResponseTestCasePOST(TestCase):
 
 
 class APIResponseTestCaseDELETE(TestCase):
+    print('# Testing DELETE requests #')
 
     @property
     def su(self):

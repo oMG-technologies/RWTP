@@ -12,7 +12,7 @@ from .views import (TranslationsViewSet,
 
 router = routers.DefaultRouter()
 router.register(r'translations',
-                TranslationsViewSet, basename='all_translations')
+                TranslationsViewSet, basename='translations')
 # router.register(r'tran', TranslationDetailViewSet)
 router.register(r'language', LanguageViewSet)
 router.register(r'users', UserViewSet)

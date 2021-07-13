@@ -37,6 +37,10 @@ class TranslationsViewSet(viewsets.ModelViewSet):
         Translation.objects.filter(pk=pk).delete()
         return Response({'pk': 'Successfully removed'})
 
+    @action(detail=True, methods=['post'])
+    def post(self, request):
+        pass
+
 
 class LanguageViewSet(viewsets.ModelViewSet):
     '''

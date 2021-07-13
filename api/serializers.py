@@ -50,28 +50,6 @@ class TranslationSerializers(serializers.ModelSerializer):
         return updated_data
 
 
-class TranslationDetailSerializers(serializers.ModelSerializer):
-    # chapters = ChapterMarkSerializer(source='chaptermark_set', many=True)
-    # media = MediaClipSerializer(source='mediaclip_set', many=True)
-    # show = ShowSerializer()
-
-    class Meta:
-        model = Translation
-        fields = ['id',
-                  'frontCard',
-                  'backCard',
-                  'pronunciation_frontCard',
-                  'pronunciation_backCard',
-                  'target_language',
-                  'source_language',
-                  ]
-        depth = 1
-        # model = Episode
-        # fields = ('url', 'id', 'title', 'subtitle', 'show', 'published_at', 'updated_at',
-        #           'description', 'show_notes', 'cover_image', 'updated_at', 'chapters', 'media')
-        # depth = 1
-
-
 class SingleTranslationSerializers(serializers.ModelSerializer):
     ''' SingleTranslationSerializers to get a JSON Response with translations
     for a single conversion/language '''

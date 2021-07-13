@@ -1,3 +1,4 @@
+from django.db.models import query
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
                           LanguageSerializers,
@@ -13,6 +14,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 
 
+# @action(detail=True, methods=['get'])
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see translations.
@@ -22,6 +24,19 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     serializer_class = TranslationSerializers
 
 
+# @action(detail=True, methods=['delete'])
+class TranslationDetail(generics.ListAPIView):
+    serializer_class = TranslationSerializers
+
+    def get_queryset(self):
+        queryset = Translation.objects.all()
+        id = self.request.query_params.get('id')
+        if id is not None:
+            queryset = queryset.filter(i=id)
+        return queryset
+
+
+# @action(detail=True, methods=['get'])
 class LanguageViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows to see Languages.
@@ -31,7 +46,14 @@ class LanguageViewSet(viewsets.ModelViewSet):
     queryset = Language.objects.all()
     serializer_class = LanguageSerializers
 
-    # @action(methods=['delete'], detail=False)
+
+class LanguageDetail(generics.ListAPIView):
+    def get_queryset(self):
+
+        queryset = Language.objects.all()
+        pass
+
+    # @action(methods=['get'], detail=True)
     # def delete(self, request):
     #     pass
 

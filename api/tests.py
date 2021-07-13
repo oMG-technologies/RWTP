@@ -125,6 +125,7 @@ class APIResponseTestCase_02_POST(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_translations_endpoint_response_post_authenticated(self):
+        print('post')
         from requests.auth import HTTPBasicAuth
         example_input = {
             'conversion': 'en-pl',
@@ -181,12 +182,28 @@ class APIResponseTestCase_03_DELETE(TestCase):
         return os.environ['RWTP_su_passwd']
 
     def test_translation_endpoint_response_delete_authenticated(self):
+        print('delete')
+        # from api.models import Translation
         from requests.auth import HTTPBasicAuth
-        url = 'http://127.0.0.1:8000/translations/18/remove/'
+
+        # translation_object = Translation.objects.all().filter(
+        #     frontCard__exact='some_word')
+
+        # current_id = translation_object[0].pk
+        # current_id = 32
+
+        response = requests.get('http://127.0.0.1:8000/translations/')
+        data = response.json()[-1]
+        current_id = data['id']
+
+        url = 'http://127.0.0.1:8000/translations/{}/remove/'.format(
+            current_id)
+
         response = requests.delete(
             url,
             headers={'content-type': 'application/json'},
             auth=HTTPBasicAuth(self.su, self.su_passwd))
+
         self.assertEqual(response.status_code, 200)
 
     def test_translation_endpoint_response_delete_unauthenticated(self):
@@ -197,14 +214,15 @@ class APIResponseTestCase_03_DELETE(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_language_endpoint_response_delete_authenticated(self):
-        print('I am here')
         from requests.auth import HTTPBasicAuth
+
         url = 'http://127.0.0.1:8000/language/en-de/remove/'
 
         response = requests.delete(
             url,
             headers={'content-type': 'application/json'},
             auth=HTTPBasicAuth(self.su, self.su_passwd))
+
         self.assertEqual(response.status_code, 200)
 
     def test_language_endpoint_response_delete_unauthenticated(self):

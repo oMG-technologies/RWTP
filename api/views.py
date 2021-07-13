@@ -1,6 +1,8 @@
 from django.db.models import query
+from django.db.models.query_utils import Q
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
+                          TranslationDetailSerializers,
                           LanguageSerializers,
                           SingleTranslationSerializers,
                           AvailableLanguagesSerializers,
@@ -12,6 +14,7 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from django.shortcuts import get_object_or_404
 
 
 # @action(detail=True, methods=['get'])
@@ -23,17 +26,35 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
 
+    # def get_serializer_class(self):
+    #     if self.action == 'retrieve':
+    #         return TranslationDetailSerializers
+    #     return TranslationSerializers
+
+    def retrieve(self, request, pk=None):
+        queryset = Translation.objects.all()
+        trans = get_object_or_404(queryset, pk=pk)
+        serializer = TranslationSerializers(trans)
+        print('here')
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['get'])
+    def single(self, request, pk=None):
+        queryset = Translation.objects.get(pk=pk)
+        serializer = TranslationSerializers(queryset)
+        return Response(serializer.data)
+
 
 # @action(detail=True, methods=['delete'])
-class TranslationDetail(generics.ListAPIView):
-    serializer_class = TranslationSerializers
+# class TranslationDetail(generics.ListAPIView):
+#     serializer_class = TranslationSerializers
 
-    def get_queryset(self):
-        queryset = Translation.objects.all()
-        id = self.request.query_params.get('id')
-        if id is not None:
-            queryset = queryset.filter(i=id)
-        return queryset
+#     def get_queryset(self):
+#         queryset = Translation.objects.all()
+#         id = self.request.query_params.get('id')
+#         if id is not None:
+#             queryset = queryset.filter(i=id)
+#         return queryset
 
 
 # @action(detail=True, methods=['get'])

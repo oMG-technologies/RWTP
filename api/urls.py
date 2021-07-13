@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from .views import (TranslationsViewSet,
-                    TranslationDetail,
+                    # TranslationDetail,
                     LanguageViewSet,
                     AvailableLanguagesViewSet,
                     SingleTranslationViewSet,
@@ -11,7 +11,8 @@ from .views import (TranslationsViewSet,
                     )
 
 router = routers.DefaultRouter()
-router.register(r'translations', TranslationsViewSet)
+router.register(r'translations',
+                TranslationsViewSet, basename='all_translations')
 # router.register(r'tran', TranslationDetailViewSet)
 router.register(r'language', LanguageViewSet)
 router.register(r'users', UserViewSet)
@@ -22,8 +23,8 @@ urlpatterns = [
     path('', include(router.urls)),
     path('translation/', SingleTranslationViewSet.as_view(),
          name='translation_single_lang'),
-    path(
-        'trans/', TranslationDetail.as_view(), name='trans_pk'),
+    #     path(
+    #         'trans/', TranslationDetail.as_view(), name='trans_pk'),
     path('api-auth/', include('rest_framework.urls',
          namespace='rest_framework_test')),
 ]

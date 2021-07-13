@@ -44,6 +44,12 @@ class TranslationsViewSet(viewsets.ModelViewSet):
         serializer = TranslationSerializers(queryset)
         return Response(serializer.data)
 
+    @action(detail=True, methods=['delete'])
+    def remove(self, request, pk=None):
+        Translation.objects.filter(pk=pk).delete()
+        # serializer = TranslationSerializers(queryset)
+        return Response({'pk': 'Successfully removed'})
+
 
 # @action(detail=True, methods=['delete'])
 # class TranslationDetail(generics.ListAPIView):

@@ -8,11 +8,11 @@ class APIResponseTestCase_01_GET(TestCase):
     print('# Testing GET requests #')
 
     @property
-    def languages_list():
+    def languages_list(self):
         return ['pl', 'de', 'fr', 'es', 'ru', 'it', 'sv', 'zh']
 
     @property
-    def single_language():
+    def single_language(self):
         return ['pl']
 
     def test_tranlations_endpoint_response(self):

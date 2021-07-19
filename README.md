@@ -7,11 +7,11 @@ An API for getting translation of random english words to a language of choice t
 
 # REST API - list of endpoints
 
-The root url:
+The base url is:
 
 `base_url = https://words-translation.herokuapp.com`
 
-List of endpoints
+List of endpoints (unauthenticated user):
 
 | endpoint                                                                                                  |                                                                                                                  feature                                                                                                                  | method |
 | --------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | -----: |
@@ -19,6 +19,10 @@ List of endpoints
 | [`/available_conversions/`](https://words-translation.herokuapp.com/available_conversions/)               | get all available conversions, i.e. translation from english `en` to various languages `x` in the `en-x` format. Currently, `x` can only be any of the following `pl`, `de`, `fr`, `es`, `ru`, `it`, `sv` and `zh`. More will come later. |  `GET` |
 | [`/translation/?conversion=en-x/`](https://words-translation.herokuapp.com/translation/?conversion=en-pl) |                                      get 50 random English words with translations to a language `x`, which has to be in a [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format                                      |  `GET` |
 | [`/languages/`](http://127.0.0.1:8000/language/)                                                          |                                                               get 50 random English words and translations for all supported languages, categorized by language conversion                                                                |  `GET` |
+
+
+Authenticated user can additionally send POST and DELETE requests, e.g.:
+
 
 # Quicktest
 

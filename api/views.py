@@ -11,7 +11,6 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from django.shortcuts import get_object_or_404
 from django.db.utils import IntegrityError
 
 

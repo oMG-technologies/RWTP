@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'word_translation.wsgi.application'
 #     }
 # }
 
-Heroku DB
+# Heroku DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

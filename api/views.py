@@ -29,7 +29,7 @@ class TranslationsViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @action(detail=True, methods=['delete'])
-    def remove(self, request, pk=None):
+    def delete(self, request, pk=None):
         Translation.objects.filter(pk=pk).delete()
         return Response({'pk': 'Successfully removed'})
 
@@ -89,7 +89,7 @@ class LanguageViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @action(detail=True, methods=['delete'])
-    def remove(self, request, conversion=None):
+    def delete(self, request, conversion=None):
         Language.objects.filter(conversion=conversion).delete()
         return Response({'Conversion': 'Successfully removed'})
 

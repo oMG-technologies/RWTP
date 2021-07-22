@@ -6,7 +6,7 @@ from typing import Dict
 
 class TranslationSerializers(serializers.ModelSerializer):
     ''' Create TranslationSerializers to get a JSON response with translations
-    for all available cnversions/languages'''
+    for all available conversions/languages'''
 
     class Meta:
         model = Translation
@@ -23,7 +23,7 @@ class TranslationSerializers(serializers.ModelSerializer):
     def to_representation(
             self,
             instance) -> Dict[str, str]:
-        ''' Modify representation appropriately
+        ''' Tune the server representation appropriately
 
         Returns
         -------
@@ -51,8 +51,8 @@ class TranslationSerializers(serializers.ModelSerializer):
 
 
 class SingleTranslationSerializers(serializers.ModelSerializer):
-    ''' SingleTranslationSerializers to get a JSON Response with translations
-    for a single conversion/language '''
+    ''' Create SingleTranslationSerializers to get a JSON response
+    with translations for a single conversion/language '''
     class Meta:
         model = Translation
         fields = ['id',

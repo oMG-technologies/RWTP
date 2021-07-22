@@ -16,7 +16,7 @@ from django.db.utils import IntegrityError
 
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
-    API endpoint that allows to see translations.
+    API endpoint view that allows to see translations.
     '''
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Translation.objects.all()
@@ -37,12 +37,9 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     def post(self, request, pk=None):
 
         data = request.data
-        print(data)
 
-        # conversion = request['conversion']
-        conversion = 'en-pl'
-        # i = request['i']
-        i = 18
+        conversion = data['conversion']
+        i = data['i']
         frontCard = data['frontCard']
         backCard = data['backCard']
         pronunciation_frontCard = data['pronunciation_frontCard']
@@ -102,9 +99,6 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
     # ISO 639-1 code has always lenght of 2
 
     length = 2
-
-    # def retrieve(self, request, *args, **kwargs):
-    #     return Response({'something': 'my custom JSON'})
 
     def list(
             self,

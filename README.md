@@ -27,11 +27,11 @@ Authenticated user can additionally send POST and DELETE requests, e.g.:
 | `/languages/en-x/delete/`        |                                                          delete a given conversion `en-x` Currently, `x` can only be any of the following `pl`, `de`, `fr`, `es`, `ru`, `it`, `sv` and `zh`. More will come later. `x` has to be in a ISO 639-1 format                                                           | `DELETE` |
 | `/languages/`                    |                                                                                         add a new conversion `en-x` where `x` has to be in a ISO 639-1 format. An example dict passed as data `{"conversion": "en-fr"}`                                                                                          |   `POST` |
 | `/translations/<int:id>/delete/` |                                                                                                                                remove translation by `id` which is a primary key                                                                                                                                 | `DELETE` |
-| `/translations/`                 | add a new translation. An examle dict passed as data is `{'conversion': 'en-pl', "i": 18, "frontCard": "some_word", "backCard": "some_translation", "pronunciation_frontCard": "here_will_be_the_link", "pronunciation_backCard": "here_will_be_the_link", "source_language": "en-US", "target_language": "pl"}` |   `POST` |
+| `/translations/`                 | add a new translation. An example dict passed as data is `{'conversion': 'en-pl', "i": 18, "frontCard": "some_word", "backCard": "some_translation", "pronunciation_frontCard": "here_will_be_the_link", "pronunciation_backCard": "here_will_be_the_link", "source_language": "en-US", "target_language": "pl"}` |   `POST` |
 
 # Quicktest
 
-To quickly test the server respons, try this:
+To quickly test the server response, try this:
 
 ```bash
 curl -H 'Accept: application/json; indent=4' https://words-translation.herokuapp.com/translations/

@@ -12,6 +12,7 @@ from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.utils import IntegrityError
+from django.views.decorators.csrf import csrf_exempt
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -21,18 +22,20 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
-
+    
     @action(detail=True, methods=['get'])
     def single(self, request, pk=None):
         queryset = Translation.objects.get(pk=pk)
         serializer = TranslationSerializers(queryset)
         return Response(serializer.data)
-
+    
+    @csrf_exempt
     @action(detail=True, methods=['delete'])
     def delete(self, request, pk=None):
         Translation.objects.filter(pk=pk).delete()
         return Response({'pk': 'Successfully removed'})
-
+    
+    @csrf_exempt
     @action(detail=True, methods=['post'])
     def post(self, request, pk=None):
 
@@ -84,7 +87,8 @@ class LanguageViewSet(viewsets.ModelViewSet):
         queryset = Language.objects.get(conversion=conversion)
         serializer = LanguageSerializers(queryset)
         return Response(serializer.data)
-
+    
+    @csrf_exempt
     @action(detail=True, methods=['delete'])
     def delete(self, request, conversion=None):
         Language.objects.filter(conversion=conversion).delete()

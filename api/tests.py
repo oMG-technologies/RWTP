@@ -132,8 +132,8 @@ class APIResponseTestCase_02_POST(TestCase):
         print('post')
         from requests.auth import HTTPBasicAuth
         example_input = {
-            'conversion': 'en-pl',
             "i": 18,
+            'conversion': 'en-pl',
             "frontCard": "some_word",
             "backCard": "some_translation",
             "pronunciation_frontCard": "here_will_be_the_link",
@@ -192,7 +192,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
         data = response.json()[-1]
         current_id = data['id']
 
-        url = 'http://127.0.0.1:8000/translations/{}/remove/'.format(
+        url = 'http://127.0.0.1:8000/translations/{}/delete/'.format(
             current_id)
 
         response = requests.delete(
@@ -203,7 +203,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_translation_endpoint_response_delete_unauthenticated(self):
-        url = 'http://127.0.0.1:8000/translations/12/remove/'
+        url = 'http://127.0.0.1:8000/translations/12/delete/'
         response = requests.delete(
             url,
             headers={'content-type': 'application/json'})
@@ -212,7 +212,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
     def test_language_endpoint_response_delete_authenticated(self):
         from requests.auth import HTTPBasicAuth
 
-        url = 'http://127.0.0.1:8000/language/en-de/remove/'
+        url = 'http://127.0.0.1:8000/language/en-de/delete/'
 
         response = requests.delete(
             url,
@@ -222,7 +222,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_language_endpoint_response_delete_unauthenticated(self):
-        url = 'http://127.0.0.1:8000/language/en-de/remove/'
+        url = 'http://127.0.0.1:8000/language/en-de/delete/'
 
         response = requests.delete(
             url,

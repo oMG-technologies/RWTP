@@ -255,7 +255,7 @@ class APIResponseTestCase_04_PUT(TestCase):
 
     def test_add_new_user(self):
         from requests.auth import HTTPBasicAuth
-        url = 'http://127.0.0.1:8000/users/test/add/'
+        url = 'http://127.0.0.1:8000/user_create/test/add/'
         example_input = {
             'username': 'test_username',
             "first_name": "test_first_name",

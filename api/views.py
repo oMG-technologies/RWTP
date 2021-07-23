@@ -171,6 +171,14 @@ class UserViewSet(viewsets.ModelViewSet):
     #         return User.objects.all()
     #     return User.objects.filter(username=user.username)
 
+
+class UserCreateViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    # def __init__():
+    #     super().__init(UserViewSet)
+        
     @action(detail=True, methods=['PUT'])
     def add(self,request, pk=None):
         data = request.data
@@ -182,7 +190,7 @@ class UserViewSet(viewsets.ModelViewSet):
         email = data['email']
         password = data['password']
         
-        User.objects.create(
+        User.objects.create_user(
             username=username,
             first_name=first_name,
             last_name=last_name,

@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
-
+from django.shortcuts import get_object_or_404
 
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
@@ -161,12 +161,20 @@ class SingleTranslationViewSet(generics.ListAPIView):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    '''
-    API endpoint that allows users to be viewed or edited.
-    '''
-    permission_classes = [permissions.IsAuthenticated]
-    queryset = User.objects.all().order_by('-date_joined')
+    queryset = User.objects.all()
     serializer_class = UserSerializer
+    # permission_classes = [AllowPostAnyReadAuthenticatedUser]
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_superuser:
+            return User.objects.all()
+        return User.objects.filter(username=user.username)
+
+    # def get_object(self):
+    #     obj = get_object_or_404(User.objects.filter(id=self.kwargs["pk"]))
+    #     self.check_object_permissions(self.request, obj)
+    #     return obj
 
 
 class GroupViewSet(viewsets.ModelViewSet):

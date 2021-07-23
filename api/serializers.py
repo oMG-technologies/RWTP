@@ -85,14 +85,27 @@ class AvailableLanguagesSerializers(serializers.ModelSerializer):
         fields = ['conversion']
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    ''' Create UserSerializer '''
+# class UserSerializer(serializers.ModelSerializer):
+#     ''' Create UserSerializer '''
+#     url = serializers.HyperlinkedIdentityField(view_name='api:user-list', source='username',
+#                                                    lookup_url_kwarg='username', lookup_field='username')
+#     class Meta:
+#         model = User
+#         fields = ['url',
+#                   'username',
+#                   'email',
+#                   'is_staff']
+#         # read_only_fields = ['id','url', 'username', 'email']
+
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url',
-                  'username',
-                  'email',
-                  'is_staff']
+        fields = ('username', 'email', 'id', 'password')
+        read_only_fields = ('id',)
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
+
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):

@@ -171,6 +171,26 @@ class UserViewSet(viewsets.ModelViewSet):
             return User.objects.all()
         return User.objects.filter(username=user.username)
 
+    @action(detail=True, methods=['PUT'])
+    def add(self,request,pk):
+        data = request.data
+        serialized = UserSerializer(data=request.data)
+        serialized.is_valid(raise_exception=True)
+        username = data['username']
+        first_name = data['first_name']
+        last_name = data['last_name']
+        email = data['email']
+        
+        User.objects.create(
+            # id=2,
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            email=email)
+
+        # return Response({'User': 'Successfully created new user'})
+        return Response({'User created successfully': serialized.data})
+
 
 class GroupViewSet(viewsets.ModelViewSet):
     '''

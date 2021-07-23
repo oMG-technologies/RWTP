@@ -228,6 +228,19 @@ class APIResponseTestCase_03_DELETE(TestCase):
             headers={'content-type': 'application/json'})
         self.assertEqual(response.status_code, 403)
 
+    def test_delete_user(self):
+        from requests.auth import HTTPBasicAuth
+
+        url = 'http://127.0.0.1:8000/user/test_username/delete/'
+
+        response = requests.delete(
+            url,
+            headers={'content-type': 'application/json'},
+            auth=HTTPBasicAuth(self.su, self.su_passwd))
+        print(response.text)
+
+        self.assertEqual(response.status_code, 200)
+
 
 class APIResponseTestCase_04_PUT(TestCase):
     print('# Testing PUT requests #')
@@ -255,6 +268,5 @@ class APIResponseTestCase_04_PUT(TestCase):
             data=json.dumps(example_input),
             headers={'content-type': 'application/json'},
             auth=HTTPBasicAuth(self.su, self.su_passwd))
-        # print(response.raise_for_status())
         print(response.text)
         self.assertEqual(response.status_code, 200)

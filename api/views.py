@@ -172,7 +172,7 @@ class UserViewSet(viewsets.ModelViewSet):
     #     return User.objects.filter(username=user.username)
 
     @action(detail=True, methods=['PUT'])
-    def add(self,request, pk):
+    def add(self,request, pk=None):
         data = request.data
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)
@@ -190,6 +190,19 @@ class UserViewSet(viewsets.ModelViewSet):
             password=password)
 
         return Response({'User created successfully': serialized.data})
+
+class UserDeleteViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = 'username'
+        
+    @action(detail=True, methods=['delete'])
+    def delete(self, request, username=None):
+        # below would be great for user to remove its own account
+        # username = request.user.username
+        User.objects.filter(username=username).delete()
+        return Response({'{}'.format(username): 'Successfully removed'})
 
 
 class GroupViewSet(viewsets.ModelViewSet):

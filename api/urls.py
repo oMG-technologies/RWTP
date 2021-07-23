@@ -6,6 +6,7 @@ from .views import (TranslationsViewSet,
                     AvailableLanguagesViewSet,
                     SingleTranslationViewSet,
                     UserViewSet,
+                    UserDeleteViewSet,
                     GroupViewSet
                     )
 
@@ -14,6 +15,7 @@ router.register(r'translations',
                 TranslationsViewSet, basename='translations')
 router.register(r'language', LanguageViewSet, basename='language')
 router.register(r'users', UserViewSet, basename='users')
+router.register(r'user_delete', UserDeleteViewSet, basename='user_delete')
 router.register(r'groups', GroupViewSet, basename='groups')
 router.register(r'available_conversions', AvailableLanguagesViewSet, basename='available_conversions')
 

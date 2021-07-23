@@ -129,7 +129,6 @@ class APIResponseTestCase_02_POST(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_translations_endpoint_response_post_authenticated(self):
-        print('post')
         from requests.auth import HTTPBasicAuth
         example_input = {
             "i": 18,
@@ -228,3 +227,34 @@ class APIResponseTestCase_03_DELETE(TestCase):
             url,
             headers={'content-type': 'application/json'})
         self.assertEqual(response.status_code, 403)
+
+
+class APIResponseTestCase_04_PUT(TestCase):
+    print('# Testing PUT requests #')
+
+    @property
+    def su(self):
+        return os.environ['RWTP_su']
+
+    @property
+    def su_passwd(self):
+        return os.environ['RWTP_su_passwd']
+
+    def test_add_new_user(self):
+        from requests.auth import HTTPBasicAuth
+        url = 'http://127.0.0.1:8000/users/test/add/'
+        example_input = {
+            'username': 'test_username',
+            "first_name": "test_first_name",
+            "last_name": "test_last_name",
+            "email": "test_first_name@gmail.com",
+            "password": "test_password",
+        }
+        response = requests.put(
+            url,
+            data=json.dumps(example_input),
+            headers={'content-type': 'application/json'},
+            auth=HTTPBasicAuth(self.su, self.su_passwd))
+        # print(response.raise_for_status())
+        print(response.text)
+        self.assertEqual(response.status_code, 200)

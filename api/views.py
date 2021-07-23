@@ -165,14 +165,14 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        user = self.request.user
-        if user.is_superuser:
-            return User.objects.all()
-        return User.objects.filter(username=user.username)
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     if user.is_superuser:
+    #         return User.objects.all()
+    #     return User.objects.filter(username=user.username)
 
     @action(detail=True, methods=['PUT'])
-    def add(self,request,pk):
+    def add(self,request, pk):
         data = request.data
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)
@@ -180,15 +180,15 @@ class UserViewSet(viewsets.ModelViewSet):
         first_name = data['first_name']
         last_name = data['last_name']
         email = data['email']
+        password = data['password']
         
         User.objects.create(
-            # id=2,
             username=username,
             first_name=first_name,
             last_name=last_name,
-            email=email)
+            email=email,
+            password=password)
 
-        # return Response({'User': 'Successfully created new user'})
         return Response({'User created successfully': serialized.data})
 
 

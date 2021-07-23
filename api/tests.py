@@ -231,7 +231,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
     def test_delete_user(self):
         from requests.auth import HTTPBasicAuth
 
-        url = 'http://127.0.0.1:8000/user/test_username/delete/'
+        url = 'http://127.0.0.1:8000/user_delete/test_username/delete/'
 
         response = requests.delete(
             url,

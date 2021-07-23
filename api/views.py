@@ -163,18 +163,13 @@ class SingleTranslationViewSet(generics.ListAPIView):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = [AllowPostAnyReadAuthenticatedUser]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
         if user.is_superuser:
             return User.objects.all()
         return User.objects.filter(username=user.username)
-
-    # def get_object(self):
-    #     obj = get_object_or_404(User.objects.filter(id=self.kwargs["pk"]))
-    #     self.check_object_permissions(self.request, obj)
-    #     return obj
 
 
 class GroupViewSet(viewsets.ModelViewSet):

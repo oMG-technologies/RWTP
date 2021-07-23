@@ -172,12 +172,9 @@ class UserViewSet(viewsets.ModelViewSet):
     #     return User.objects.filter(username=user.username)
 
 
-class UserCreateViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    # def __init__():
-    #     super().__init(UserViewSet)
+class UserCreateViewSet(UserViewSet):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         
     @action(detail=True, methods=['PUT'])
     def add(self,request, pk=None):
@@ -196,14 +193,20 @@ class UserCreateViewSet(viewsets.ModelViewSet):
             last_name=last_name,
             email=email,
             password=password)
+        
+        current_user = User.objects.get(username=username)
+        current_user.set_password(password)
+        current_user.save()
 
         return Response({'User created successfully': serialized.data})
 
-class UserDeleteViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+
+class UserDeleteViewSet(UserViewSet):
     lookup_field = 'username'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+    
         
     @action(detail=True, methods=['delete'])
     def delete(self, request, username=None):

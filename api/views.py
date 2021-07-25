@@ -239,14 +239,14 @@ class ExampleView(APIView):
     def get(self, request, format=None):
         user = request.user
         try:
-            queryset = Language.objects.get(owner=user)
-            serializer = LanguageSerializers(queryset)
+            queryset = Translation.objects.filter(owner=user)
+            serializer = TranslationSerializers(queryset, many=True)
             content = {
                 # `django.contrib.auth.User` instance.
                 'user': str(request.user),
                 'auth': str(request.auth),  # None,
-                'lang': serializer.data
+                'known_translations': serializer.data
             }
             return Response(content)
-        except Language.DoesNotExist:
+        except Translation.DoesNotExist:
             return Response({"error": "Language object does not exist for user {}".format(user)})

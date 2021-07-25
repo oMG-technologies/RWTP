@@ -1,3 +1,4 @@
+from django.http import response
 from django.test import TestCase
 import requests
 import os
@@ -268,5 +269,23 @@ class APIResponseTestCase_04_PUT(TestCase):
             data=json.dumps(example_input),
             headers={'content-type': 'application/json'},
             auth=HTTPBasicAuth(self.su, self.su_passwd))
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+
+
+class APIResponseTestCase_05_AUTH(TestCase):
+    print('# Testing AUTH requests #')
+
+    def test_auth_token_generation(self):
+        url = 'http://127.0.0.1:8000/api-token-auth/'
+        data = {
+            "username": "test_username",
+            "password": "test_password"
+        }
+        response = requests.post(
+            url,
+            data=json.dumps(data),
+            headers={'content-type': 'application/json'})
+
         print(response.text)
         self.assertEqual(response.status_code, 200)

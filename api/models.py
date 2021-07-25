@@ -1,18 +1,20 @@
+import re
 from django.db import models
 from django.db.models.fields import IntegerField
 from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
+from iso639.iso639 import _Language
 
 
 class Language(models.Model):
     ''' Create Language model '''
     conversion = models.CharField(max_length=6, primary_key=True)
 
-    owner = models.ForeignKey(
-        User,
-        related_name='lang',
-        on_delete=models.CASCADE,
-        null=True)
+    # owner = models.ForeignKey(
+    #     User,
+    #     related_name='lang',
+    #     on_delete=models.CASCADE,
+    #     null=True)
 
     def __str__(self):
         return self.conversion
@@ -32,6 +34,11 @@ class Translation(models.Model):
     pronunciation_frontCard = models.CharField(max_length=200)
     pronunciation_backCard = models.CharField(max_length=200)
 
+    owner = models.ManyToManyField(
+        User,
+        related_name='owner',
+        null=True)
+
     class Meta:
         verbose_name_plural = 'Translations'
 
@@ -39,6 +46,20 @@ class Translation(models.Model):
         new_dict = {'frontCard': self.frontCard,
                     'backCard': self.backCard}
         return str(new_dict)
+
+
+# class Seen(models.Model):
+
+#     user = models.ForeignKey(
+#         User, on_delete=models.CASCADE, related_name='user')
+#     language = models.ForeignKey(
+#         Language, on_delete=models.CASCADE, related_name='language')
+#     translation = models.ForeignKey(
+#         Translation, on_delete=models.CASCADE)
+#     known = models.BooleanField(default=False)
+
+#     def __str__(self):
+#         return self.user.username
 
 
 def populate_db() -> None:

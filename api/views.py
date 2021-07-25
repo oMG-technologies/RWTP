@@ -250,7 +250,3 @@ class ExampleView(APIView):
             return Response(content)
         except Language.DoesNotExist:
             return Response({"error": "Language object does not exist for user {}".format(user)})
-
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     return Language.objects.filter(owner=user)

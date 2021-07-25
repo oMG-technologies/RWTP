@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -232,12 +232,25 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 class ExampleView(APIView):
-    authentication_classes = [TokenAuthentication]
+    # authentication_classes = [TokenAuthentication]
+    authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
-        content = {
-            'user': str(request.user),  # `django.contrib.auth.User` instance.
-            'auth': str(request.auth),  # None
-        }
-        return Response(content)
+        user = request.user
+        try:
+            queryset = Language.objects.get(owner=user)
+            serializer = LanguageSerializers(queryset)
+            content = {
+                # `django.contrib.auth.User` instance.
+                'user': str(request.user),
+                'auth': str(request.auth),  # None,
+                'lang': serializer.data
+            }
+            return Response(content)
+        except Language.DoesNotExist:
+            return Response({"error": "Language object does not exist for user {}".format(user)})
+
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     return Language.objects.filter(owner=user)

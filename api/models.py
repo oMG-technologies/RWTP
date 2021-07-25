@@ -8,10 +8,11 @@ class Language(models.Model):
     ''' Create Language model '''
     conversion = models.CharField(max_length=6, primary_key=True)
 
-    # owner = models.ForeignKey(
-    #     'auth.User',
-    #     related_name='lang',
-    #     on_delete=models.CASCADE)
+    owner = models.ForeignKey(
+        User,
+        related_name='lang',
+        on_delete=models.CASCADE,
+        null=True)
 
     def __str__(self):
         return self.conversion

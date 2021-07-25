@@ -294,8 +294,8 @@ class APIResponseTestCase_05_AUTH(TestCase):
     def test_auth_token_validation(self):
         url = 'http://127.0.0.1:8000/example/'
         token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
-        token = f"Token {token}"
-        headers = {"Authorization": token}
+        headers = {
+            "Authorization": 'Token {}'.format(token)}
         response = requests.get(url, headers=headers)
         print(response.text)
         self.assertEqual(response.status_code, 200)

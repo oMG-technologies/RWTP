@@ -231,7 +231,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class ExampleView(APIView):
+class UserProgress(APIView):
     # authentication_classes = [TokenAuthentication]
     authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
@@ -239,18 +239,14 @@ class ExampleView(APIView):
     def get(self, request, format=None):
         user = request.user
         try:
-            queryset = Language.objects.get(owner=user)
-            serializer = LanguageSerializers(queryset)
+            queryset = Translation.objects.filter(owner=user)
+            serializer = TranslationSerializers(queryset, many=True)
             content = {
                 # `django.contrib.auth.User` instance.
                 'user': str(request.user),
                 'auth': str(request.auth),  # None,
-                'lang': serializer.data
+                'user_answered_correctly': serializer.data
             }
             return Response(content)
-        except Language.DoesNotExist:
+        except Translation.DoesNotExist:
             return Response({"error": "Language object does not exist for user {}".format(user)})
-
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     return Language.objects.filter(owner=user)

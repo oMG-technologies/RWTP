@@ -1,14 +1,15 @@
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework.authtoken import views
 
-from .views import (TranslationsViewSet,
+from .views import (ExampleView, TranslationsViewSet,
                     LanguageViewSet,
                     AvailableLanguagesViewSet,
                     SingleTranslationViewSet,
                     UserViewSet,
                     UserCreateViewSet,
                     UserDeleteViewSet,
-                    GroupViewSet
+                    GroupViewSet,
                     )
 
 router = routers.DefaultRouter(trailing_slash=True)
@@ -19,7 +20,8 @@ router.register(r'users', UserViewSet, basename='users')
 router.register(r'user_create', UserCreateViewSet, basename='user_create')
 router.register(r'user_delete', UserDeleteViewSet, basename='user_delete')
 router.register(r'groups', GroupViewSet, basename='groups')
-router.register(r'available_conversions', AvailableLanguagesViewSet, basename='available_conversions')
+router.register(r'available_conversions',
+                AvailableLanguagesViewSet, basename='available_conversions')
 
 urlpatterns = [
     path('', include(router.urls)),
@@ -27,4 +29,6 @@ urlpatterns = [
          name='translation_single_lang'),
     path('api-auth/', include('rest_framework.urls',
          namespace='rest_framework_test')),
+    path('api-token-auth/', views.obtain_auth_token),
+    path('example/', ExampleView.as_view(), name='example')
 ]

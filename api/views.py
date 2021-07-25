@@ -231,7 +231,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class ExampleView(APIView):
+class UserProgress(APIView):
     # authentication_classes = [TokenAuthentication]
     authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
@@ -245,7 +245,7 @@ class ExampleView(APIView):
                 # `django.contrib.auth.User` instance.
                 'user': str(request.user),
                 'auth': str(request.auth),  # None,
-                'known_translations': serializer.data
+                'user_answered_correctly': serializer.data
             }
             return Response(content)
         except Translation.DoesNotExist:

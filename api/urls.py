@@ -2,7 +2,8 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework.authtoken import views
 
-from .views import (ExampleView, TranslationsViewSet,
+from .views import (UserProgress,
+                    TranslationsViewSet,
                     LanguageViewSet,
                     AvailableLanguagesViewSet,
                     SingleTranslationViewSet,
@@ -30,5 +31,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls',
          namespace='rest_framework_test')),
     path('api-token-auth/', views.obtain_auth_token),
-    path('example/', ExampleView.as_view(), name='example')
+    path('user_progress/', UserProgress.as_view(), name='example')
 ]

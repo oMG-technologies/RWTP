@@ -15,6 +15,7 @@ from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
 
+
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
     API endpoint view that allows to see translations.
@@ -22,19 +23,19 @@ class TranslationsViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Translation.objects.all()
     serializer_class = TranslationSerializers
-    
+
     @action(detail=True, methods=['get'])
     def single(self, request, pk=None):
         queryset = Translation.objects.get(pk=pk)
         serializer = TranslationSerializers(queryset)
         return Response(serializer.data)
-    
+
     @csrf_exempt
     @action(detail=True, methods=['delete'])
     def delete(self, request, pk=None):
         Translation.objects.filter(pk=pk).delete()
         return Response({'pk': 'Successfully removed'})
-    
+
     @csrf_exempt
     @action(detail=True, methods=['post'])
     def post(self, request, pk=None):
@@ -87,7 +88,7 @@ class LanguageViewSet(viewsets.ModelViewSet):
         queryset = Language.objects.get(conversion=conversion)
         serializer = LanguageSerializers(queryset)
         return Response(serializer.data)
-    
+
     @csrf_exempt
     @action(detail=True, methods=['delete'])
     def delete(self, request, conversion=None):
@@ -173,11 +174,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class UserCreateViewSet(UserViewSet):
+
+    lookup_field = 'username'
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
     @action(detail=True, methods=['PUT'])
-    def add(self,request, pk=None):
+    def add(self, request, pk=None):
         data = request.data
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)
@@ -186,14 +190,14 @@ class UserCreateViewSet(UserViewSet):
         last_name = data['last_name']
         email = data['email']
         password = data['password']
-        
+
         User.objects.create_user(
             username=username,
             first_name=first_name,
             last_name=last_name,
             email=email,
             password=password)
-        
+
         current_user = User.objects.get(username=username)
         current_user.set_password(password)
         current_user.save()
@@ -206,8 +210,7 @@ class UserDeleteViewSet(UserViewSet):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-    
-        
+
     @action(detail=True, methods=['delete'])
     def delete(self, request, username=None):
         # below would be great for user to remove its own account

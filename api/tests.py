@@ -272,6 +272,12 @@ class APIResponseTestCase_04_PUT(TestCase):
         print(response.text)
         self.assertEqual(response.status_code, 200)
 
+    def test_update_user_progress(self):
+        url = ''
+
+        data = {'user_know_ids': [2],
+                'user_not_know_ids': [1]}
+
 
 class APIResponseTestCase_05_AUTH(TestCase):
     print('# Testing AUTH requests #')

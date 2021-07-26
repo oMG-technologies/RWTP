@@ -1,20 +1,13 @@
-import re
+
 from django.db import models
 from django.db.models.fields import IntegerField
 from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
-from iso639.iso639 import _Language
 
 
 class Language(models.Model):
     ''' Create Language model '''
     conversion = models.CharField(max_length=6, primary_key=True)
-
-    # owner = models.ForeignKey(
-    #     User,
-    #     related_name='lang',
-    #     on_delete=models.CASCADE,
-    #     null=True)
 
     def __str__(self):
         return self.conversion

@@ -85,7 +85,6 @@ class AvailableLanguagesSerializers(serializers.ModelSerializer):
         fields = ['conversion']
 
 
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -101,7 +100,6 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}
         }
-
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):

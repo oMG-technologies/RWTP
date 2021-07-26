@@ -249,4 +249,29 @@ class UserProgress(APIView):
             }
             return Response(content)
         except Translation.DoesNotExist:
-            return Response({"error": "Language object does not exist for user {}".format(user)})
+            error_msg = 'Language object does not'
+            ' exist for user {}'.format(user)
+            error = {
+                'error': error_msg}
+            return Response(error)
+
+    def put(self, request, format=None):
+        ''' Update a list of translation for which user known the answer '''
+        user = request.user
+        data = request.data
+        user_know_ids = data['user_know_ids']
+        user_not_know_ids = data['user_not_know_ids']
+
+        # add user to translation object
+        translations = Translation.objects.filter(pk__in=user_know_ids)
+        for translation in translations:
+            translation.owner.add(user)
+            translation.save()
+
+        # remove user from translation object
+        translations = Translation.objects.filter(pk__in=user_not_know_ids)
+        for translation in translations:
+            translation.owner.remove(user)
+            translation.save()
+
+        return Response({'STATUS': 'correctly_answered_list successfully updated'})

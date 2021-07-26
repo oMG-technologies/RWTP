@@ -232,8 +232,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 class UserProgress(APIView):
-    authentication_classes = [TokenAuthentication]
-    # authentication_classes = [BasicAuthentication, SessionAuthentication]
+    # authentication_classes = [TokenAuthentication]
+    authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
@@ -259,6 +259,8 @@ class UserProgress(APIView):
         ''' Update a list of translation for which user known the answer '''
         user = request.user
         data = request.data
+        # if those lists have pks that are not in the database,
+        # those additional pks will be ignored
         user_know_ids = data['user_know_ids']
         user_not_know_ids = data['user_not_know_ids']
 

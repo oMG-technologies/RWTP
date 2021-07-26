@@ -272,11 +272,47 @@ class APIResponseTestCase_04_PUT(TestCase):
         print(response.text)
         self.assertEqual(response.status_code, 200)
 
-    def test_update_user_progress(self):
-        url = ''
+    def test_update_user_progress_user_know(self):
+        url = 'http://127.0.0.1:8000/user_progress/'
+        token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
+        headers = {'content-type': 'application/json',
+                   "Authorization": 'Token {}'.format(token)}
+        data = {'user_know_ids': [1, 2],
+                'user_not_know_ids': []}
+        response = requests.put(
+            url,
+            data=json.dumps(data),
+            headers=headers)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
 
-        data = {'user_know_ids': [2],
-                'user_not_know_ids': [1]}
+    def test_update_user_progress_user_not_know(self):
+        url = 'http://127.0.0.1:8000/user_progress/'
+        token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
+        headers = {'content-type': 'application/json',
+                   "Authorization": 'Token {}'.format(token)}
+        data = {'user_know_ids': [],
+                'user_not_know_ids': [1, 2]}
+        response = requests.put(
+            url,
+            data=json.dumps(data),
+            headers=headers)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+
+    def test_update_user_progress_user_mix_know_not_know(self):
+        url = 'http://127.0.0.1:8000/user_progress/'
+        token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
+        headers = {'content-type': 'application/json',
+                   "Authorization": 'Token {}'.format(token)}
+        data = {'user_know_ids': [1],
+                'user_not_know_ids': [2]}
+        response = requests.put(
+            url,
+            data=json.dumps(data),
+            headers=headers)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
 
 
 class APIResponseTestCase_05_AUTH(TestCase):

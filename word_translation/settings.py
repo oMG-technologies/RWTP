@@ -104,16 +104,16 @@ DATABASES = {
 }
 
 # Heroku DB
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ['words_translation_db_name'],
-#         'USER': os.environ['words_translation_db_user'],
-#         'PASSWORD': os.environ['words_translation_db_passwd'],
-#         'HOST': os.environ['words_translation_db_host'],
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['words_translation_db_name'],
+        'USER': os.environ['words_translation_db_user'],
+        'PASSWORD': os.environ['words_translation_db_passwd'],
+        'HOST': os.environ['words_translation_db_host'],
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation

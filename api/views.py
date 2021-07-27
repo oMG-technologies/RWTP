@@ -11,13 +11,17 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from django.shortcuts import get_object_or_404
 from django.db.utils import IntegrityError
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
     '''
-    API endpoint that allows to see translations.
+    API endpoint view that allows to see translations.
     '''
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Translation.objects.all()
@@ -29,21 +33,20 @@ class TranslationsViewSet(viewsets.ModelViewSet):
         serializer = TranslationSerializers(queryset)
         return Response(serializer.data)
 
+    @csrf_exempt
     @action(detail=True, methods=['delete'])
-    def remove(self, request, pk=None):
+    def delete(self, request, pk=None):
         Translation.objects.filter(pk=pk).delete()
         return Response({'pk': 'Successfully removed'})
 
+    @csrf_exempt
     @action(detail=True, methods=['post'])
     def post(self, request, pk=None):
 
         data = request.data
-        print(data)
 
-        # conversion = request['conversion']
-        conversion = 'en-pl'
-        # i = request['i']
-        i = 18
+        conversion = data['conversion']
+        i = data['i']
         frontCard = data['frontCard']
         backCard = data['backCard']
         pronunciation_frontCard = data['pronunciation_frontCard']
@@ -89,8 +92,9 @@ class LanguageViewSet(viewsets.ModelViewSet):
         serializer = LanguageSerializers(queryset)
         return Response(serializer.data)
 
+    @csrf_exempt
     @action(detail=True, methods=['delete'])
-    def remove(self, request, conversion=None):
+    def delete(self, request, conversion=None):
         Language.objects.filter(conversion=conversion).delete()
         return Response({'Conversion': 'Successfully removed'})
 
@@ -102,9 +106,6 @@ class AvailableLanguagesViewSet(viewsets.ModelViewSet):
 
     # ISO 639-1 code has always lenght of 2
     length = 2
-
-    # def retrieve(self, request, *args, **kwargs):
-    #     return Response({'something': 'my custom JSON'})
 
     def list(
             self,
@@ -210,12 +211,61 @@ class TranslationsViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    '''
-    API endpoint that allows users to be viewed or edited.
-    '''
-    permission_classes = [permissions.IsAuthenticated]
-    queryset = User.objects.all().order_by('-date_joined')
+    queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     if user.is_superuser:
+    #         return User.objects.all()
+    #     return User.objects.filter(username=user.username)
+
+
+class UserCreateViewSet(UserViewSet):
+
+    lookup_field = 'username'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    @action(detail=True, methods=['PUT'])
+    def add(self, request, pk=None):
+        data = request.data
+        serialized = UserSerializer(data=request.data)
+        serialized.is_valid(raise_exception=True)
+        username = data['username']
+        first_name = data['first_name']
+        last_name = data['last_name']
+        email = data['email']
+        password = data['password']
+
+        User.objects.create_user(
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            password=password)
+
+        current_user = User.objects.get(username=username)
+        current_user.set_password(password)
+        current_user.save()
+
+        return Response({'User created successfully': serialized.data})
+
+
+class UserDeleteViewSet(UserViewSet):
+    lookup_field = 'username'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    @action(detail=True, methods=['delete'])
+    def delete(self, request, username=None):
+        # below would be great for user to remove its own account
+        # username = request.user.username
+        User.objects.filter(username=username).delete()
+        return Response({'{}'.format(username): 'Successfully removed'})
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -225,3 +275,51 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class UserProgress(APIView):
+    authentication_classes = [TokenAuthentication]
+    # authentication_classes = [BasicAuthentication, SessionAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        user = request.user
+        try:
+            queryset = Translation.objects.filter(owner=user)
+            serializer = TranslationSerializers(queryset, many=True)
+            content = {
+                # `django.contrib.auth.User` instance.
+                'user': str(request.user),
+                'auth': str(request.auth),  # None,
+                'user_answered_correctly': serializer.data
+            }
+            return Response(content)
+        except Translation.DoesNotExist:
+            error_msg = 'Language object does not'
+            ' exist for user {}'.format(user)
+            error = {
+                'error': error_msg}
+            return Response(error)
+
+    def put(self, request, format=None):
+        ''' Update a list of translation for which user known the answer '''
+        user = request.user
+        data = request.data
+        # if those lists have pks that are not in the database,
+        # those additional pks will be ignored
+        user_know_ids = data['user_know_ids']
+        user_not_know_ids = data['user_not_know_ids']
+
+        # add user to translation object
+        translations = Translation.objects.filter(pk__in=user_know_ids)
+        for translation in translations:
+            translation.owner.add(user)
+            translation.save()
+
+        # remove user from translation object
+        translations = Translation.objects.filter(pk__in=user_not_know_ids)
+        for translation in translations:
+            translation.owner.remove(user)
+            translation.save()
+
+        return Response({'STATUS': 'correctly_answered_list successfully updated'})

@@ -177,7 +177,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class UserCreateViewSet(UserViewSet):
-
+    permission_classes = [permissions.AllowAny]
     lookup_field = 'username'
 
     def __init__(self, *args, **kwargs):
@@ -185,6 +185,7 @@ class UserCreateViewSet(UserViewSet):
 
     @action(detail=True, methods=['PUT'])
     def add(self, request, pk=None):
+        print('here')
         data = request.data
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)

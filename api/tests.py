@@ -255,22 +255,20 @@ class APIResponseTestCase_04_PUT(TestCase):
         return os.environ['RWTP_su_passwd']
 
     def test_add_new_user(self):
-        from requests.auth import HTTPBasicAuth
-        url = 'http://127.0.0.1:8000/user_create/test/add/'
+        url = 'http://127.0.0.1:8000/user_create/'
         example_input = {
-            'username': 'test_username',
+            'username': 'test_user',
             "first_name": "test_first_name",
             "last_name": "test_last_name",
             "email": "test_first_name@gmail.com",
-            "password": "test_password",
+            "password": "passwd",
         }
-        response = requests.put(
+        response = requests.post(
             url,
             data=json.dumps(example_input),
-            headers={'content-type': 'application/json'},
-            auth=HTTPBasicAuth(self.su, self.su_passwd))
+            headers={'content-type': 'application/json'})
         print(response.text)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 201)
 
     def test_update_user_progress_user_know(self):
         url = 'http://127.0.0.1:8000/user_progress/'

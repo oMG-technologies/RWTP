@@ -36,23 +36,10 @@ class Translation(models.Model):
         verbose_name_plural = 'Translations'
 
     def __str__(self):
-        new_dict = {'frontCard': self.frontCard,
-                    'backCard': self.backCard}
+        new_dict = {'conversion': self.translation.conversion,
+                    'frontCard': self.frontCard
+                    }
         return str(new_dict)
-
-
-# class Seen(models.Model):
-
-#     user = models.ForeignKey(
-#         User, on_delete=models.CASCADE, related_name='user')
-#     language = models.ForeignKey(
-#         Language, on_delete=models.CASCADE, related_name='language')
-#     translation = models.ForeignKey(
-#         Translation, on_delete=models.CASCADE)
-#     known = models.BooleanField(default=False)
-
-#     def __str__(self):
-#         return self.user.username
 
 
 def populate_db() -> None:

@@ -232,8 +232,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 class UserProgress(APIView):
-    authentication_classes = [TokenAuthentication]
-    # authentication_classes = [BasicAuthentication, SessionAuthentication]
+    # authentication_classes = [TokenAuthentication]
+    authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):

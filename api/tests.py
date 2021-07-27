@@ -324,7 +324,6 @@ class APIResponseTestCase_05_AUTH(TestCase):
             "username": "test_username",
             "password": "test_password"
         }
-
         response = requests.post(
             url,
             data=json.dumps(data),

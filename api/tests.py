@@ -334,7 +334,7 @@ class APIResponseTestCase_05_AUTH(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_auth_token_validation(self):
-        url = 'http://127.0.0.1:8000/example/'
+        url = 'http://127.0.0.1:8000/user_progress/'
         token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
         headers = {
             "Authorization": 'Token {}'.format(token)}

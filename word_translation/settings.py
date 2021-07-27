@@ -40,17 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
-# CSRF_COOKIE_SECURE = False
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -87,28 +89,28 @@ WSGI_APPLICATION = 'word_translation.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'word_translate',
-#         'USER': 'word_translate_user',
-#         'PASSWORD': 'dzin111majonez',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-
-# Heroku DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['words_translation_db_name'],
-        'USER': os.environ['words_translation_db_user'],
-        'PASSWORD': os.environ['words_translation_db_passwd'],
-        'HOST': os.environ['words_translation_db_host'],
-        'PORT': '5432',
+        'NAME': 'word_translate',
+        'USER': 'word_translate_user',
+        'PASSWORD': 'dzin111majonez',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
+# Heroku DB
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ['words_translation_db_name'],
+#         'USER': os.environ['words_translation_db_user'],
+#         'PASSWORD': os.environ['words_translation_db_passwd'],
+#         'HOST': os.environ['words_translation_db_host'],
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation

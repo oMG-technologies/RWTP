@@ -1,3 +1,4 @@
+from django.http import response
 from django.test import TestCase
 import requests
 import os
@@ -129,7 +130,6 @@ class APIResponseTestCase_02_POST(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_translations_endpoint_response_post_authenticated(self):
-        print('post')
         from requests.auth import HTTPBasicAuth
         example_input = {
             "i": 18,
@@ -228,3 +228,115 @@ class APIResponseTestCase_03_DELETE(TestCase):
             url,
             headers={'content-type': 'application/json'})
         self.assertEqual(response.status_code, 403)
+
+    def test_delete_user(self):
+        from requests.auth import HTTPBasicAuth
+
+        url = 'http://127.0.0.1:8000/user_delete/test_username/delete/'
+
+        response = requests.delete(
+            url,
+            headers={'content-type': 'application/json'},
+            auth=HTTPBasicAuth(self.su, self.su_passwd))
+        print(response.text)
+
+        self.assertEqual(response.status_code, 200)
+
+
+class APIResponseTestCase_04_PUT(TestCase):
+    print('# Testing PUT requests #')
+
+    @property
+    def su(self):
+        return os.environ['RWTP_su']
+
+    @property
+    def su_passwd(self):
+        return os.environ['RWTP_su_passwd']
+
+    def test_add_new_user(self):
+        from requests.auth import HTTPBasicAuth
+        url = 'http://127.0.0.1:8000/user_create/test/add/'
+        example_input = {
+            'username': 'test_username',
+            "first_name": "test_first_name",
+            "last_name": "test_last_name",
+            "email": "test_first_name@gmail.com",
+            "password": "test_password",
+        }
+        response = requests.put(
+            url,
+            data=json.dumps(example_input),
+            headers={'content-type': 'application/json'},
+            auth=HTTPBasicAuth(self.su, self.su_passwd))
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+
+    def test_update_user_progress_user_know(self):
+        url = 'http://127.0.0.1:8000/user_progress/'
+        token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
+        headers = {'content-type': 'application/json',
+                   "Authorization": 'Token {}'.format(token)}
+        data = {'user_know_ids': [1, 2],
+                'user_not_know_ids': []}
+        response = requests.put(
+            url,
+            data=json.dumps(data),
+            headers=headers)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+
+    def test_update_user_progress_user_not_know(self):
+        url = 'http://127.0.0.1:8000/user_progress/'
+        token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
+        headers = {'content-type': 'application/json',
+                   "Authorization": 'Token {}'.format(token)}
+        data = {'user_know_ids': [],
+                'user_not_know_ids': [1, 2]}
+        response = requests.put(
+            url,
+            data=json.dumps(data),
+            headers=headers)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+
+    def test_update_user_progress_user_mix_know_not_know(self):
+        url = 'http://127.0.0.1:8000/user_progress/'
+        token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
+        headers = {'content-type': 'application/json',
+                   "Authorization": 'Token {}'.format(token)}
+        data = {'user_know_ids': [1],
+                'user_not_know_ids': [2]}
+        response = requests.put(
+            url,
+            data=json.dumps(data),
+            headers=headers)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+
+
+class APIResponseTestCase_05_AUTH(TestCase):
+    print('# Testing AUTH requests #')
+
+    def test_auth_token_generation(self):
+        url = 'http://127.0.0.1:8000/api-token-auth/'
+        data = {
+            "username": "test_username",
+            "password": "test_password"
+        }
+        response = requests.post(
+            url,
+            data=json.dumps(data),
+            headers={'content-type': 'application/json'})
+
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+
+    def test_auth_token_validation(self):
+        url = 'http://127.0.0.1:8000/user_progress/'
+        token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
+        headers = {
+            "Authorization": 'Token {}'.format(token)}
+        response = requests.get(url, headers=headers)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)

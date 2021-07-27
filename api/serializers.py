@@ -85,14 +85,21 @@ class AvailableLanguagesSerializers(serializers.ModelSerializer):
         fields = ['conversion']
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    ''' Create UserSerializer '''
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url',
-                  'username',
-                  'email',
-                  'is_staff']
+        fields = (
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+            'is_staff')
+        read_only_fields = ('id',)
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):

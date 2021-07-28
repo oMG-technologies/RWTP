@@ -178,14 +178,13 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class UserCreateViewSet(UserViewSet):
     permission_classes = [permissions.AllowAny]
-    lookup_field = 'username'
+    # lookup_field = 'username'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     @action(detail=True, methods=['PUT'])
     def add(self, request, pk=None):
-        print('here')
         data = request.data
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)
@@ -233,8 +232,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 class UserProgress(APIView):
-    # authentication_classes = [TokenAuthentication]
-    authentication_classes = [BasicAuthentication, SessionAuthentication]
+    authentication_classes = [TokenAuthentication]
+    # authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):

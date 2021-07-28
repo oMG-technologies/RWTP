@@ -255,20 +255,20 @@ class APIResponseTestCase_04_PUT(TestCase):
         return os.environ['RWTP_su_passwd']
 
     def test_add_new_user(self):
-        url = 'http://127.0.0.1:8000/user_create/'
+        url = 'http://127.0.0.1:8000/user_create/user/add/'
         example_input = {
             'username': 'test_user',
             "first_name": "test_first_name",
             "last_name": "test_last_name",
             "email": "test_first_name@gmail.com",
-            "password": "passwd",
+            "password": "test_password",
         }
-        response = requests.post(
+        response = requests.put(
             url,
             data=json.dumps(example_input),
             headers={'content-type': 'application/json'})
         print(response.text)
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
 
     def test_update_user_progress_user_know(self):
         url = 'http://127.0.0.1:8000/user_progress/'
@@ -298,7 +298,7 @@ class APIResponseTestCase_04_PUT(TestCase):
         print(response.text)
         self.assertEqual(response.status_code, 200)
 
-    def test_update_user_progress_user_mix_know_not_know(self):
+    def test_update_user_progress_user_mix_POSknow_not_know(self):
         url = 'http://127.0.0.1:8000/user_progress/'
         token = '5ed3bead9563b60924c30bbba4e2fc5a27473b32'
         headers = {'content-type': 'application/json',
@@ -319,7 +319,7 @@ class APIResponseTestCase_05_AUTH(TestCase):
     def test_auth_token_generation(self):
         url = 'http://127.0.0.1:8000/api-token-auth/'
         data = {
-            "username": "test_username",
+            "username": "test_user",
             "password": "test_password"
         }
         response = requests.post(

@@ -223,8 +223,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class UserCreateViewSet(UserViewSet):
-
-    lookup_field = 'username'
+    permission_classes = [permissions.AllowAny]
+    # lookup_field = 'username'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

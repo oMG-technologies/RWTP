@@ -49,11 +49,11 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     )
 }
 
@@ -92,16 +92,16 @@ WSGI_APPLICATION = 'word_translation.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'word_translate',
-        'USER': 'word_translate_user',
-        'PASSWORD': 'dzin111majonez',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'word_translate',
+#         'USER': 'word_translate_user',
+#         'PASSWORD': 'dzin111majonez',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 # Heroku DB
 DATABASES = {

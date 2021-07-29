@@ -10,11 +10,11 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
-from rest_framework.decorators import action
+from rest_framework.decorators import action, permission_classes
 from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -167,7 +167,7 @@ class SingleTranslationViewSet(generics.ListAPIView):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAdminUser]
 
     # def get_queryset(self):
     #     user = self.request.user
@@ -177,13 +177,12 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class UserCreateViewSet(UserViewSet):
-    permission_classes = [permissions.AllowAny]
     # lookup_field = 'username'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    @action(detail=True, methods=['PUT'])
+    @action(detail=True, methods=['PUT'], permission_classes=[AllowAny])
     def add(self, request, pk=None):
         data = request.data
         serialized = UserSerializer(data=request.data)

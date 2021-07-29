@@ -323,3 +323,12 @@ class UserProgress(APIView):
             translation.save()
 
         return Response({'STATUS': 'correctly_answered_list successfully updated'})
+
+
+class isUser(APIView):
+    def get(self, request, username):
+        try:
+            User.objects.get(username=username)
+            return Response({'{}'.format(username): 'True'})
+        except User.DoesNotExist:
+            return Response({'{}'.format(username): 'False'})

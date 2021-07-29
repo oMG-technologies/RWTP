@@ -1,3 +1,4 @@
+import re
 from django.http import response
 from django.test import TestCase
 import requests
@@ -98,6 +99,14 @@ class APIResponseTestCase_01_GET(TestCase):
         inner_dict = response_json['available_conversions'][0]
         n_inner_dict = len(inner_dict)
         self.assertEqual(n_inner_dict, 5)
+
+    def test_is_user(self):
+        basic_url = 'http://127.0.0.1:8000/is_user/'
+        user = 'test_user'
+        url = basic_url + user + '/'
+        response = requests.get(url)
+        print(response.text)
+        assert response.status_code == 200
 
 
 class APIResponseTestCase_02_POST(TestCase):
@@ -232,7 +241,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
     def test_delete_user(self):
         from requests.auth import HTTPBasicAuth
 
-        url = 'http://127.0.0.1:8000/user_delete/test_username/delete/'
+        url = 'http://127.0.0.1:8000/user_delete/test_user/delete/'
 
         response = requests.delete(
             url,

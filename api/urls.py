@@ -19,7 +19,6 @@ router.register(r'translations',
                 TranslationsViewSet, basename='translations')
 router.register(r'language', LanguageViewSet, basename='language')
 router.register(r'users', UserViewSet, basename='users')
-# router.register(r'is_user', isUser, basename='is_User')
 router.register(r'user_create', UserCreateViewSet, basename='user_create')
 router.register(r'user_delete', UserDeleteViewSet, basename='user_delete')
 router.register(r'groups', GroupViewSet, basename='groups')

@@ -10,7 +10,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.response import Response
-from rest_framework.decorators import action, permission_classes
+from rest_framework.decorators import action
 from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
@@ -209,16 +209,22 @@ class UserCreateViewSet(UserViewSet):
 
 class UserDeleteViewSet(UserViewSet):
     lookup_field = 'username'
+    authentication_classes = [TokenAuthentication]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    @action(detail=True, methods=['delete'])
+    @action(detail=True,
+            methods=['delete'],
+            permission_classes=[IsAuthenticated])
     def delete(self, request, username=None):
         # below would be great for user to remove its own account
-        # username = request.user.username
-        User.objects.filter(username=username).delete()
-        return Response({'{}'.format(username): 'Successfully removed'})
+        username_logged_in = request.user.username
+        if username_logged_in == username:
+            User.objects.filter(username=username).delete()
+            return Response({'{}'.format(username): 'Successfully removed'})
+        else:
+            return Response({'Error': 'You are not authorized to remove this account'})
 
 
 class GroupViewSet(viewsets.ModelViewSet):

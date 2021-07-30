@@ -238,7 +238,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
             headers={'content-type': 'application/json'})
         self.assertEqual(response.status_code, 403)
 
-    def test_delete_user(self):
+    def test_delete_user_by_superuser(self):
         from requests.auth import HTTPBasicAuth
 
         url = 'http://127.0.0.1:8000/user_delete/test_user/delete/'
@@ -251,15 +251,26 @@ class APIResponseTestCase_03_DELETE(TestCase):
 
         self.assertEqual(response.status_code, 200)
 
+    def test_delete_user_by_self(self):
+        url = 'http://127.0.0.1:8000/user_delete/test_user/delete/'
+        token = 'bd096f9e228dca951a3d45e2a28a0e5bf5fe63fd'
+        headers = {"Authorization": 'Token {}'.format(token)}
+        response = requests.delete(
+            url,
+            headers=headers)
+        print(response.text)
+
+        self.assertEqual(response.status_code, 200)
+
 
 class APIResponseTestCase_04_PUT(TestCase):
     print('# Testing PUT requests #')
 
-    @property
+    @ property
     def su(self):
         return os.environ['RWTP_su']
 
-    @property
+    @ property
     def su_passwd(self):
         return os.environ['RWTP_su_passwd']
 

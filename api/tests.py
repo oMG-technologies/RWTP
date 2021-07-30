@@ -252,8 +252,18 @@ class APIResponseTestCase_03_DELETE(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_delete_user_by_self(self):
+        url_auth = 'http://127.0.0.1:8000/api-token-auth/'
+        data = {
+            "username": "test_user",
+            "password": "test_password"
+        }
+        response_auth = requests.post(
+            url_auth,
+            data=json.dumps(data),
+            headers={'content-type': 'application/json'})
+        token = response_auth.json()['token']
+
         url = 'http://127.0.0.1:8000/user_delete/test_user/delete/'
-        token = 'bd096f9e228dca951a3d45e2a28a0e5bf5fe63fd'
         headers = {"Authorization": 'Token {}'.format(token)}
         response = requests.delete(
             url,
@@ -263,8 +273,18 @@ class APIResponseTestCase_03_DELETE(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_delete_user_by_another_user(self):
+        url_auth = 'http://127.0.0.1:8000/api-token-auth/'
+        data = {
+            "username": "test_user",
+            "password": "test_password"
+        }
+        response_auth = requests.post(
+            url_auth,
+            data=json.dumps(data),
+            headers={'content-type': 'application/json'})
+        token = response_auth.json()['token']
+
         url = 'http://127.0.0.1:8000/user_delete/test_username/delete/'
-        token = 'dd4bb507af3d4f3c75a061798a863c016c8a901b'
         headers = {"Authorization": 'Token {}'.format(token)}
         response = requests.delete(
             url,

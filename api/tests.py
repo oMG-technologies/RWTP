@@ -262,6 +262,18 @@ class APIResponseTestCase_03_DELETE(TestCase):
 
         self.assertEqual(response.status_code, 200)
 
+    def test_delete_user_by_another_user(self):
+        url = 'http://127.0.0.1:8000/user_delete/test_username/delete/'
+        token = 'dd4bb507af3d4f3c75a061798a863c016c8a901b'
+        headers = {"Authorization": 'Token {}'.format(token)}
+        response = requests.delete(
+            url,
+            headers=headers)
+        print(response.text)
+
+        self.assertEqual(
+            response.text, '{"Error":"You are not authorized to remove this account"}')
+
 
 class APIResponseTestCase_04_PUT(TestCase):
     print('# Testing PUT requests #')

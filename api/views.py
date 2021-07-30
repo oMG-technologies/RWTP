@@ -167,13 +167,13 @@ class SingleTranslationViewSet(generics.ListAPIView):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticated]
 
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     if user.is_superuser:
-    #         return User.objects.all()
-    #     return User.objects.filter(username=user.username)
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_superuser:
+            return User.objects.all()
+        return User.objects.filter(username=user.username)
 
 
 class UserCreateViewSet(UserViewSet):
@@ -182,7 +182,9 @@ class UserCreateViewSet(UserViewSet):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    @action(detail=True, methods=['PUT'], permission_classes=[AllowAny])
+    @action(detail=True,
+            methods=['PUT'],
+            permission_classes=[AllowAny])
     def add(self, request, pk=None):
         data = request.data
         serialized = UserSerializer(data=request.data)

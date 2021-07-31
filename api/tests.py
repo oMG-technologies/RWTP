@@ -241,7 +241,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
     def test_delete_user_by_superuser(self):
         from requests.auth import HTTPBasicAuth
 
-        url = 'http://127.0.0.1:8000/user_delete/test_user/delete/'
+        url = 'http://127.0.0.1:8000/user_remove/test_user/remove/'
 
         response = requests.delete(
             url,
@@ -263,7 +263,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
             headers={'content-type': 'application/json'})
         token = response_auth.json()['token']
 
-        url = 'http://127.0.0.1:8000/user_delete/test_user/delete/'
+        url = 'http://127.0.0.1:8000/user_remove/test_user/remove/'
         headers = {"Authorization": 'Token {}'.format(token)}
         response = requests.delete(
             url,
@@ -284,7 +284,7 @@ class APIResponseTestCase_03_DELETE(TestCase):
             headers={'content-type': 'application/json'})
         token = response_auth.json()['token']
 
-        url = 'http://127.0.0.1:8000/user_delete/test_username/delete/'
+        url = 'http://127.0.0.1:8000/user_remove/test_username/remove/'
         headers = {"Authorization": 'Token {}'.format(token)}
         response = requests.delete(
             url,

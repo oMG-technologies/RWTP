@@ -219,8 +219,7 @@ class UserDeleteViewSet(UserViewSet):
     @action(detail=True,
             methods=['delete'],
             permission_classes=[IsAuthenticated])
-    def delete(self, request, username=None):
-        # below would be great for user to remove its own account
+    def remove(self, request, username=None):
         username_logged_in = request.user.username
         if username_logged_in == username:
             User.objects.filter(username=username).delete()

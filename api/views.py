@@ -17,6 +17,12 @@ from rest_framework.authentication import SessionAuthentication, TokenAuthentica
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
+from api.token import account_activation_token
+from django.contrib import messages
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -204,6 +210,19 @@ class UserCreateViewSet(UserViewSet):
 
         current_user = User.objects.get(username=username)
         current_user.set_password(password)
+        current_user.is_active = False  # Deactivate account till it is confirmed
+        current_site = get_current_site(request)
+        subject = 'Activate Your FlipCards Account'
+        message = render_to_string('account_activation_email.html', {
+            'user': current_user,
+            'domain': current_site.domain,
+            'uid': urlsafe_base64_encode(force_bytes(current_user.pk)),
+            'token': account_activation_token.make_token(current_user),
+        })
+        current_site.email_user(subject, message)
+
+        messages.success(
+            request, ('Please Confirm your email to complete registration.'))
         current_user.save()
 
         return Response({'User created successfully': serialized.data})

@@ -1,5 +1,3 @@
-from re import I
-import re
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
                           LanguageSerializers,
@@ -20,12 +18,10 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.urls import reverse
-from django.template.loader import render_to_string
-from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
 from api.token import account_activation_token
-from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.conf import settings
 
@@ -269,7 +265,7 @@ class Verification(APIView):
                 user.is_active = True
                 user.save()
                 return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
-        except:
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
             return Response({'Status': 'Invalid Token. Cannot verify user or email'})
 
 

@@ -8,6 +8,7 @@ from .views import (UserProgress,
                     AvailableLanguagesViewSet,
                     SingleTranslationViewSet,
                     UserViewSet,
+                    Verification,
                     isUser,
                     UserCreateViewSet,
                     UserDeleteViewSet,
@@ -33,5 +34,6 @@ urlpatterns = [
          namespace='rest_framework_test')),
     path('api-token-auth/', views.obtain_auth_token),
     path('user_progress/', UserProgress.as_view(), name='user_progress'),
-    path('is_user/<str:username>/', isUser.as_view(), name='is_user')
+    path('is_user/<str:username>/', isUser.as_view(), name='is_user'),
+    path('activate/<uidb64>/<token>/', Verification.as_view(), name='activate'),
 ]

@@ -17,10 +17,11 @@ from rest_framework.authentication import SessionAuthentication, TokenAuthentica
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.contrib.sites.shortcuts import get_current_site
+from django.urls import reverse
 from django.template.loader import render_to_string
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.sites.shortcuts import get_current_site
 from api.token import account_activation_token
 from django.contrib import messages
 from django.core.mail import EmailMessage
@@ -214,17 +215,49 @@ class UserCreateViewSet(UserViewSet):
         user.set_password(password)
         user.is_active = False  # Deactivate account till it is confirmed
         user.save()
+
+        uidb64 = urlsafe_base64_encode(force_bytes(user.pk))  # base64
+        token = account_activation_token.make_token(user)
+
+        # prepare a verification e-mail
+        domain = get_current_site(request).domain
+        link = reverse('activate',
+                       kwargs={
+                           'uidb64': uidb64,
+                           'token': token})
+
+        activate_url = 'http://' + domain + link
+        print(activate_url)
+
         subject = 'Activate Your Account'
-        mail_body = 'Please click the link below to activate your account'
+        mail_body = 'Please click the link below to activate your account \n {}'.format(
+            activate_url)
         from_email = settings.EMAIL_HOST_USER
         mail = EmailMessage(subject,
                             mail_body,
                             from_email,
                             [email],
                             headers={'Message-ID': 'foo'},)
+
+        # send e-mail
         mail.send(fail_silently=False)
+
         # messages.success(request, 'Account created successfully')
         return Response({'Status': 'User created successfully. Waiting for account activation...'})
+
+
+class Verification(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, uidb64, request, *args, **kwargs):
+        token = kwargs['token']
+        try:
+            user = User.objects.get(verification_token=token)
+            user.is_active = True
+            user.save()
+            return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
+        except:
+            return Response({'Status': 'Invalid Token. Cannot verify user or email'})
 
 
 class UserDeleteViewSet(UserViewSet):

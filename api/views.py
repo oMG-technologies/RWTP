@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -184,7 +184,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class UserCreateViewSet(UserViewSet):
-    # lookup_field = 'username'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -266,7 +265,7 @@ class Verification(APIView):
                 user.save()
                 return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-            return Response({'Status': 'Invalid Token. Cannot verify user or email'})
+            return Response({'Status': 'An Error occur while activating {} account'.format(user.username)})
 
 
 class UserDeleteViewSet(UserViewSet):
@@ -299,7 +298,6 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class UserProgress(APIView):
     authentication_classes = [TokenAuthentication]
-    # authentication_classes = [BasicAuthentication, SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):

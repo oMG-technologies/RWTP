@@ -23,6 +23,8 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from api.token import account_activation_token
 from django.contrib import messages
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -201,29 +203,38 @@ class UserCreateViewSet(UserViewSet):
         email = data['email']
         password = data['password']
 
-        User.objects.create_user(
+        user = User.objects.create_user(
             username=username,
             first_name=first_name,
             last_name=last_name,
             email=email,
             password=password)
 
-        current_user = User.objects.get(username=username)
-        current_user.set_password(password)
-        current_user.is_active = False  # Deactivate account till it is confirmed
-        current_site = get_current_site(request)
-        subject = 'Activate Your FlipCards Account'
-        message = render_to_string('account_activation_email.html', {
-            'user': current_user,
-            'domain': current_site.domain,
-            'uid': urlsafe_base64_encode(force_bytes(current_user.pk)),
-            'token': account_activation_token.make_token(current_user),
-        })
-        current_site.email_user(subject, message)
+        # current_user = User.objects.get(username=username)
+        user.set_password(password)
+        user.is_active = False  # Deactivate account till it is confirmed
+        user.save()
+        subject = 'Activate Your Account'
+        mail_body = 'Please click the link below to activate your account'
+        from_email = settings.EMAIL_HOST_USER
+        mail = EmailMessage(subject,
+                            mail_body,
+                            from_email,
+                            [email],
+                            headers={'Message-ID': 'foo'},)
+        mail.send(fail_silently=False)
+        # current_site = get_current_site(request)
+        # subject = 'Activate Your FlipCards Account'
+        # message = render_to_string('account_activation_email.html', {
+        #     'user': current_user,
+        #     'domain': current_site.domain,
+        #     'uid': urlsafe_base64_encode(force_bytes(current_user.pk)),
+        #     'token': account_activation_token.make_token(current_user),
+        # })
+        # current_site.email_user(subject, message)
 
-        messages.success(
-            request, ('Please Confirm your email to complete registration.'))
-        current_user.save()
+        # messages.success(
+        #     request, ('Please Confirm your email to complete registration.'))
 
         return Response({'User created successfully': serialized.data})
 
@@ -235,9 +246,9 @@ class UserDeleteViewSet(UserViewSet):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    @action(detail=True,
-            methods=['delete'],
-            permission_classes=[IsAuthenticated])
+    @ action(detail=True,
+             methods=['delete'],
+             permission_classes=[IsAuthenticated])
     def remove(self, request, username=None):
         username_logged_in = request.user.username
         if username_logged_in == username:

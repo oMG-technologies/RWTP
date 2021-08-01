@@ -1,3 +1,5 @@
+from re import I
+import re
 from .models import Translation, Language
 from .serializers import (TranslationSerializers,
                           LanguageSerializers,
@@ -249,13 +251,24 @@ class UserCreateViewSet(UserViewSet):
 class Verification(APIView):
     permission_classes = [permissions.AllowAny]
 
-    def get(self, uidb64, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+
         token = kwargs['token']
+        uidb64 = kwargs['uidb64']
         try:
-            user = User.objects.get(verification_token=token)
-            user.is_active = True
-            user.save()
-            return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
+            decoded_id = force_text(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(pk=decoded_id)
+
+            is_correct_token = account_activation_token.check_token(
+                user, token)
+            if not is_correct_token:
+                return Response({'status': 'Token is invalid'})
+            elif user.is_active:
+                return Response({'status': 'User {} already activated'.format()})
+            else:
+                user.is_active = True
+                user.save()
+                return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
         except:
             return Response({'Status': 'Invalid Token. Cannot verify user or email'})
 

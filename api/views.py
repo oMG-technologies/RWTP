@@ -223,20 +223,8 @@ class UserCreateViewSet(UserViewSet):
                             [email],
                             headers={'Message-ID': 'foo'},)
         mail.send(fail_silently=False)
-        # current_site = get_current_site(request)
-        # subject = 'Activate Your FlipCards Account'
-        # message = render_to_string('account_activation_email.html', {
-        #     'user': current_user,
-        #     'domain': current_site.domain,
-        #     'uid': urlsafe_base64_encode(force_bytes(current_user.pk)),
-        #     'token': account_activation_token.make_token(current_user),
-        # })
-        # current_site.email_user(subject, message)
-
-        # messages.success(
-        #     request, ('Please Confirm your email to complete registration.'))
-
-        return Response({'User created successfully': serialized.data})
+        # messages.success(request, 'Account created successfully')
+        return Response({'Status': 'User created successfully. Waiting for account activation...'})
 
 
 class UserDeleteViewSet(UserViewSet):

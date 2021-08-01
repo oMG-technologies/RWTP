@@ -13,3 +13,4 @@ django-cors-headers>=3.7.0
 iso-639==0.4.5
 cloudinary==1.26.0
 django-cloudinary-storage==0.3.0
+six==1.16.0

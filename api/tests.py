@@ -312,7 +312,7 @@ class APIResponseTestCase_04_PUT(TestCase):
             'username': 'test_user',
             "first_name": "test_first_name",
             "last_name": "test_last_name",
-            "email": "test_first_name@gmail.com",
+            "email": "maciek.gierada@gmail.com",
             "password": "test_password",
         }
         response = requests.put(

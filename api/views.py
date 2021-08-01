@@ -250,6 +250,7 @@ class Verification(APIView):
 
         token = kwargs['token']
         uidb64 = kwargs['uidb64']
+
         try:
             decoded_id = force_text(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=decoded_id)
@@ -265,7 +266,7 @@ class Verification(APIView):
                 user.save()
                 return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-            return Response({'Status': 'Invalid Token. Cannot verify user or email'})
+            return Response({'Status': 'An Error occur while activating {} account'.format(user.username)})
 
 
 class UserDeleteViewSet(UserViewSet):
@@ -275,9 +276,9 @@ class UserDeleteViewSet(UserViewSet):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    @action(detail=True,
-            methods=['delete'],
-            permission_classes=[IsAuthenticated])
+    @ action(detail=True,
+             methods=['delete'],
+             permission_classes=[IsAuthenticated])
     def remove(self, request, username=None):
         username_logged_in = request.user.username
         if username_logged_in == username:

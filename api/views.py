@@ -224,10 +224,9 @@ class UserCreateViewSet(UserViewSet):
                            'token': token})
 
         activate_url = 'http://' + domain + link
-        print(activate_url)
 
-        subject = 'Activate Your Account'
-        mail_body = 'Please click the link below to activate your account \n {}'.format(
+        subject = '[Do not reply] FlipCards - Activate Your Account'
+        mail_body = 'Hi there! \n \n Thank you for registering in FlipCards and choosing our product. Your account was successfully created and is almost ready to use. Click the link below to verify your email so we make sure everything is up and running. \n \n click the link: \n \n {} \n \n If you did not request to create an account in FlipCards, please ingore that email. \n \n Regards, \n \n FlipCard Team'.format(
             activate_url)
         from_email = settings.EMAIL_HOST_USER
         mail = EmailMessage(subject,

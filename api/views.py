@@ -262,8 +262,7 @@ class Verification(APIView):
             else:
                 user.is_active = True
                 user.save()
-                return redirect('https://flip-cards-language.herokuapp.com')
-                # return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
+                return redirect('https://flip-cards-language.herokuapp.com/LoginEmailVerified')
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
             return Response({'Status': 'An Error occur while activating {} account'.format(user.username)})
 

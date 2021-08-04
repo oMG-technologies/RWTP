@@ -201,6 +201,11 @@ class UserCreateViewSet(UserViewSet):
         email = data['email']
         password = data['password']
 
+        if User.objects.filter(email=email):
+            return Response({'error': 'Email already exists. User not created'})
+        elif User.objects.filter(username=username):
+            return Response({'error': 'Username already exists. User not created'})
+
         user = User.objects.create_user(
             username=username,
             # first_name=first_name,
@@ -349,3 +354,12 @@ class isUser(APIView):
             return Response({'{}'.format(username): 'True'})
         except User.DoesNotExist:
             return Response({'{}'.format(username): 'False'})
+
+
+class isEmail(APIView):
+    def get(self, request, email):
+        try:
+            User.objects.get(email=email)
+            return Response({'{}'.format(email): 'True'})
+        except User.DoesNotExist:
+            return Response({'{}'.format(email): 'False'})

@@ -310,8 +310,6 @@ class APIResponseTestCase_04_PUT(TestCase):
         url = 'http://127.0.0.1:8000/user_create/user/add/'
         example_input = {
             'username': 'test_user',
-            "first_name": "test_first_name",
-            "last_name": "test_last_name",
             "email": "maciek.gierada@gmail.com",
             "password": "test_password",
         }

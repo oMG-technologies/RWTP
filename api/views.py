@@ -196,15 +196,15 @@ class UserCreateViewSet(UserViewSet):
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)
         username = data['username']
-        first_name = data['first_name']
-        last_name = data['last_name']
+        # first_name = data['first_name']
+        # last_name = data['last_name']
         email = data['email']
         password = data['password']
 
         user = User.objects.create_user(
             username=username,
-            first_name=first_name,
-            last_name=last_name,
+            # first_name=first_name,
+            # last_name=last_name,
             email=email,
             password=password)
 

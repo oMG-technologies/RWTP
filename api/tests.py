@@ -108,6 +108,14 @@ class APIResponseTestCase_01_GET(TestCase):
         print(response.text)
         assert response.status_code == 200
 
+    def test_is_email(self):
+        basic_url = 'http://127.0.0.1:8000/is_email/'
+        email = 'maciek.gierada@gmail.com'
+        url = basic_url + email + '/'
+        response = requests.get(url)
+        print(response.text)
+        assert response.status_code == 200
+
 
 class APIResponseTestCase_02_POST(TestCase):
     print('# Testing POST requests #')
@@ -310,17 +318,17 @@ class APIResponseTestCase_04_PUT(TestCase):
         url = 'http://127.0.0.1:8000/user_create/user/add/'
         example_input = {
             'username': 'test_user',
-            "first_name": "test_first_name",
-            "last_name": "test_last_name",
-            "email": "maciek.gierada@gmail.com",
+            "email": "maciek.gierada@gmail.coms",
             "password": "test_password",
         }
         response = requests.put(
             url,
             data=json.dumps(example_input),
             headers={'content-type': 'application/json'})
-        print(response.text)
         self.assertEqual(response.status_code, 200)
+        error_str = '{"error":"Email already exists. User not created"}'
+        self.assertNotEqual(
+            response.text, error_str)
 
     def test_update_user_progress_user_know(self):
         url = 'http://127.0.0.1:8000/user_progress/'

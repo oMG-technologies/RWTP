@@ -195,15 +195,20 @@ class UserCreateViewSet(UserViewSet):
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)
         username = data['username']
-        first_name = data['first_name']
-        last_name = data['last_name']
+        # first_name = data['first_name']
+        # last_name = data['last_name']
         email = data['email']
         password = data['password']
 
+        if User.objects.filter(email=email):
+            return Response({'error': 'Email already exists. User not created'})
+        elif User.objects.filter(username=username):
+            return Response({'error': 'Username already exists. User not created'})
+
         user = User.objects.create_user(
             username=username,
-            first_name=first_name,
-            last_name=last_name,
+            # first_name=first_name,
+            # last_name=last_name,
             email=email,
             password=password)
 
@@ -349,3 +354,12 @@ class isUser(APIView):
             return Response({'{}'.format(username): 'True'})
         except User.DoesNotExist:
             return Response({'{}'.format(username): 'False'})
+
+
+class isEmail(APIView):
+    def get(self, request, email):
+        try:
+            User.objects.get(email=email)
+            return Response({'{}'.format(email): 'True'})
+        except User.DoesNotExist:
+            return Response({'{}'.format(email): 'False'})

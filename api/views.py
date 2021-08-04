@@ -15,7 +15,6 @@ from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.urls import reverse
 from django.utils.encoding import force_bytes, force_text
@@ -24,6 +23,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from api.token import account_activation_token
 from django.core.mail import EmailMessage
 from django.conf import settings
+from django.shortcuts import redirect
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -262,7 +262,8 @@ class Verification(APIView):
             else:
                 user.is_active = True
                 user.save()
-                return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
+                return redirect('https://flip-cards-language.herokuapp.com')
+                # return Response({'Status': 'Email verified! User {} is active'.format(user.username)})
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
             return Response({'Status': 'An Error occur while activating {} account'.format(user.username)})
 

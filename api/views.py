@@ -196,8 +196,6 @@ class UserCreateViewSet(UserViewSet):
         serialized = UserSerializer(data=request.data)
         serialized.is_valid(raise_exception=True)
         username = data['username']
-        # first_name = data['first_name']
-        # last_name = data['last_name']
         email = data['email']
         password = data['password']
 
@@ -211,7 +209,6 @@ class UserCreateViewSet(UserViewSet):
             email=email,
             password=password)
 
-        # current_user = User.objects.get(username=username)
         user.set_password(password)
         user.is_active = False  # Deactivate account till it is confirmed
         user.save()

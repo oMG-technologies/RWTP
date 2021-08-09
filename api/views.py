@@ -358,3 +358,15 @@ class isEmail(APIView):
             return Response({'{}'.format(email): 'True'})
         except User.DoesNotExist:
             return Response({'{}'.format(email): 'False'})
+
+
+class isActive(APIView):
+    def get(self, request, username):
+        try:
+            user = User.objects.get(username=username)
+            if user.is_active:
+                return Response({'{}'.format(username): True})
+            else:
+                return Response({'{}'.format(username): False})
+        except User.DoesNotExist:
+            return Response({'{}'.format(username): False})

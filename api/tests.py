@@ -324,7 +324,7 @@ class APIResponseTestCase_04_PUT(TestCase):
         url = 'http://127.0.0.1:8000/user_create/user/add/'
         example_input = {
             'username': 'test_user',
-            "email": "maciek.gierada@gmail.coms",
+            "email": "maciek.gierada@gmail.com",
             "password": "test_password",
         }
         response = requests.put(

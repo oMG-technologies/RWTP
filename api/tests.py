@@ -1,5 +1,3 @@
-import re
-from django.http import response
 from django.test import TestCase
 import requests
 import os
@@ -112,6 +110,14 @@ class APIResponseTestCase_01_GET(TestCase):
         basic_url = 'http://127.0.0.1:8000/is_email/'
         email = 'maciek.gierada@gmail.com'
         url = basic_url + email + '/'
+        response = requests.get(url)
+        print(response.text)
+        assert response.status_code == 200
+
+    def test_is_active(self):
+        basic_url = 'http://127.0.0.1:8000/is_active/'
+        username = 'test_user'
+        url = basic_url + username + '/'
         response = requests.get(url)
         print(response.text)
         assert response.status_code == 200

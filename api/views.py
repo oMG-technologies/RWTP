@@ -24,7 +24,6 @@ from api.token import account_activation_token
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.shortcuts import redirect
-from django.http.response import HttpResponseNotModified
 from rest_framework import status
 
 

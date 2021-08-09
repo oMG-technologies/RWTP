@@ -189,7 +189,7 @@ class UserCreateViewSet(UserViewSet):
         super().__init__(*args, **kwargs)
 
     @action(detail=True,
-            methods=['PUT'],
+            methods=['POST'],
             permission_classes=[AllowAny])
     def add(self, request, pk=None):
         data = request.data

@@ -24,6 +24,8 @@ from api.token import account_activation_token
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.shortcuts import redirect
+from django.http.response import HttpResponseNotModified
+from rest_framework import status
 
 
 class TranslationsViewSet(viewsets.ModelViewSet):
@@ -188,20 +190,22 @@ class UserCreateViewSet(UserViewSet):
         super().__init__(*args, **kwargs)
 
     @action(detail=True,
-            methods=['PUT'],
+            methods=['POST'],
             permission_classes=[AllowAny])
     def add(self, request, pk=None):
         data = request.data
         serialized = UserSerializer(data=request.data)
-        serialized.is_valid(raise_exception=True)
+        serialized.is_valid(raise_exception=False)
+
         username = data['username']
         email = data['email']
         password = data['password']
 
         if User.objects.filter(email=email):
-            return Response({'error': 'Email already exists. User not created'})
+            return Response({'Status.304': 'error.Email already exists. User not created'}, status=status.HTTP_304_NOT_MODIFIED)
+
         elif User.objects.filter(username=username):
-            return Response({'error': 'Username already exists. User not created'})
+            return Response({'Status.304': 'error.Username already exists. User not created'}, status=status.HTTP_304_NOT_MODIFIED)
 
         user = User.objects.create_user(
             username=username,

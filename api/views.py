@@ -202,10 +202,10 @@ class UserCreateViewSet(UserViewSet):
         password = data['password']
 
         if User.objects.filter(email=email):
-            return Response({'Status.304': 'error.Email already exists. User not created'}, status=status.HTTP_304_NOT_MODIFIED)
+            return Response({'Status.304': 'Error! Email already used. User not created'}, status=status.HTTP_304_NOT_MODIFIED)
 
         elif User.objects.filter(username=username):
-            return Response({'Status.304': 'error.Username already exists. User not created'}, status=status.HTTP_304_NOT_MODIFIED)
+            return Response({'Status.304': 'Error! Username already exists. User not created'}, status=status.HTTP_304_NOT_MODIFIED)
 
         user = User.objects.create_user(
             username=username,

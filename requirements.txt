@@ -3,7 +3,7 @@ django-haystack==3.2.1
 importlib-metadata==6.8.0
 python-dateutil==2.8.2
 requests==2.31.0
-selenium==4.12.0
+selenium==4.15.2
 psycopg2-binary==2.9.3
 dj-database-url==2.1.0
 gunicorn==20.1.0
